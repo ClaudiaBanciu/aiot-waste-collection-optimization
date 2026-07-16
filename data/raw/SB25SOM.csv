@@ -1,0 +1,342 @@
+Car,Datetime,Id,Capacity,Street,Number,City,Country
+SB-25-SOM,2024-10-15T06:14:38.000Z,O5AHDP,1.100L,Calea Șurii Mari,39 B,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:19:38.000Z,O5AHDP,1.100L,Calea Șurii Mari,39 B,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:32:00.000Z,NH7XHL,1.100L,Calea Șurii Mari,39,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:38:19.000Z,HPDZUE,1.100L,Strada Căprioarelor,1,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:46:41.000Z,BNY3U5,120L,Strada Lungă,71,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:50:03.000Z,J4LA,120L,Strada Țiglarilor,10,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:51:53.000Z,HLQKX5,1.100L,Strada Țiglarilor,12,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:52:15.000Z,MO25A3,1.100L,Strada Țiglarilor,12,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:52:47.000Z,OVR7LU,1.100L,Strada Țiglarilor,12,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:54:43.000Z,M4FF,240L,Strada Țiglarilor,20,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:55:18.000Z,MNQ5,120L,Strada Țiglarilor,24,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:55:51.000Z,R2LY,120L,Strada Țiglarilor,28,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:56:30.000Z,AGGC,120L,Strada Eschile,3,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:58:07.000Z,3WT5,1.100L,Strada Eschile,6,Sibiu,Romania
+SB-25-SOM,2024-10-15T06:58:39.000Z,EXDE,1.100L,Strada Eschile,6,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:01:56.000Z,RSUZ,120L,Strada Eschile,12,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:02:21.000Z,ICLYI5,120L,Strada Eschile,15,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:02:36.000Z,FZRC,120L,Strada Eschile,17,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:03:39.000Z,QO42KH,120L,Strada Eschile,22,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:04:30.000Z,L5FA,120L,Strada Eschile,25,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:04:35.000Z,YMH42D,120L,Strada Pandurilor,15,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:05:04.000Z,DVRI,120L,Strada Eschile,31,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:05:19.000Z,Y3UO,120L,Strada Eschile,33,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:05:34.000Z,OBFG,120L,Strada Eschile,37,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:05:49.000Z,XYIKBN,120L,Strada Eschile,39,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:06:04.000Z,PKH6XW,120L,Strada Eschile,41,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:06:30.000Z,RW46BK,120L,Strada Eschile,43,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:07:15.000Z,FX3V,120L,Strada Eschile,36,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:07:55.000Z,LTVP5I,120L,Strada Eschile,49,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:08:11.000Z,H2JM,120L,Strada Eschile,40,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:09:00.000Z,XJTO,120L,Strada Traian Demetrescu,142,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:09:32.000Z,BLI4,120L,Strada Florilor,38,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:09:58.000Z,GVTV,120L,Strada Florilor,36 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:10:40.000Z,2F2D,120L,Strada Florilor,30,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:11:36.000Z,IRA5,120L,Strada Florilor,22,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:11:37.000Z,WKDH,120L,Strada Florilor,23,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:13:23.000Z,ZYZM,120L,Strada Florilor,15,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:13:33.000Z,ZMUL,120L,Strada Florilor,18,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:14:21.000Z,5FWEQY,120L,Strada Florilor,13,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:14:33.000Z,4UZG,120L,Strada Florilor,11,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:15:11.000Z,B6P3GH,120L,Strada Florilor,12,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:15:31.000Z,KGBR,120L,Strada Florilor,10,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:15:55.000Z,WAP3,120L,Strada Florilor,3,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:17:13.000Z,ISKIQT,120L,Strada Țiglarilor,67,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:17:47.000Z,H5JO,120L,Strada Țiglarilor,52,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:19:04.000Z,RSVP,120L,Strada Crizantemelor,7,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:19:07.000Z,PBLT,120L,Strada Crizantemelor,8,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:19:36.000Z,BGLZ,120L,Strada Crizantemelor,10,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:19:48.000Z,PKMB,120L,Strada Crizantemelor,13,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:20:16.000Z,WUKQ,120L,Strada Crizantemelor,12,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:21:00.000Z,QLZATW,120L,Strada Crizantemelor,16,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:21:06.000Z,75RA,120L,Strada Crizantemelor,17,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:21:09.000Z,75RA,120L,Strada Crizantemelor,17,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:21:16.000Z,6OIV,120L,Strada Crizantemelor,18,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:21:32.000Z,5KON,120L,Strada Crizantemelor,19,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:21:47.000Z,L7GY,120L,Strada Crizantemelor,21,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:22:17.000Z,A4FK,120L,Strada Lăcrămioarelor,8,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:22:26.000Z,AJ2FQV,120L,Strada Lăcrămioarelor,10,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:22:56.000Z,YJTH,120L,Strada Lăcrămioarelor,14,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:23:19.000Z,A4NQ,120L,Strada Lăcrămioarelor,16,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:23:36.000Z,A4NQ,120L,Strada Lăcrămioarelor,16,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:23:50.000Z,AC4W,120L,Strada Lăcrămioarelor,1,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:25:05.000Z,PCNHOZ,120L,Strada Lăcrămioarelor,6,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:25:33.000Z,A2DB,120L,Strada Lăcrămioarelor,4,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:25:49.000Z,7YUI,120L,Strada Lăcrămioarelor,2,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:27:02.000Z,PNDB,120L,Strada Pandurilor,14,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:27:03.000Z,O6TE,120L,Strada Pandurilor,13,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:27:32.000Z,RQJH,120L,Strada Pandurilor,12,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:27:52.000Z,BUAP,120L,Strada Pandurilor,7,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:27:54.000Z,IRWG,120L,Strada Pandurilor,10,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:29:04.000Z,AD3R,120L,Strada Pandurilor,1,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:30:52.000Z,BQ6Y,120L,Strada Țiglarilor,34,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:31:59.000Z,MNUD,120L,Strada Țiglarilor,45,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:32:00.000Z,VWTU,240L,Strada Țiglarilor,40,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:33:02.000Z,YVXSD6,120L,Strada Țiglarilor,51,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:33:49.000Z,WFCE,120L,Strada Țiglarilor,44,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:34:13.000Z,GZKP,120L,Strada Crizantemelor,2,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:35:09.000Z,DUYR,120L,Strada Țiglarilor,60,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:35:47.000Z,CAHMA5,120L,Strada Țiglarilor,64,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:36:33.000Z,CXDWRY,120L,Strada Țiglarilor,66,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:36:36.000Z,4BX3,120L,Strada Țiglarilor,66,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:37:09.000Z,D5Y7,120L,Strada Țiglarilor,75,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:37:11.000Z,B3ZB,120L,Strada Țiglarilor,70,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:37:56.000Z,PVRAIY,120L,Strada Țiglarilor,70,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:37:58.000Z,PVRAIY,120L,Strada Țiglarilor,70,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:38:34.000Z,SGIW,120L,Strada Țiglarilor,79,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:38:39.000Z,2L6I,120L,Strada Țiglarilor,77,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:39:32.000Z,VIUB,120L,Strada Țiglarilor,76,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:39:50.000Z,LIEV,120L,Strada Țiglarilor,81 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:39:54.000Z,7KUU,120L,Strada Țiglarilor,76 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:40:18.000Z,YUUH,120L,Strada Țiglarilor,83,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:40:20.000Z,MX3D,120L,Strada Țiglarilor,78,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:41:07.000Z,TQZ2,120L,Strada Țiglarilor,83,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:42:00.000Z,4OBW,120L,Strada Dulgherilor,7,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:42:17.000Z,42E3,120L,Strada Dulgherilor,11,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:43:38.000Z,EHNR,120L,Strada Dulgherilor,18,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:46:45.000Z,6HTD,120L,Strada Țiglarilor,84,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:47:23.000Z,6IME,120L,Strada Țiglarilor,85,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:48:16.000Z,A2MK,240L,Strada Țiglarilor,89,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:48:40.000Z,74ZLG3,120L,Strada Țiglarilor,92,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:49:53.000Z,B3FI,120L,Strada Țiglarilor,95,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:50:50.000Z,FDSTRJ,120L,Strada Zidarilor,1,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:50:56.000Z,H7MM,120L,Strada Zidarilor,2,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:51:30.000Z,EUZU,120L,Strada Zidarilor,7,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:51:50.000Z,LQS7,120L,Strada Zidarilor,6,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:56:08.000Z,QOH2,120L,Strada Țiglarilor,106,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:57:43.000Z,C5MJN7,1.100L,Strada Țiglarilor,,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:58:43.000Z,7WIN,240L,Strada Țiglarilor,101,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:58:46.000Z,LUKAU6,240L,Strada Țiglarilor,101,Sibiu,Romania
+SB-25-SOM,2024-10-15T07:59:13.000Z,7VCQ,240L,Strada Țiglarilor,101,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:01:02.000Z,FOY2RW,240L,Strada Țiglarilor,103,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:01:07.000Z,7T6P,120L,Strada Țiglarilor,103,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:01:28.000Z,DL7T,120L,Strada Țiglarilor,103,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:01:55.000Z,L4APOF,120L,Strada Țiglarilor,103,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:04:16.000Z,7QZLCR,1.100L,Strada Țiglarilor,103,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:05:04.000Z,CUGP,120L,Strada Țiglarilor,108,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:06:12.000Z,AWBU,120L,Strada Țiglarilor,110,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:06:57.000Z,LDNFET,240L,Strada Țiglarilor,105,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:07:34.000Z,5CNOGA,120L,Strada Țiglarilor,116,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:08:07.000Z,CMJT,120L,Strada Țiglarilor,118,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:08:20.000Z,VRJU,120L,Strada Țiglarilor,120,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:08:57.000Z,4YA6,120L,Strada Țiglarilor,122,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:09:32.000Z,MPB5UZ,120L,Strada Cuptorului,33 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:10:06.000Z,UJED,240L,Strada Țiglarilor,128 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:10:38.000Z,7GNE,120L,Strada Țiglarilor,111,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:16:37.000Z,7EKJ,120L,Strada Deventer,7,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:17:38.000Z,7AS6,120L,Strada Deventer,15,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:19:41.000Z,CQS7,120L,Strada Cuptorului,38,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:20:25.000Z,OTAV,120L,Strada Cuptorului,36,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:21:09.000Z,SBEF,120L,Strada Cuptorului,34,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:21:25.000Z,XAI5V2,120L,Strada Cuptorului,31,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:21:48.000Z,F6QH,120L,Strada Cuptorului,30,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:22:09.000Z,IYZ6,120L,Strada Cuptorului,29,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:22:16.000Z,UNYVJN,120L,Strada Cuptorului,26,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:23:20.000Z,R6JV,120L,Strada Cuptorului,25,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:23:47.000Z,63NT,120L,Strada Cuptorului,23,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:23:51.000Z,HQHV6X,120L,Strada Cuptorului,20,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:24:30.000Z,73TR,120L,Strada Cuptorului,19,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:25:38.000Z,C2ANBH,120L,Strada Cuptorului,14 B,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:27:11.000Z,,,,,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:27:33.000Z,TDTR,120L,Strada Cuptorului,13,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:28:06.000Z,E5AO,120L,Strada Cuptorului,14,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:29:03.000Z,NL5N,120L,Strada Cuptorului,1,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:29:45.000Z,ZJKN,120L,Strada Cuptorului,3,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:30:53.000Z,X2CB,120L,Strada Cuptorului,12,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:30:56.000Z,JICQOG,120L,Strada Cuptorului,7 G,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:31:30.000Z,GPHC,120L,Strada Cuptorului,10,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:36:36.000Z,2CB5UZ,1.100L,Strada Cuptorului,12 B,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:40:11.000Z,SQK2,120L,Strada Ulmului,62,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:40:37.000Z,5IM6RQ,120L,Strada Ulmului,60,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:40:58.000Z,EFXC,120L,Strada Ulmului,56,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:42:44.000Z,H7KEWX,120L,Strada Ulmului,35 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:43:00.000Z,AP3D,120L,Strada Ulmului,50 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:43:50.000Z,AFE3,120L,Strada Ulmului,50 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:44:37.000Z,IJBU,120L,Strada Ulmului,46,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:44:39.000Z,5HUB,120L,Strada Ulmului,46,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:45:21.000Z,P7QA,120L,Strada Ulmului,44,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:46:02.000Z,G4QPXW,120L,Strada Ulmului,27,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:46:14.000Z,WZLA,120L,Strada Ulmului,40,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:48:13.000Z,I6E5,120L,Strada Ulmului,34,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:48:55.000Z,MCE7DG,120L,Strada Ulmului,32,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:49:40.000Z,ORMMLR,120L,Strada Ulmului,25,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:50:02.000Z,7TCM,1.100L,Strada Ulmului,28,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:54:22.000Z,JBCWEX,120L,Strada Florilor,12 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:58:13.000Z,W6TD,120L,Strada Ulmului,1,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:58:46.000Z,QZOB,120L,Strada Ulmului,5,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:58:47.000Z,OC26,120L,Strada Ulmului,3,Sibiu,Romania
+SB-25-SOM,2024-10-15T08:59:29.000Z,5SY7,120L,Strada Ulmului,9,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:00:00.000Z,H5RK,120L,Strada Ulmului,15,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:00:31.000Z,PSMN,120L,Strada Ulmului,14,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:01:07.000Z,GI3Z,120L,Strada Ulmului,18,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:01:25.000Z,UJ6YSF,120L,Strada Ulmului,21,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:01:45.000Z,EGF425,120L,Strada Record,37,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:02:29.000Z,6TZH,120L,Strada Record,26,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:05:12.000Z,7KJ2,120L,Strada Lacul lui Binder,4,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:05:24.000Z,KK4T,120L,Strada Țiglarilor,101,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:06:40.000Z,SOROBW,120L,Strada Lacul lui Binder,5,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:07:10.000Z,LNWFHI,240L,Strada Lacul lui Binder,FN,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:09:44.000Z,VNCA,120L,Strada Lutului,76,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:09:59.000Z,UJDFJW,120L,Strada Lutului,74,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:10:26.000Z,46JF75,120L,Strada Lutului,60,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:11:46.000Z,T2X2,120L,Strada Lutului,58,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:12:15.000Z,43XG,120L,Strada Lutului,53,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:12:41.000Z,VYIT,120L,Strada Lutului,43 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:12:56.000Z,PIJZ,120L,Strada Lutului,48,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:13:32.000Z,,,,,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:14:01.000Z,B534,120L,Strada Lutului,40,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:14:02.000Z,RVU6,120L,Strada Lutului,35,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:14:29.000Z,4VYR,120L,Strada Lutului,36,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:14:32.000Z,SNVZ,120L,Strada Lutului,31,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:14:42.000Z,FFFY,120L,Strada Lutului,34,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:14:54.000Z,FN4Z,120L,Strada Lutului,29,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:15:12.000Z,YABH,120L,Strada Lutului,32,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:15:32.000Z,WV3D,120L,Strada Ulmului,21,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:16:13.000Z,N7YA,120L,Strada Lutului,22,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:16:15.000Z,XFJB4O,120L,Strada Lutului,17,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:16:47.000Z,NDM7,120L,Strada Lutului,14,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:17:11.000Z,AVVB,120L,Strada Lutului,8,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:18:59.000Z,YANR,120L,Strada Sperantei,5,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:20:35.000Z,KIKG,120L,Strada Carpaților,2,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:20:58.000Z,YIEA,120L,Strada Carpaților,3 B,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:21:29.000Z,DOAY,120L,Strada Carpaților,9,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:23:06.000Z,SDD4,120L,,,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:23:27.000Z,PWCW,120L,Strada Carpaților,15,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:23:49.000Z,BT77,120L,Strada Carpaților,17,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:23:55.000Z,OXYS,120L,Strada Carpaților,16 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:25:01.000Z,JCPQ,120L,Strada Carpaților,21,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:25:26.000Z,QE67,120L,Strada Carpaților,23,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:25:43.000Z,U6RM,120L,Strada Carpaților,25,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:26:12.000Z,C7GGQV,120L,Strada Carpaților,29,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:26:21.000Z,H644,120L,Strada Carpaților,28,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:26:47.000Z,R7PR,120L,Strada Carpaților,31,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:27:10.000Z,6LTW,120L,Strada Carpaților,33,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:28:16.000Z,SCSO,120L,Strada Margaretelor,41,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:28:46.000Z,LP4Y,120L,Strada Țiglarilor,39,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:29:11.000Z,6MZI,120L,Strada Țiglarilor,35 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:30:02.000Z,6LPK,120L,Strada Țiglarilor,33 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:30:40.000Z,F3DJ,120L,Strada Țiglarilor,25,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:30:51.000Z,K2PH,120L,Strada Țiglarilor,21,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:31:19.000Z,X5VJW2,120L,Strada Țiglarilor,25,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:32:07.000Z,MHKA,120L,Strada Țiglarilor,11,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:32:36.000Z,2ZO3T5,240L,Strada Țiglarilor,7,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:32:41.000Z,5SD4,120L,Strada Țiglarilor,7,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:33:19.000Z,WXUT,120L,Strada Țiglarilor,3,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:33:43.000Z,6K5E,120L,Strada Țiglarilor,3 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:34:22.000Z,X6LQ,120L,Strada Lungă,53,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:35:02.000Z,FXZL,120L,Strada Lungă,47,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:36:06.000Z,LRDP,120L,Strada Lungă,37,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:36:21.000Z,6CJM,120L,Strada Lungă,35 C,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:36:25.000Z,6DTX,120L,Strada Lungă,35 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:37:16.000Z,UKOAXG,120L,Strada Lungă,35,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:37:21.000Z,FX6X,120L,Strada Lungă,35,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:37:57.000Z,WSNJB3,120L,Strada Lungă,35,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:38:00.000Z,JF43EY,120L,Strada Lungă,40,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:38:20.000Z,6WVIGL,120L,Strada Lungă,35,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:39:14.000Z,WQJ4,120L,Strada Lungă,31,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:39:17.000Z,FTXO,120L,Strada Lungă,31,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:39:50.000Z,2MCS,120L,Strada Lungă,29,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:41:47.000Z,3AFF,120L,Strada Lungă,17 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:42:58.000Z,IQXF,1.100L,Strada Lungă,9,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:43:53.000Z,7MWXQG,120L,Strada Lungă,,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:44:32.000Z,IATBI7,120L,Strada Lungă,7,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:44:34.000Z,BESN,120L,Strada Lungă,7,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:47:34.000Z,RRYH,120L,Strada Ion Luca Caragiale,1,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:47:58.000Z,G4N6,120L,Strada Ion Luca Caragiale,2,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:48:46.000Z,7CX2,120L,Strada Ion Luca Caragiale,2,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:49:26.000Z,RSK3LI,120L,Ion Luca Caragiale,8,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:50:55.000Z,6BJBLA,120L,Strada Reconstrucției,2 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:51:37.000Z,U67K,120L,Strada Lungă,2 E,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:51:40.000Z,4UBK,120L,Strada Râului,22 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:52:41.000Z,5UYP,120L,,,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:52:49.000Z,435TFU,120L,Strada Lungă,2,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:53:40.000Z,5PA5,240L,Strada Lungă,8 D,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:53:46.000Z,SBWR,120L,Strada Lungă,6,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:53:48.000Z,PITBY7,240L,Strada Lungă,8,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:54:06.000Z,EOJ7T5,240L,Strada Lungă,8 C,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:54:13.000Z,7VYE37,240L,Strada Lungă,8,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:54:26.000Z,5PME,240L,Strada Lungă,8 B,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:55:01.000Z,KVT7,120L,Strada Lungă,12,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:55:03.000Z,4YZE4J,120L,Strada Lungă,10,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:55:52.000Z,,,,,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:56:30.000Z,BV2OVR,120L,Strada Lungă,16,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:57:22.000Z,ITS2,120L,Strada Lungă,22,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:57:23.000Z,5M7N,240L,Strada Lungă,22 B,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:58:08.000Z,5FEK,120L,Strada Lungă,26 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T09:58:41.000Z,6ZGKYZ,240L,Strada Lungă,26,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:01:23.000Z,5CDN,120L,Strada General Bălan,42,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:01:26.000Z,PEIN,120L,Strada Lungă,33,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:01:55.000Z,FOAUWV,240L,Strada General Bălan,51,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:01:59.000Z,IANB,120L,Strada General Bălan,51,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:02:32.000Z,6RCW,120L,Strada General Bălan,40,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:02:35.000Z,OJJ3,120L,Strada General Bălan,47,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:02:46.000Z,PI7FPO,120L,Strada General Bălan,47,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:04:26.000Z,MB3T,120L,Strada Lungă,25,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:04:35.000Z,DAES,120L,Strada General Bălan,37,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:05:01.000Z,QKYD,120L,Strada General Bălan,35,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:05:03.000Z,6732,120L,Strada General Bălan,34,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:05:50.000Z,OCG2,120L,Strada General Bălan,33,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:06:55.000Z,BGGG,120L,Strada General Bălan,28,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:07:22.000Z,63TS,120L,Strada General Bălan,28,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:07:27.000Z,5R2U,120L,Strada General Bălan,27,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:07:54.000Z,B2RM,120L,Strada General Bălan,23,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:08:07.000Z,UFIX,120L,Strada General Bălan,24,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:08:11.000Z,YWXV37,120L,Strada General Bălan,21,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:08:30.000Z,LKP3XO,120L,Strada General Bălan,22,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:08:32.000Z,QZMA,120L,Strada General Bălan,19,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:09:07.000Z,NNJ2KY,120L,Strada General Bălan,18,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:09:41.000Z,6BQJ,120L,Strada General Bălan,14,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:09:43.000Z,JA5YGO,120L,Strada General Bălan,11,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:10:23.000Z,EXNZ,120L,Strada General Bălan,12,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:10:51.000Z,,,,,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:11:23.000Z,OO4C,120L,Strada General Bălan,10,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:11:56.000Z,HW34,120L,Strada General Bălan,5,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:50:30.000Z,TDAR,120L,Strada Honterus,2,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:50:35.000Z,BDI4,120L,Strada Înfrățirii,17,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:51:23.000Z,Z3HP,120L,Strada Honterus,7,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:51:27.000Z,KY4M,120L,Strada Honterus,6,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:52:04.000Z,WAFM,120L,Strada Honterus,12,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:52:23.000Z,H7AM,120L,Strada Honterus,13,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:52:42.000Z,ZBXZFK,120L,Strada Honterus,26,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:54:01.000Z,U4YY,120L,Strada Honterus,38,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:54:40.000Z,6QMX,120L,Strada Honterus,33,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:54:53.000Z,VJBQ,120L,Strada Honterus,35,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:56:30.000Z,MFIU,120L,Strada Democrației,42,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:56:46.000Z,BNZ7,120L,Strada Democrației,39,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:58:27.000Z,6I6E,120L,Strada Democrației,33,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:58:42.000Z,2KZ2,120L,Strada Democrației,32,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:58:47.000Z,WIBG,120L,Strada Democrației,29,Sibiu,Romania
+SB-25-SOM,2024-10-15T10:59:38.000Z,XSKK,120L,Strada Democrației,28,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:00:07.000Z,4DOY,120L,Strada Democrației,24,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:00:45.000Z,F3EENW,120L,Strada Democrației,22,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:00:47.000Z,6RFTUR,120L,Strada Democrației,19,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:01:24.000Z,EJ6F,120L,Strada Democrației,20,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:01:28.000Z,DOLS,120L,Strada Democrației,17,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:02:33.000Z,ENGP,120L,Strada Democrației,11,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:03:01.000Z,YDGZ,120L,Strada Democrației,14,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:03:59.000Z,5BEQ,120L,Strada Democrației,12,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:05:50.000Z,NCTD,120L,Strada Viorelelor,6,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:07:51.000Z,YIHVO4,120L,Strada Viorelelor,5,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:08:18.000Z,VZ4J,120L,Strada Viorelelor,14,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:08:58.000Z,2BSY,120L,Strada Viorelelor,20,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:09:21.000Z,WCGB,120L,Strada Viorelelor,13,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:10:18.000Z,ZYCY,120L,Strada Viorelelor,23,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:10:33.000Z,CSJJ,120L,Strada Viorelelor,21,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:11:31.000Z,ZU3B,120L,Strada Viorelelor,25,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:12:13.000Z,OCKI,120L,Strada Simion Bărnuțiu,41,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:12:57.000Z,2BCN5D,120L,Strada Simion Bărnuțiu,38,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:13:25.000Z,PJW7,120L,Strada Simion Bărnuțiu,33,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:13:28.000Z,J2FI,120L,Strada Simion Bărnuțiu,31,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:13:53.000Z,6GHW,120L,Strada Simion Bărnuțiu,32,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:14:13.000Z,KFY4DZ,120L,Strada Viorelelor,26,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:14:15.000Z,LCPJ6E,120L,Strada Simion Bărnuțiu,30,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:14:39.000Z,GJZX,120L,Strada Simion Bărnuțiu,28,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:15:06.000Z,LZCS,120L,Strada Simion Bărnuțiu,25,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:15:50.000Z,JPRILB,120L,Strada Simion Bărnuțiu,23,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:16:42.000Z,N4WDNF,120L,Strada Simion Bărnuțiu,16,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:17:04.000Z,Z7IT,120L,Strada Simion Bărnuțiu,14,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:18:19.000Z,QFFS,120L,Strada Simion Bărnuțiu,2,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:18:47.000Z,FECC,120L,Strada Simion Bărnuțiu,1,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:19:16.000Z,F3G5,120L,Strada Simion Bărnuțiu,2 A,Sibiu,Romania
+SB-25-SOM,2024-10-15T11:19:56.000Z,K6LO3M,240L,Simion Bărnuțiu,1 A,Sibiu,Romania
