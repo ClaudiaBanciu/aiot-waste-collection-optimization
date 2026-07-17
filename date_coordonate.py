@@ -2,22 +2,22 @@ import time
 import pandas as pd
 from geopy.geocoders import Nominatim
 
-df = pd.read_csv("data\\raw\\dataset_clean.csv")
+df = pd.read_csv("data\\processed\\dataset_clean.csv")
 df['latitudine'] = None
 df['longitudine'] = None
 
 geolocator = Nominatim(user_agent="my_sibiu_geocoder_app")
 
-for address in df.Address:
+for index, row in df.iterrows():
     #print(f"Geocoding: {df.Address}")
     
     try:
-        print(f"Geocoding: {address}")
-        location = geolocator.geocode(address)
+        print(f"Geocoding: {row['Address']}")
+        location = geolocator.geocode(row['Address'])
         if location:
             print(f"Found! Coordinates: {location.latitude}, {location.longitude}")
-            df['latitudine'] = location.latitude
-            df['longitudine'] = location.longitude
+            df.at[index, 'latitudine'] = location.latitude
+            df.at[index, 'longitudine'] = location.longitude
         else:
             print("Could not find address.")
             
@@ -30,6 +30,6 @@ for address in df.Address:
 
 #print(df.head())
 
-csv_path = "data\\raw\\dataset_coordinates.csv"
+csv_path = "data\\processed\\dataset_coordinates.csv"
 df.to_csv(csv_path, index=False)
 print(f"Coordonatele au fost salvate în {csv_path}")

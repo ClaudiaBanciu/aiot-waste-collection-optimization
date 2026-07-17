@@ -1,13 +1,12 @@
 import pandas as pd
 import numpy as np
 import os
-import csv
 
 nume_fisier = ["data\\raw\\SB25SOM.csv","data\\raw\\SB30SOM.csv","data\\raw\\SB45SOM.csv"]
 traseu = ["1","2","3"]
 
 # Salvarea DataFrame-ului curățat într-un fișier CSV
-csv_path = "data\\raw\\dataset_clean.csv"
+csv_path = "data\\processed\\dataset_clean.csv"
 
 # Colectăm toate DataFrame-urile curățate pentru a le combina la final
 dataframes = []
