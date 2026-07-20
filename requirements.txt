@@ -1,0 +1,9 @@
+pandas
+numpy
+folium
+streamlit
+streamlit-folium
+altair
+openpyxl
+googlemaps
+python-dotenv
