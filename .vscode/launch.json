@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Streamlit: Dashboard",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "args": ["run", "app/main.py"],
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Pipeline: Load + Clean → combined.csv",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "src.data_loader",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Pipeline: Geocoding → combined_geocoded.csv",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "src.geocoding",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    }
+  ]
+}

@@ -5,7 +5,7 @@ Instalare (o dată):
     pip install streamlit streamlit-folium
 
 Rulare:
-    streamlit run app.py   (sau: python -m streamlit run app.py)
+    streamlit run app/main.py   (sau: python -m streamlit run app/main.py)
 """
 
 import datetime as dt
@@ -16,10 +16,13 @@ import folium
 from geopy.distance import geodesic
 from streamlit_folium import st_folium
 import streamlit as st
+import sys, os
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 st.set_page_config(page_title="Gestiune deșeuri - Sibiu", layout="wide")
 
-INPUT_FILE = "data/processed/dataset_geocodat.csv"
+INPUT_FILE = "data/processed/data_geocoded.csv"
 
 
 def citeste_csv_robust(cale):
@@ -61,7 +64,7 @@ def incarca_date():
             )
     df = df.dropna(subset=["Latitude", "Longitude"]).copy()
     df["Datetime"] = pd.to_datetime(df["Datetime"])
-    df["Fill_num"] = normalizeaza_fill_level(df["Fill Level"]).astype(int)
+    df["Fill_num"] = normalizeaza_fill_level(df["fill_level"]).astype("Int64")
     df["ora_numerica"] = df["Datetime"].dt.hour + df["Datetime"].dt.minute / 60
     df["ora"] = df["Datetime"].dt.strftime("%H:%M")
     return df
@@ -108,14 +111,14 @@ st.title("🚛 Gestiune deșeuri - Sibiu")
 # ---------------------------------------------------------------------
 st.sidebar.header("Filtre")
 
-rute_disponibile = sorted(df["Route_id"].unique())
+rute_disponibile = sorted(df["route_id"].unique())
 ruta_selectata = st.sidebar.selectbox("Rută", rute_disponibile)
 
 nivel_min, nivel_max = st.sidebar.slider(
     "Nivel de umplere (%) — interval", 0, 100, (0, 100)
 )
 
-df_ruta = df[df["Route_id"] == ruta_selectata].copy()
+df_ruta = df[df["route_id"] == ruta_selectata].copy()
 masini_ruta = sorted(df_ruta["Car"].unique())
 
 df_filtrat = df_ruta[df_ruta["Fill_num"].between(nivel_min, nivel_max)].copy()
@@ -246,8 +249,13 @@ st.write(
 
 # --- Predicție generală, pe baza tendinței întregii rute ---
 if len(df_ruta) >= 2:
-    x = df_ruta["ora_numerica"].values
-    y = df_ruta["Fill_num"].values
+    fit_data = df_ruta[["ora_numerica", "Fill_num"]].dropna()
+    x = fit_data["ora_numerica"].values
+    y = fit_data["Fill_num"].values
+
+    if len(set(x)) < 2:
+        st.info("Not enough time variation on this route for a prediction.")
+        st.stop()
     panta, intercept = np.polyfit(x, y, 1)
 
     ora_aleasa_time = st.slider(
