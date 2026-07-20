@@ -1,35 +1,26 @@
 import pandas as pd
-from geopy.geocoders import Nominatim
-
 import folium
-from folium.plugins import MarkerCluster
 
-df = pd.read_csv("data\\processed\\dataset_coordinates.csv")
+df = pd.read_csv("data/processed/dataset_geocoded.csv", encoding="utf-8")
 
-# --- GENERAREA HĂRȚII CU FOLIUM ---
+# eliminăm rândurile fără coordonate valide
+df_valid = df.dropna(subset=["lat", "lon"])
+print(f"Puncte de afișat pe hartă: {len(df_valid)} din {len(df)}")
 
-# păstrăm doar rândurile care chiar au coordonate (geocodarea poate eșua pt unele adrese)
-df_harta = df.dropna(subset=['latitudine', 'longitudine']).copy()
-df_harta['latitudine'] = df_harta['latitudine'].astype(float)
-df_harta['longitudine'] = df_harta['longitudine'].astype(float)
+# centrăm harta pe Sibiu
+harta = folium.Map(location=[45.7983, 24.1256], zoom_start=13)
 
-# centrăm harta pe media coordonatelor (practic, centrul "norului" de puncte)
-harta = folium.Map(
-    location=[df_harta['latitudine'].mean(), df_harta['longitudine'].mean()],
-    zoom_start=13
-)
+culori = {1: "red", 2: "blue", 3: "green"}
 
-# folosim un cluster de markere - util cand ai multe puncte apropiate,
-# ca sa nu se suprapuna vizual pe hartă
-cluster = MarkerCluster().add_to(harta)
+for _, rand in df_valid.iterrows():
+    folium.CircleMarker(
+        location=[rand["lat"], rand["lon"]],
+        radius=4,
+        color=culori.get(rand["route_id"], "gray"),
+        fill=True,
+        fill_opacity=0.7,
+        popup=f"{rand['Address']} (ruta {rand['route_id']})"
+    ).add_to(harta)
 
-for _, row in df_harta.iterrows():
-    folium.Marker(
-        location=[row['latitudine'], row['longitudine']],
-        popup=row['Address'],
-        tooltip=row['Address']
-    ).add_to(cluster)
-
-harta_path = "data\\maps\\harta_coordonate.html"
-harta.save(harta_path)
-print(f"Harta a fost salvată în {harta_path}")
+harta.save("harta_containere.html")
+print("Hartă salvată: harta_containere.html")
