@@ -1,5 +1,6 @@
 pandas
 numpy
+scikit-learn
 folium
 streamlit
 streamlit-folium
@@ -7,3 +8,4 @@ altair
 openpyxl
 googlemaps
 python-dotenv
+requests
