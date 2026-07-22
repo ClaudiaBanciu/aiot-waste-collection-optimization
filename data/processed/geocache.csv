@@ -9,7 +9,7 @@ Address,lat,lon
 "Strada Ștefan cel Mare 45, Sibiu, Romania",45.7903515,24.1624354
 "Strada Ștefan cel Mare 38, Sibiu, Romania",45.789997,24.1628207
 "Strada Ștefan cel Mare 45 B, Sibiu, Romania",45.7897168,24.1691578
-"Strada Ștefan cel Mare 48, Sibiu, Romania",46.1503404,24.3375248
+"Strada Ștefan cel Mare 48, Sibiu, Romania",45.7893711,24.1744014
 "Strada Ștefan cel Mare 56, Sibiu, Romania",45.7898704,24.1649307
 "Strada Ștefan cel Mare 60, Sibiu, Romania",45.7896959,24.1657584
 "Strada Victor Hugo 5, Sibiu, Romania",45.7891881,24.1653596
@@ -39,8 +39,8 @@ Address,lat,lon
 "Strada Ștefan cel Mare 128, Sibiu, Romania",45.7891885,24.1745593
 "Strada Ștefan cel Mare 135, Sibiu, Romania",45.7895183,24.1744876
 "Strada Ștefan cel Mare 126 A, Sibiu, Romania",45.7893711,24.1744014
-"Strada Pacii 2, Sibiu, Romania",46.1568111,24.3525023
-"Strada Pacii 4, Sibiu, Romania",46.1598011,24.3536884
+"Strada Pacii 2, Sibiu, Romania",45.789023,24.1748332
+"Strada Pacii 4, Sibiu, Romania",45.789023,24.1748332
 "Strada Ștefan cel Mare 137, Sibiu, Romania",45.7894648,24.1750976
 "Strada Rampa Ștefan cel Mare 1, Sibiu, Romania",,
 "Strada Ștefan cel Mare 1, Sibiu, Romania",45.7898874,24.1533586
@@ -139,7 +139,7 @@ Address,lat,lon
 "Strada Ștefan cel Mare 23, Sibiu, Romania",45.7889859,24.1773226
 "Strada Ștefan cel Mare 25, Sibiu, Romania",45.7889859,24.1773226
 "Strada Ștefan cel Mare 27 A, Sibiu, Romania",45.7886132,24.1755164
-"Strada Ștefan cel Mare 4, Sibiu, Romania",46.1525491,24.3348913
+"Strada Ștefan cel Mare 4, Sibiu, Romania",45.7886132,24.1755164
 "Strada Ștefan cel Mare 4 A, Sibiu, Romania",45.7897168,24.1691578
 "Strada Ștefan cel Mare 166, Sibiu, Romania",45.7886132,24.1755164
 "Strada Ștefan cel Mare 197, Sibiu, Romania",45.7915249,24.2095096
@@ -158,7 +158,7 @@ Address,lat,lon
 "Strada Avram Iancu 13 A, Sibiu, Romania",45.7982213,24.1535735
 "Strada Avram Iancu 13, Sibiu, Romania",45.7984593,24.1534907
 "Strada Avram Iancu 10, Sibiu, Romania",45.7978519,24.1535334
-"Strada Avram Iancu 9 B, Sibiu, Romania",46.1394949,24.5235343
+"Strada Avram Iancu 9 B, Sibiu, Romania",45.7982213,24.1535735
 "Strada Avram Iancu 9 A, Sibiu, Romania",45.7982213,24.1535735
 "Strada Avram Iancu 9 C, Sibiu, Romania",45.7984221,24.152784
 "Strada Avram Iancu 9, Sibiu, Romania",45.7984221,24.152784
@@ -183,7 +183,7 @@ Address,lat,lon
 "Strada Nicolae Bălcescu 7, Sibiu, Romania",45.7952114,24.1511044
 "Strada Nicolae Bălcescu 9, Sibiu, Romania",45.7951865,24.1510352
 "Strada Nicolae Bălcescu 6, Sibiu, Romania",45.7952715,24.1503918
-"Strada Alexandru Papiu Ilarian 2, Sibiu, Romania",46.1723469,24.3594364
+"Strada Alexandru Papiu Ilarian 2, Sibiu, Romania",45.7942196,24.1513854
 "Strada Nicolae Bălcescu 15, Sibiu, Romania",45.6726042,24.2639281
 "Strada Nicolae Bălcescu 14, Sibiu, Romania",45.7946778,24.150133
 "Strada Nicolae Bălcescu 17, Sibiu, Romania",45.7943247,24.1508804
@@ -203,7 +203,7 @@ Address,lat,lon
 "Strada Andrei Șaguna 17, Sibiu, Romania",45.793051,24.1450239
 "Strada Andrei Șaguna 21, Sibiu, Romania",45.8520358,24.1564107
 "Strada Andrei Șaguna 23, Sibiu, Romania",45.7932007,24.1444154
-"Strada Pacii 12, Sibiu, Romania",46.1592541,24.3532645
+"Strada Pacii 12, Sibiu, Romania",45.789023,24.1748332
 "Strada Vasile Aaron 33, Sibiu, Romania",45.7877358,24.1732548
 "Strada Iezer 14, Sibiu, Romania",45.787083,24.175065
 "Strada Vasile Aaron 29, Sibiu, Romania",45.7875394,24.17287
@@ -225,7 +225,7 @@ Address,lat,lon
 "Bulevardul G-ral Vasile Milea 35, Sibiu, Romania",,
 "Strada Fabricii 8, Sibiu, Romania",45.7956517,24.1625091
 "Strada Serbota 23, Sibiu, Romania",45.7944515,24.1637447
-"Piața 1 Decembrie 1918 1, Sibiu, Romania",46.1362032,24.5208534
+"Piața 1 Decembrie 1918 1, Sibiu, Romania",45.8000148,24.1612452
 "Strada Uzinei 3, Sibiu, Romania",45.7968516,24.159953
 "Strada Uzinei 9, Sibiu, Romania",45.7968516,24.159953
 "Strada G-ral Gheorghe Magheru 55, Sibiu, Romania",,
@@ -369,13 +369,13 @@ Address,lat,lon
 "Strada Ulmului 56, Sibiu, Romania",45.8149118,24.1379953
 "Strada Ulmului 35 A, Sibiu, Romania",45.8130117,24.1414418
 "Strada Ulmului 50 A, Sibiu, Romania",45.8130117,24.1414418
-"Strada Ulmului 46, Sibiu, Romania",46.1568593,24.3656053
+"Strada Ulmului 46, Sibiu, Romania",45.8130117,24.1414418
 "Strada Ulmului 44, Sibiu, Romania",45.8148149,24.1392061
 "Strada Ulmului 27, Sibiu, Romania",45.8144628,24.1394542
 "Strada Ulmului 40, Sibiu, Romania",45.8146763,24.139438
 "Strada Ulmului 34, Sibiu, Romania",45.8142635,24.140086
 "Strada Ulmului 32, Sibiu, Romania",45.8141836,24.1402501
-"Strada Ulmului 25, Sibiu, Romania",46.1584889,24.3649465
+"Strada Ulmului 25, Sibiu, Romania",45.8130117,24.1414418
 "Strada Ulmului 28, Sibiu, Romania",45.8136227,24.140912
 "Strada Florilor 12 A, Sibiu, Romania",45.8101778,24.1414081
 "Strada Ulmului 1, Sibiu, Romania",45.8119796,24.1427514
@@ -489,11 +489,11 @@ Address,lat,lon
 "Strada Honterus 2, Sibiu, Romania",45.805351,24.1402794
 "Strada Înfrățirii 17, Sibiu, Romania",45.8043507,24.1413424
 "Strada Honterus 7, Sibiu, Romania",45.805351,24.1402794
-"Strada Honterus 6, Sibiu, Romania",46.1657059,24.350399
-"Strada Honterus 12, Sibiu, Romania",46.1667126,24.3505692
+"Strada Honterus 6, Sibiu, Romania",45.805351,24.1402794
+"Strada Honterus 12, Sibiu, Romania",45.805351,24.1402794
 "Strada Honterus 13, Sibiu, Romania",45.805351,24.1402794
-"Strada Honterus 26, Sibiu, Romania",46.1675269,24.3504349
-"Strada Honterus 38, Sibiu, Romania",46.1682067,24.3503604
+"Strada Honterus 26, Sibiu, Romania",45.805351,24.1402794
+"Strada Honterus 38, Sibiu, Romania",45.805351,24.1402794
 "Strada Honterus 33, Sibiu, Romania",45.805351,24.1402794
 "Strada Honterus 35, Sibiu, Romania",45.805351,24.1402794
 "Strada Democrației 42, Sibiu, Romania",45.8064596,24.1403118
@@ -511,13 +511,13 @@ Address,lat,lon
 "Strada Democrației 14, Sibiu, Romania",45.8055885,24.1418756
 "Strada Democrației 12, Sibiu, Romania",45.8055339,24.142029
 "Strada Viorelelor 6, Sibiu, Romania",45.8056043,24.1431419
-"Strada Viorelelor 5, Sibiu, Romania",46.1656447,24.3666195
+"Strada Viorelelor 5, Sibiu, Romania",45.8058977,24.1421633
 "Strada Viorelelor 14, Sibiu, Romania",45.8058149,24.142639
 "Strada Viorelelor 20, Sibiu, Romania",45.8059942,24.142268
-"Strada Viorelelor 13, Sibiu, Romania",46.1652957,24.3661122
+"Strada Viorelelor 13, Sibiu, Romania",45.8058977,24.1421633
 "Strada Viorelelor 23, Sibiu, Romania",45.8058977,24.1421633
-"Strada Viorelelor 21, Sibiu, Romania",46.1655807,24.3667388
-"Strada Viorelelor 25, Sibiu, Romania",46.1655807,24.3667388
+"Strada Viorelelor 21, Sibiu, Romania",45.8058977,24.1421633
+"Strada Viorelelor 25, Sibiu, Romania",45.8058977,24.1421633
 "Strada Simion Bărnuțiu 41, Sibiu, Romania",45.8062665,24.142747
 "Strada Simion Bărnuțiu 38, Sibiu, Romania",45.8062665,24.142747
 "Strada Simion Bărnuțiu 33, Sibiu, Romania",45.8062665,24.142747
@@ -526,11 +526,11 @@ Address,lat,lon
 "Strada Viorelelor 26, Sibiu, Romania",45.8058977,24.1421633
 "Strada Simion Bărnuțiu 30, Sibiu, Romania",45.8062665,24.142747
 "Strada Simion Bărnuțiu 28, Sibiu, Romania",45.8062665,24.142747
-"Strada Simion Bărnuțiu 25, Sibiu, Romania",46.1652332,24.3556282
+"Strada Simion Bărnuțiu 25, Sibiu, Romania",45.7637736,24.1985455
 "Strada Simion Bărnuțiu 23, Sibiu, Romania",45.8062665,24.142747
-"Strada Simion Bărnuțiu 16, Sibiu, Romania",46.1644531,24.3558599
-"Strada Simion Bărnuțiu 14, Sibiu, Romania",46.1647128,24.3559864
-"Strada Simion Bărnuțiu 2, Sibiu, Romania",46.1653993,24.3554003
-"Strada Simion Bărnuțiu 1, Sibiu, Romania",46.1660397,24.3549643
-"Strada Simion Bărnuțiu 2 A, Sibiu, Romania",46.1654889,24.3553253
+"Strada Simion Bărnuțiu 16, Sibiu, Romania",45.7638767,24.1999889
+"Strada Simion Bărnuțiu 14, Sibiu, Romania",45.7638056,24.1993571
+"Strada Simion Bărnuțiu 2, Sibiu, Romania",45.7634763,24.1972253
+"Strada Simion Bărnuțiu 1, Sibiu, Romania",45.8062665,24.142747
+"Strada Simion Bărnuțiu 2 A, Sibiu, Romania",45.8062665,24.142747
 "Simion Bărnuțiu 1 A, Sibiu, Romania",45.8062665,24.142747
