@@ -6,22 +6,21 @@ import requests
 
 
 class DistanceCalculator:
-    """Interfata comuna. Toate metodele lucreaza cu puncte = [(lat, lon), ...]."""
+    """Common interface. All methods work with points = [(lat, lon), ...]."""
 
     metoda = "necunoscuta"
 
-   
     def matrice(self, puncte):
         raise NotImplementedError
 
-   
     def lungime_traseu(self, puncte, matrice=None):
-        """Suma distantelor consecutive (km), in ordinea DATA a punctelor."""
+        """Sum of consecutive distances (km), in the GIVEN order of the points."""
         m = matrice if matrice is not None else self.matrice(puncte)
         return sum(m[i][i + 1] for i in range(len(puncte) - 1))
 
     def optimizeaza(self, puncte, matrice=None):
-        
+        # Nearest-neighbour: start from the first point and always move to the
+        # closest not-yet-visited point. Returns (order_indices, distance_km).
         n = len(puncte)
         if n < 2:
             return list(range(n)), 0.0
@@ -37,6 +36,8 @@ class DistanceCalculator:
         return ordine, total
 
     def compara(self, puncte):
+        # Build the matrix ONCE and return the non-optimized distance, the
+        # optimized distance, the saving (%) and the optimal order of points.
         n = len(puncte)
         if n < 2:
             return {"metoda": self.metoda, "neoptimizat_km": 0.0, "optimizat_km": 0.0,
@@ -50,9 +51,10 @@ class DistanceCalculator:
 
 
 class StandardDistanceCalculator(DistanceCalculator):
-    
+    """Standard, straight-line distance (haversine)."""
+
     metoda = "standard"
-    R = 6371.0  # raza Pamantului (km)
+    R = 6371.0  # Earth's radius (km)
 
     def matrice(self, puncte):
         pts = np.radians(np.asarray(puncte, dtype=float))
@@ -65,17 +67,18 @@ class StandardDistanceCalculator(DistanceCalculator):
 
 
 class OSRMDistanceCalculator(DistanceCalculator):
-    """Distanta reala pe reteaua rutiera, calculata prin OSRM (serverul public
-    router.project-osrm.org), fara Docker si fara instalare.
+    """Real road-network distance, computed via OSRM (the public server
+    router.project-osrm.org), with no Docker and no installation.
 
-    Foloseste serviciul Route (nu Table): dintr-o cerere obtinem lungimea pe
-    sosea a unui traseu care trece prin punctele date, in ordinea data. Pentru
-    trasee lungi impartim in bucati (chunk-uri) consecutive care se suprapun
-    intr-un punct, ca sa nu depasim lungimea maxima a unui URL.
+    Uses the Route service (not Table): a single request gives the road length
+    of a trip passing through the given points, in the given order. For long
+    trips we split into consecutive overlapping chunks (sharing one point) so we
+    don't exceed the maximum URL length.
 
-    Ordinea optimizata e calculata geometric (nearest-neighbour pe distante in
-    linie dreapta, rapid si local), iar apoi ii masuram lungimea REALA pe sosea.
-    Daca serverul OSRM nu raspunde, totul cade pe calculatorul standard.
+    The optimized order is computed geometrically (nearest-neighbour on
+    straight-line distances, fast and local), then we measure its REAL road
+    length. If the OSRM server does not respond, everything falls back to the
+    standard calculator.
     """
 
     metoda = "osrm"
@@ -87,7 +90,7 @@ class OSRMDistanceCalculator(DistanceCalculator):
         self._disponibil = None
 
     def disponibil(self) -> bool:
-        """Verifica o singura data daca serverul OSRM raspunde."""
+        """Check only once whether the OSRM server responds."""
         if self._disponibil is None:
             try:
                 r = requests.get(f"{self.url}/route/v1/driving/24.15,45.79;24.16,45.80"
@@ -98,21 +101,22 @@ class OSRMDistanceCalculator(DistanceCalculator):
         return self._disponibil
 
     def _segment(self, puncte):
-        """Printr-o singura cerere Route: (lungimea pe sosea in km, geometria drumului).
-        Cerem overview=full + geometries=geojson ca sa primim conturul real pe strazi."""
+        """With a single Route request: (road length in km, road geometry).
+        We ask for overview=full + geometries=geojson to get the real
+        street-following outline."""
         coord = ";".join(f"{lon},{lat}" for lat, lon in puncte)
         url = f"{self.url}/route/v1/driving/{coord}?overview=full&geometries=geojson"
         r = requests.get(url, timeout=40)
         r.raise_for_status()
         ruta = r.json()["routes"][0]
         distanta = ruta["distance"] / 1000
-        # GeoJSON da coordonate [lon, lat] -> le intoarcem ca (lat, lon) pentru folium
+        # GeoJSON gives [lon, lat] coordinates -> we return them as (lat, lon) for folium
         geometrie = [(lat, lon) for lon, lat in ruta["geometry"]["coordinates"]]
         return distanta, geometrie
 
     def traseu_pe_sosea(self, puncte):
-        """Traseul complet pe sosea in ordinea DATA, impartit in chunk-uri consecutive
-        care se suprapun intr-un punct. Returneaza (distanta_totala_km, geometrie)."""
+        """Full road trip in the GIVEN order, split into consecutive chunks that
+        overlap by one point. Returns (total_distance_km, geometry)."""
         total, geometrie, pas = 0.0, [], self.chunk - 1
         for start in range(0, len(puncte) - 1, pas):
             bucata = puncte[start:start + self.chunk]
@@ -128,14 +132,14 @@ class OSRMDistanceCalculator(DistanceCalculator):
             return {"metoda": self.metoda, "neoptimizat_km": 0.0, "optimizat_km": 0.0,
                     "economie_%": 0.0, "ordine_optima": list(range(n)),
                     "geom_neopt": [], "geom_opt": []}
-        # ordinea optima o gasim geometric (rapid, local)
+        # find the optimal order geometrically (fast, local)
         ordine, _ = self.fallback.optimizeaza(puncte)
         try:
             neopt, geom_neopt = self.traseu_pe_sosea(puncte)
             opt, geom_opt = self.traseu_pe_sosea([puncte[i] for i in ordine])
             self.metoda = "osrm"
         except Exception:
-            # orice problema la OSRM -> cadem pe distanta standard (fara geometrie)
+            # any OSRM problem -> fall back to the standard distance (no geometry)
             rez = self.fallback.compara(puncte)
             rez["metoda"] = "standard (fallback)"
             rez["geom_neopt"] = rez["geom_opt"] = []

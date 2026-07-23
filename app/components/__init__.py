@@ -1,4 +1,4 @@
-"""Componente reutilizabile pentru aplicatia Streamlit."""
+"""Reusable components for the Streamlit application."""
 from .distance_calculator import (
     DistanceCalculator,
     StandardDistanceCalculator,
