@@ -8,10 +8,12 @@ from streamlit_folium import st_folium
 import streamlit as st
 import sys, os
 
+
+
 class Read_Data:
     def __init__(self, file_path):
         self.file_path = file_path
-        self.df = self.citeste_csv_robust(file_path)
+        #self.df = self.citeste_csv_robust(file_path)
 
     @staticmethod
     def normalizeaza_fill_level(serie):
