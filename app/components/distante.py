@@ -24,9 +24,9 @@ class Distante:
 
     @staticmethod
     def optimizeaza_nearest_neighbor(puncte):
-        """Euristică greedy 'cel mai apropiat vecin': pornește din primul punct,
-        la fiecare pas sare la cel mai apropiat punct nevizitat. Returnează
-        traseul reordonat și distanța totală."""
+        """Greedy Euristics 'closest neighbor': starts from the first point,
+        at each step jumps to the closest unvisited point. Returns
+        the optimized route and the total distance."""
         if len(puncte) < 2:
             return puncte, 0.0
 

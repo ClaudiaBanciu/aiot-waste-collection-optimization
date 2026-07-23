@@ -15,7 +15,7 @@ def run_app(df: pd.DataFrame):
     st.title("🚛 Gestiune deșeuri - Sibiu")
 
     # ---------------------------------------------------------------------
-    # Sidebar: selectarea RUTEI (una singură)
+    # Sidebar: choose ROUTE (only one)
     # ---------------------------------------------------------------------
     st.sidebar.header("Filtre")
 
@@ -34,18 +34,18 @@ def run_app(df: pd.DataFrame):
     st.caption(f"Ruta {ruta_selectata} este deservită de: {', '.join(masini_ruta)}")
 
     # ---------------------------------------------------------------------
-    # Statistici rapide
+    # Quick metrics: number of containers, average fill level, number of cars
     # ---------------------------------------------------------------------
     col1, col2, col3 = st.columns(3)
-    col1.metric("Containere afișate", len(df_filtrat))
-    col2.metric("Nivel mediu umplere",
+    col1.metric("Listed Containers", len(df_filtrat))
+    col2.metric("Average Fill Level",
                 f"{df_filtrat['Fill_num'].mean():.1f}%" if len(df_filtrat) else "-")
-    col3.metric("Mașini pe rută", len(masini_ruta))
+    col3.metric("Vehicles on Route", len(masini_ruta))
 
     # ---------------------------------------------------------------------
-    # Hartă — punctele rutei, ÎN ORDINE (traseu conectat, numerotat)
+    # Map — route checkpoints, in order of the route, in chronological order
     # ---------------------------------------------------------------------
-    st.subheader("Hartă — traseul rutei, în ordine cronologică")
+    st.subheader("Map — the route, in chronological order")
 
     culori = ["blue", "red", "green", "purple", "orange", "darkred", "cadetblue"]
     culoare_masina = {m: culori[i % len(culori)] for i, m in enumerate(masini_ruta)}
@@ -104,7 +104,7 @@ def run_app(df: pd.DataFrame):
         st.dataframe(tabel, use_container_width=True, hide_index=True)
 
     # ---------------------------------------------------------------------
-    # Distanța NEOPTIMIZATĂ vs OPTIMIZATĂ, per mașină, pentru ruta selectată
+    # UNOPTIMIZED vs OPTIMIZED distance, per truck, for the selected route
     # ---------------------------------------------------------------------
     st.subheader("Distanța: neoptimizată vs optimizată")
 

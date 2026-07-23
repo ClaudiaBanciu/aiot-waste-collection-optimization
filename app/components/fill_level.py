@@ -13,8 +13,7 @@ class Fill_level:
 
     @staticmethod
     def normalizeaza_fill_level(serie):
-        """Fill Level poate fi text ('68%') sau, dacă fișierul a fost citit ca
-        Excel, un număr zecimal (0.68) — normalizăm la un procent 0-100."""
+        """Fill Level might be text ('68%') or, if read as decimal number (0.68) — we normalize to 0-100."""
         if serie.dtype == object:
             return pd.to_numeric(serie.astype(str).str.rstrip("%"), errors="coerce")
         numeric = pd.to_numeric(serie, errors="coerce")

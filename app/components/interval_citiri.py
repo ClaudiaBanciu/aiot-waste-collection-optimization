@@ -13,8 +13,8 @@ class IntervalCitiri:
     #    self.df_ruta = df_ruta
 
 
-    # --- Predicție per container individual (dacă are >=2 citiri) ---
-    PRAG_MINIM_ORE = 0.5  # sub 30 de minute între citiri -> extrapolarea nu e sigură
+    # --- Container prediction, if there are more than two readings per container (if it has >=2 pickups) ---
+    PRAG_MINIM_ORE = 0.5  # less than 30 minutes between readings -> extrapolation is not reliable
     @staticmethod
     def interval_citiri_ore(id_container, df_ruta: pd.DataFrame):
         valori = df_ruta.loc[df_ruta["Id"] == id_container, "ora_numerica"]
@@ -28,8 +28,8 @@ class IntervalCitiri:
     )
 
     if id_cu_istoric:
-        st.markdown("**Predicție pentru un container specific (cu istoric ≥2 citiri):**")
-        id_ales = st.selectbox("Alege un Id de container", id_cu_istoric)
+        st.markdown("**Prediction for a specific container (with history ≥2 readings):**")
+        id_ales = st.selectbox("Choose a container Id", id_cu_istoric)
 
         istoric = df_ruta[df_ruta["Id"] == id_ales].sort_values("Datetime")
         st.dataframe(
@@ -41,7 +41,7 @@ class IntervalCitiri:
         y_i = istoric["Fill_num"].values
 
         if len(set(x_i)) < 2:
-            st.caption("Citirile sunt la aceeași oră — nu se poate calcula o tendință.")
+            st.caption("Readings are at the same time — cannot calculate a trend.")
         else:
             panta_i, intercept_i = np.polyfit(x_i, y_i, 1)
 
@@ -49,7 +49,7 @@ class IntervalCitiri:
             ora_default_m = int(round((x_i.max() % 1) * 60 / 10) * 10) % 60
 
             ora_viitoare_time = st.slider(
-                "Predicție pentru ora",
+                "Prediction for the time",
                 min_value=dt.time(0, 0), max_value=dt.time(23, 50),
                 value=dt.time(ora_default_h, ora_default_m), step=dt.timedelta(minutes=10),
                 key="ora_container",
@@ -65,5 +65,5 @@ class IntervalCitiri:
                     m_plin = int(round((ora_plin % 1) * 60))
                     st.caption(f"La rata actuală de umplere, containerul ar atinge 100% în jurul orei {h_plin:02d}:{m_plin:02d}.")
     else:
-        st.info("Niciun container din această rută nu are cel puțin 2 citiri, "
-                "deci nu se poate face o predicție individuală (doar cea pe rută întreagă, de mai sus).")
+        st.info("No containers in this route have at least 2 readings, "
+                "so an individual prediction cannot be made (only the route-wide prediction above).")
