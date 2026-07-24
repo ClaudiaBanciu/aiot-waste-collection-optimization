@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from app.components.citeste_csv_robust import Read_Data
 from app.components.fill_level import Fill_level
 from app.components.distante import Distante
-from app.components.webscript import run_app
+from app.components.interfata import run as run_interfata
 
 st.set_page_config(page_title="Gestiune deșeuri - Sibiu", layout="wide")
 
@@ -47,4 +47,4 @@ def incarca_date(INPUT_FILE):
 df = incarca_date(INPUT_FILE)
 
 if __name__ == "__main__":
-    run_app(df)
+    run_interfata(df)
