@@ -384,6 +384,7 @@ if len(df_bar) > 0:
 
     st_folium(harta_predictie, width=1100, height=550, key="harta_predictie")
 else:
+<<<<<<< HEAD
     st.info("Niciun container cu coordonate valide pe această rută.")
 
 st.caption("Roșu = modelul prezice că va trece pragul de colectare mâine; "
@@ -416,3 +417,7 @@ st.caption(
     "container) — vezi notebook-ul fill_level_prediction_draft.ipynb, "
     "Etapa 4.7, pentru limitarea acestei abordări."
 )
+=======
+    st.info("Niciun container din această rută nu are cel puțin 2 citiri, "
+             "deci nu se poate face o predicție individuală (doar cea pe rută întreagă, de mai sus).")
+>>>>>>> 36fe03d02aca652d215b9b49e889297c66cb2764
