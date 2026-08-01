@@ -1,8 +1,8 @@
 """
-Pasul 5: Interfața web interactivă (Streamlit)
+Interfața web interactivă (Streamlit)
 -------------------------------------------------
 Instalare (o dată):
-    pip install streamlit streamlit-folium
+    pip install streamlit streamlit-folium scikit-learn altair
 
 Rulare:
     streamlit run app.py   (sau: python -m streamlit run app.py)
@@ -14,12 +14,13 @@ import pandas as pd
 import altair as alt
 import folium
 from geopy.distance import geodesic
+import fill_level_model as flm
 from streamlit_folium import st_folium
 import streamlit as st
 
 st.set_page_config(page_title="Gestiune deșeuri - Sibiu", layout="wide")
 
-INPUT_FILE = "data/processed/dataset_geocodat.csv"
+INPUT_FILE = "data/processed/data_geocoded.csv"
 
 
 def citeste_csv_robust(cale):
@@ -41,8 +42,9 @@ def citeste_csv_robust(cale):
 
 
 def normalizeaza_fill_level(serie):
-    """Fill Level poate fi text ('68%') sau, dacă fișierul a fost citit ca
-    Excel, un număr zecimal (0.68) — normalizăm la un procent 0-100."""
+    """fill_level poate fi text ('68%'), un număr zecimal (0.68), sau deja
+    un procent numeric (0-100, cazul fișierului curent) — normalizăm la
+    un procent 0-100 indiferent de format."""
     if serie.dtype == object:
         return pd.to_numeric(serie.astype(str).str.rstrip("%"), errors="coerce")
     numeric = pd.to_numeric(serie, errors="coerce")
@@ -59,15 +61,19 @@ def incarca_date():
             df[col] = pd.to_numeric(
                 df[col].astype(str).str.replace(",", ".", regex=False), errors="coerce"
             )
-    df = df.dropna(subset=["Latitude", "Longitude"]).copy()
-    df["Datetime"] = pd.to_datetime(df["Datetime"])
-    df["Fill_num"] = normalizeaza_fill_level(df["Fill Level"]).astype(int)
-    df["ora_numerica"] = df["Datetime"].dt.hour + df["Datetime"].dt.minute / 60
-    df["ora"] = df["Datetime"].dt.strftime("%H:%M")
+    df["fill_level"] = normalizeaza_fill_level(df["fill_level"])
     return df
 
 
-def distanta_traseu(puncte):
+@st.cache_resource
+def incarca_model_predictiv(_df):
+    """Rulează pipeline-ul din fill_level_model.py (identic cu notebook-ul
+    fill_level_prediction_draft.ipynb) o singură dată, ținut în cache —
+    conține și modelul antrenat, plus istoricul simulat."""
+    return flm.run_full_pipeline(_df)
+
+
+def distanta_traseu_km(puncte):
     """Suma distanțelor consecutive (km), în ordinea dată a punctelor."""
     total = 0.0
     for i in range(len(puncte) - 1):
@@ -75,10 +81,9 @@ def distanta_traseu(puncte):
     return total
 
 
-def optimizeaza_nearest_neighbor(puncte):
+def optimizeaza_nearest_neighbor_km(puncte):
     """Euristică greedy 'cel mai apropiat vecin': pornește din primul punct,
-    la fiecare pas sare la cel mai apropiat punct nevizitat. Returnează
-    traseul reordonat și distanța totală."""
+    la fiecare pas sare la cel mai apropiat punct nevizitat."""
     if len(puncte) < 2:
         return puncte, 0.0
 
@@ -99,7 +104,18 @@ def optimizeaza_nearest_neighbor(puncte):
     return traseu_optimizat, total
 
 
-df = incarca_date()
+df_brut = incarca_date()
+rezultat_model = incarca_model_predictiv(df_brut)
+
+# df, pentru harta/tabel/distanțe, e restrâns la containere reale (fără
+# rândurile de depozit plecare/sosire, care nu au coordonate utile de afișat
+# ca "container")
+df = rezultat_model["containers"].copy()
+df = df.dropna(subset=["Latitude", "Longitude"])
+df["Datetime"] = pd.to_datetime(df["Datetime"])
+df["Fill_num"] = df["fill_level"].round().astype(int)
+df["ora_numerica"] = df["Datetime"].dt.hour + df["Datetime"].dt.minute / 60
+df["ora"] = df["Datetime"].dt.strftime("%H:%M")
 
 st.title("🚛 Gestiune deșeuri - Sibiu")
 
@@ -108,14 +124,14 @@ st.title("🚛 Gestiune deșeuri - Sibiu")
 # ---------------------------------------------------------------------
 st.sidebar.header("Filtre")
 
-rute_disponibile = sorted(df["Route_id"].unique())
+rute_disponibile = sorted(df["route_id"].unique())
 ruta_selectata = st.sidebar.selectbox("Rută", rute_disponibile)
 
 nivel_min, nivel_max = st.sidebar.slider(
     "Nivel de umplere (%) — interval", 0, 100, (0, 100)
 )
 
-df_ruta = df[df["Route_id"] == ruta_selectata].copy()
+df_ruta = df[df["route_id"] == ruta_selectata].copy()
 masini_ruta = sorted(df_ruta["Car"].unique())
 
 df_filtrat = df_ruta[df_ruta["Fill_num"].between(nivel_min, nivel_max)].copy()
@@ -152,7 +168,6 @@ if len(df_filtrat) > 0:
         culoare = culoare_masina[masina]
         puncte = list(zip(grup["Latitude"], grup["Longitude"]))
 
-        # linia care unește opririle, în ordine
         folium.PolyLine(puncte, color=culoare, weight=2, opacity=0.6).add_to(harta)
 
         for i, rand in grup.iterrows():
@@ -168,7 +183,6 @@ if len(df_filtrat) > 0:
                     f"Oră: {rand['ora']}<br>Umplere: {rand['Fill_num']}%"
                 ),
             ).add_to(harta)
-            # numărul de ordine, ca etichetă mică
             folium.map.Marker(
                 [rand["Latitude"], rand["Longitude"]],
                 icon=folium.DivIcon(html=(
@@ -193,7 +207,7 @@ with st.expander("Vezi datele tabelar", expanded=True):
     st.dataframe(tabel, use_container_width=True, hide_index=True)
 
 # ---------------------------------------------------------------------
-# Distanța NEOPTIMIZATĂ vs OPTIMIZATĂ, per mașină, pentru ruta selectată
+# Distanța NEOPTIMIZATĂ vs OPTIMIZATĂ
 # ---------------------------------------------------------------------
 st.subheader("Distanța: neoptimizată vs optimizată")
 
@@ -206,8 +220,8 @@ for masina in masini_ruta:
         continue
     puncte = list(zip(grup["Latitude"], grup["Longitude"]))
 
-    dist_neoptim = distanta_traseu(puncte)
-    _, dist_optim = optimizeaza_nearest_neighbor(puncte)
+    dist_neoptim = distanta_traseu_km(puncte)
+    _, dist_optim = optimizeaza_nearest_neighbor_km(puncte)
 
     total_neoptim += dist_neoptim
     total_optim += dist_optim
@@ -226,123 +240,179 @@ st.markdown(
 )
 
 st.caption(
-    "Optimizarea folosește euristica 'cel mai apropiat vecin' (nearest neighbor): "
-    "pornind din prima oprire, se alege mereu cea mai apropiată oprire nevizitată. "
-    "Nu garantează traseul optim absolut, dar e un algoritm simplu, rapid și "
-    "folosit frecvent ca punct de plecare în probleme reale de rutare."
+    "Distanțele sunt calculate în linie dreaptă (geodezic). Optimizarea "
+    "folosește euristica 'cel mai apropiat vecin' (nearest neighbor): "
+    "pornind din prima oprire, se alege mereu cea mai apropiată oprire "
+    "nevizitată. Nu garantează traseul optim absolut, dar e un algoritm "
+    "simplu, rapid și folosit frecvent ca punct de plecare în probleme "
+    "reale de rutare."
 )
 
 # ---------------------------------------------------------------------
-# Predicție fill_level
+# Predicție fill_level — regresie + progresia rutelor
+# (bazat pe fill_level_prediction_draft.ipynb: istoric simulat 30 zile +
+# regresie liniară, Etapele 2-7)
 # ---------------------------------------------------------------------
-st.subheader("Predicție nivel de umplere (fill level)")
+st.subheader("Predicție nivel de umplere — progresia rutei")
 
 st.write(
-    "Model simplu de regresie liniară: nivelul de umplere tinde să crească "
-    "cu ora din zi (containerele se umplu pe parcursul zilei). Alege un "
-    "container cu mai multe citiri pentru o predicție individuală, sau "
-    "folosește tendința generală a rutei."
+    f"Model de regresie liniară antrenat pe un istoric simulat de "
+    f"{flm.N_DAYS} de zile per container (identic cu notebook-ul de "
+    f"predicție). Eroarea medie a modelului (MAE, pe setul de testare): "
+    f"**{rezultat_model['mae']:.2f} puncte procentuale**."
 )
 
-# --- Predicție generală, pe baza tendinței întregii rute ---
-if len(df_ruta) >= 2:
-    x = df_ruta["ora_numerica"].values
-    y = df_ruta["Fill_num"].values
-    panta, intercept = np.polyfit(x, y, 1)
+history_ruta = rezultat_model["history"][rezultat_model["history"]["route_id"] == ruta_selectata]
+current_state_ruta = rezultat_model["current_state"][
+    rezultat_model["current_state"]["route_id"] == ruta_selectata
+].dropna(subset=["Latitude", "Longitude"])
+rule_ruta = rezultat_model["rule_collection"][
+    rezultat_model["rule_collection"]["route_id"] == ruta_selectata
+]
+predictive_ruta = rezultat_model["predictive_collection"][
+    rezultat_model["predictive_collection"]["route_id"] == ruta_selectata
+]
 
-    ora_aleasa_time = st.slider(
-        "Oră pentru predicție (rută întreagă)",
-        min_value=dt.time(0, 0), max_value=dt.time(23, 50),
-        value=dt.time(12, 0), step=dt.timedelta(minutes=10),
-    )
-    ora_aleasa = ora_aleasa_time.hour + ora_aleasa_time.minute / 60
-    predictie_ruta = panta * ora_aleasa + intercept
-    predictie_ruta = min(max(predictie_ruta, 0), 100)
+c1, c2, c3 = st.columns(3)
+c1.metric("Containere pe rută", df_ruta["Id"].nunique())
+c2.metric("Selectate — regulă simplă", len(rule_ruta))
+c3.metric("Selectate — model predictiv", len(predictive_ruta))
 
-    st.metric(
-        f"Nivel de umplere estimat pe ruta {ruta_selectata}, la ora {ora_aleasa_time.strftime('%H:%M')}",
-        f"{predictie_ruta:.1f}%"
-    )
-    st.caption(f"Tendință: +{panta:.2f}% umplere / oră (pantă regresie liniară pe toată ruta).")
 
-    chart_data = df_ruta[["ora_numerica", "Fill_num", "ora", "Address"]].copy()
-    chart_data = chart_data.rename(columns={"Fill_num": "Fill Level (%)"})
+# =====================================================================
+# Distribuția containerelor după nivelul de umplere (grafic de bare)
+# =====================================================================
+st.markdown("**Distribuția containerelor după nivelul de umplere (azi / predicție):**")
 
-    linie_regresie = pd.DataFrame({
-        "ora_numerica": [x.min(), x.max()],
-    })
-    linie_regresie["Fill Level (%)"] = panta * linie_regresie["ora_numerica"] + intercept
+df_bar = current_state_ruta.copy()
 
-    puncte_chart = alt.Chart(chart_data).mark_circle(size=60, opacity=0.6).encode(
-        x=alt.X("ora_numerica", title="Ora din zi"),
-        y=alt.Y("Fill Level (%)", scale=alt.Scale(domain=[0, 100])),
+if df_bar["predicted_fill_level"].max() <= 1.0:
+    df_bar["predicted_fill_level"] = df_bar["predicted_fill_level"] * 100
+
+df_bar["status"] = np.where(
+    df_bar["predicted_fill_level"] >= df_bar["threshold"],
+    "va necesita colectare (predicție)",
+    "sub prag (predicție)"
+)
+
+bins = [-0.1, 20.0, 40.0, 60.0, 80.0, 100.1]
+labels = ["0–20%", "21–40%", "41–60%", "61–80%", "81–100%"]
+
+df_bar["Interval Umplere"] = pd.cut(
+    df_bar["predicted_fill_level"],
+    bins=bins,
+    labels=labels,
+    include_lowest=True
+)
+
+chart_progresie = (
+    alt.Chart(df_bar.dropna(subset=["Interval Umplere"]))
+    .mark_bar()
+    .encode(
+        x=alt.X("Interval Umplere:O", title="Interval Nivel de Umplere (%)", sort=labels),
+        y=alt.Y("count():Q", title="Număr Containere"),
+        color=alt.Color(
+            "status:N",
+            title="Status predicție",
+            scale=alt.Scale(
+                domain=["va necesita colectare (predicție)", "sub prag (predicție)"],
+                range=["#d9534f", "#2077b4"]
+            )
+        ),
         tooltip=[
-            alt.Tooltip("ora", title="Ora"),
-            alt.Tooltip("Fill Level (%)", title="Fill Level (%)"),
-            alt.Tooltip("Address", title="Adresă"),
-        ],
+            alt.Tooltip("Interval Umplere:O", title="Interval"),
+            alt.Tooltip("count():Q", title="Număr containere"),
+            alt.Tooltip("status:N", title="Status")
+        ]
     )
-    linie_chart = alt.Chart(linie_regresie).mark_line(color="red").encode(
-        x="ora_numerica", y="Fill Level (%)"
-    )
-    st.altair_chart((puncte_chart + linie_chart).properties(height=350), use_container_width=True)
-    st.caption("Ora pe axă e afișată ca număr zecimal (ex: 7.85 = ora 07:51). "
-               "Treci cu mouse-ul peste un punct ca să vezi ora exactă și adresa.")
-else:
-    st.info("Nu sunt suficiente date pe această rută pentru o predicție.")
-
-# --- Predicție per container individual (dacă are >=2 citiri) ---
-PRAG_MINIM_ORE = 0.5  # sub 30 de minute între citiri -> extrapolarea nu e sigură
-
-
-def interval_citiri_ore(id_container):
-    valori = df_ruta.loc[df_ruta["Id"] == id_container, "ora_numerica"]
-    return valori.max() - valori.min()
-
-
-id_counts = df_ruta["Id"].value_counts()
-candidati = id_counts[id_counts >= 2].index.tolist()
-id_cu_istoric = sorted(
-    i for i in candidati if interval_citiri_ore(i) >= PRAG_MINIM_ORE
 )
 
-if id_cu_istoric:
-    st.markdown("**Predicție pentru un container specific (cu istoric ≥2 citiri):**")
-    id_ales = st.selectbox("Alege un Id de container", id_cu_istoric)
+st.altair_chart(chart_progresie.properties(height=350), use_container_width=True)
+st.caption("Graficul arată distribuția containerelor de pe rută în funcție de "
+           "procentul de umplere estimat pentru ziua de mâine.")
 
-    istoric = df_ruta[df_ruta["Id"] == id_ales].sort_values("Datetime")
-    st.dataframe(
-        istoric[["Datetime", "ora", "Fill_num"]].rename(columns={"Fill_num": "Fill Level (%)"}),
-        hide_index=True,
+# =====================================================================
+# Hartă — containerele de pe rută, colorate după statusul predicției
+# =====================================================================
+st.markdown("**Hartă — containere colorate după predicție (mâine):**")
+
+if len(df_bar) > 0:
+    harta_predictie = folium.Map(
+        location=[df_bar["Latitude"].mean(), df_bar["Longitude"].mean()],
+        zoom_start=13,
     )
+    harta_predictie.fit_bounds([
+        [df_bar["Latitude"].min(), df_bar["Longitude"].min()],
+        [df_bar["Latitude"].max(), df_bar["Longitude"].max()],
+    ])
 
-    x_i = istoric["ora_numerica"].values
-    y_i = istoric["Fill_num"].values
+    culoare_status = {
+        "va necesita colectare (predicție)": "red",
+        "sub prag (predicție)": "blue",
+    }
 
-    if len(set(x_i)) < 2:
-        st.caption("Citirile sunt la aceeași oră — nu se poate calcula o tendință.")
-    else:
-        panta_i, intercept_i = np.polyfit(x_i, y_i, 1)
+    # desenăm întâi albastru, apoi roșu LA URMĂ — ca punctele roșii să nu
+    # rămână ascunse sub cele albastre, dacă sunt foarte aproape unele de altele
+    for status_ordine in ["sub prag (predicție)", "va necesita colectare (predicție)"]:
+        subset_status = df_bar[df_bar["status"] == status_ordine]
+        for _, rand in subset_status.iterrows():
+            folium.CircleMarker(
+                location=[rand["Latitude"], rand["Longitude"]],
+                radius=7 if status_ordine.startswith("va necesita") else 6,
+                color=culoare_status[status_ordine],
+                fill=True,
+                fill_opacity=0.9,
+                weight=2,
+                popup=(
+                    f"{rand['Address']}<br>"
+                    f"Id: {rand['Id']}<br>"
+                    f"Nivel azi: {rand['simulated_fill_level']:.1f}%<br>"
+                    f"Predicție mâine: {rand['predicted_fill_level']:.1f}%<br>"
+                    f"Prag: {rand['threshold']:.0f}%"
+                ),
+            ).add_to(harta_predictie)
 
-        ora_default_h = min(int(x_i.max()) + 1, 23)
-        ora_default_m = int(round((x_i.max() % 1) * 60 / 10) * 10) % 60
+    legenda_predictie = (
+        "<div style='position: fixed; bottom: 30px; left: 30px; z-index: 1000; "
+        "background: white; padding: 10px; border: 1px solid grey; border-radius: 5px;'>"
+        "<b>Predicție mâine</b><br>"
+        "<span style='color:red;'>&#9679;</span> va necesita colectare<br>"
+        "<span style='color:blue;'>&#9679;</span> sub prag"
+        "</div>"
+    )
+    harta_predictie.get_root().html.add_child(folium.Element(legenda_predictie))
 
-        ora_viitoare_time = st.slider(
-            "Predicție pentru ora",
-            min_value=dt.time(0, 0), max_value=dt.time(23, 50),
-            value=dt.time(ora_default_h, ora_default_m), step=dt.timedelta(minutes=10),
-            key="ora_container",
-        )
-        ora_viitoare = ora_viitoare_time.hour + ora_viitoare_time.minute / 60
-        predictie_i = min(max(panta_i * ora_viitoare + intercept_i, 0), 100)
-        st.metric(f"Fill level estimat pentru {id_ales} la ora {ora_viitoare_time.strftime('%H:%M')}",
-                  f"{predictie_i:.1f}%")
-        if panta_i > 0:
-            ora_plin = (100 - intercept_i) / panta_i
-            if ora_plin > x_i.max():
-                h_plin = int(ora_plin) % 24
-                m_plin = int(round((ora_plin % 1) * 60))
-                st.caption(f"La rata actuală de umplere, containerul ar atinge 100% în jurul orei {h_plin:02d}:{m_plin:02d}.")
+    st_folium(harta_predictie, width=1100, height=550, key="harta_predictie")
 else:
-    st.info("Niciun container din această rută nu are cel puțin 2 citiri, "
-             "deci nu se poate face o predicție individuală (doar cea pe rută întreagă, de mai sus).")
+    st.info("Niciun container cu coordonate valide pe această rută.")
+
+st.caption("Roșu = modelul prezice că va trece pragul de colectare mâine; "
+           "albastru = rămâne sub prag, conform predicției.")
+
+
+# --- Detaliu pe un container specific ---
+containere_ruta_ids = sorted(current_state_ruta["Id"].unique())
+if containere_ruta_ids:
+    st.markdown("**Detaliu container:**")
+    id_ales = st.selectbox("Alege un container", containere_ruta_ids)
+
+    uid_ales = current_state_ruta[current_state_ruta["Id"] == id_ales]["uid"].iloc[0]
+    istoric_container = history_ruta[history_ruta["uid"] == uid_ales].sort_values("day")
+    stare_container = current_state_ruta[current_state_ruta["uid"] == uid_ales].iloc[0]
+
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Nivel curent (ziua 0)", f"{stare_container['simulated_fill_level']:.1f}%")
+    c2.metric("Predicție mâine", f"{stare_container['predicted_fill_level']:.1f}%")
+    c3.metric("Prag colectare", f"{stare_container['threshold']:.0f}%")
+
+    chart_container = alt.Chart(istoric_container).mark_line(point=True).encode(
+        x=alt.X("day", title="Zi (0 = azi)"),
+        y=alt.Y("simulated_fill_level", title="Fill level simulat (%)", scale=alt.Scale(domain=[0, 100])),
+    )
+    st.altair_chart(chart_container.properties(height=250), use_container_width=True)
+
+st.caption(
+    "Istoricul de 30 de zile e SIMULAT (o singură citire reală există per "
+    "container) — vezi notebook-ul fill_level_prediction_draft.ipynb, "
+    "Etapa 4.7, pentru limitarea acestei abordări."
+)
