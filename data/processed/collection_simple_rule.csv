@@ -1,0 +1,139 @@
+route_id,Car,Datetime,Id,Capacity,Address,fill_level,Latitude,Longitude,point_type,uid,threshold
+1,SB-25-SOM,2024-10-15 06:19:38+00:00,O5AHDP,1.100L,"Calea Șurii Mari 39 B, Sibiu, Romania",92.0,45.8230393,24.1477036,container,1,70
+1,SB-25-SOM,2024-10-15 06:38:19+00:00,HPDZUE,1.100L,"Strada Căprioarelor 1, Sibiu, Romania",71.0,45.81428589999999,24.1497705,container,3,70
+1,SB-25-SOM,2024-10-15 06:51:53+00:00,HLQKX5,1.100L,"Strada Țiglarilor 12, Sibiu, Romania",82.0,45.8073798,24.1438199,container,6,70
+1,SB-25-SOM,2024-10-15 06:52:15+00:00,MO25A3,1.100L,"Strada Țiglarilor 12, Sibiu, Romania",86.0,45.8073798,24.1438199,container,7,70
+1,SB-25-SOM,2024-10-15 06:52:47+00:00,OVR7LU,1.100L,"Strada Țiglarilor 12, Sibiu, Romania",74.0,45.8073798,24.1438199,container,8,70
+1,SB-25-SOM,2024-10-15 06:55:18+00:00,MNQ5,120L,"Strada Țiglarilor 24, Sibiu, Romania",87.0,45.807732,24.1430912,container,10,85
+1,SB-25-SOM,2024-10-15 06:55:51+00:00,R2LY,120L,"Strada Țiglarilor 28, Sibiu, Romania",99.0,45.80784020000001,24.142898,container,11,85
+1,SB-25-SOM,2024-10-15 07:02:36+00:00,FZRC,120L,"Strada Eschile 17, Sibiu, Romania",87.0,45.8088978,24.1433533,container,17,85
+1,SB-25-SOM,2024-10-15 07:07:55+00:00,LTVP5I,120L,"Strada Eschile 49, Sibiu, Romania",88.0,45.8106896,24.1440049,container,28,85
+1,SB-25-SOM,2024-10-15 07:09:00+00:00,XJTO,120L,"Strada Traian Demetrescu 142, Sibiu, Romania",90.0,45.8093467,24.1400841,container,30,85
+1,SB-25-SOM,2024-10-15 07:10:40+00:00,2F2D,120L,"Strada Florilor 30, Sibiu, Romania",91.0,45.8108785,24.1429247,container,33,85
+1,SB-25-SOM,2024-10-15 07:19:04+00:00,RSVP,120L,"Strada Crizantemelor 7, Sibiu, Romania",100.0,45.8096633,24.1418536,container,45,85
+1,SB-25-SOM,2024-10-15 07:21:16+00:00,6OIV,120L,"Strada Crizantemelor 18, Sibiu, Romania",88.0,45.8098787,24.1428528,container,53,85
+1,SB-25-SOM,2024-10-15 07:22:26+00:00,AJ2FQV,120L,"Strada Lăcrămioarelor 10, Sibiu, Romania",89.0,45.8102423,24.1431619,container,57,85
+1,SB-25-SOM,2024-10-15 07:23:50+00:00,AC4W,120L,"Strada Lăcrămioarelor 1, Sibiu, Romania",91.0,45.8104063,24.1425765,container,61,85
+1,SB-25-SOM,2024-10-15 07:35:47+00:00,CAHMA5,120L,"Strada Țiglarilor 64, Sibiu, Romania",92.0,45.8100436,24.1401571,container,78,85
+1,SB-25-SOM,2024-10-15 07:37:09+00:00,D5Y7,120L,"Strada Țiglarilor 75, Sibiu, Romania",89.0,45.8100769,24.1391443,container,81,85
+1,SB-25-SOM,2024-10-15 07:38:39+00:00,2L6I,120L,"Strada Țiglarilor 77, Sibiu, Romania",99.0,45.8103421,24.1388166,container,86,85
+1,SB-25-SOM,2024-10-15 07:39:50+00:00,LIEV,120L,"Strada Țiglarilor 81 A, Sibiu, Romania",94.0,45.8104546,24.1384245,container,88,85
+1,SB-25-SOM,2024-10-15 07:42:00+00:00,4OBW,120L,"Strada Dulgherilor 7, Sibiu, Romania",86.0,45.8101242,24.1373029,container,93,85
+1,SB-25-SOM,2024-10-15 07:48:16+00:00,A2MK,240L,"Strada Țiglarilor 89, Sibiu, Romania",81.0,45.8108642,24.1370748,container,98,80
+1,SB-25-SOM,2024-10-15 07:50:56+00:00,H7MM,120L,"Strada Zidarilor 2, Sibiu, Romania",88.0,45.8107772,24.1361777,container,102,85
+1,SB-25-SOM,2024-10-15 08:01:02+00:00,FOY2RW,240L,"Strada Țiglarilor 103, Sibiu, Romania",88.0,45.8124406,24.1333924,container,109,80
+1,SB-25-SOM,2024-10-15 08:01:55+00:00,L4APOF,120L,"Strada Țiglarilor 103, Sibiu, Romania",87.0,45.8124406,24.1333924,container,112,85
+1,SB-25-SOM,2024-10-15 08:06:12+00:00,AWBU,120L,"Strada Țiglarilor 110, Sibiu, Romania",87.0,45.8128791,24.1331545,container,115,85
+1,SB-25-SOM,2024-10-15 08:23:51+00:00,HQHV6X,120L,"Strada Cuptorului 20, Sibiu, Romania",87.0,45.813404,24.13343,container,135,85
+1,SB-25-SOM,2024-10-15 08:25:38+00:00,C2ANBH,120L,"Strada Cuptorului 14 B, Sibiu, Romania",98.0,45.8137184,24.133975,container,137,85
+1,SB-25-SOM,2024-10-15 08:28:06+00:00,E5AO,120L,"Strada Cuptorului 14, Sibiu, Romania",85.0,45.8128602,24.1348603,container,139,85
+1,SB-25-SOM,2024-10-15 08:29:03+00:00,NL5N,120L,"Strada Cuptorului 1, Sibiu, Romania",90.0,45.8125015,24.1351597,container,140,85
+1,SB-25-SOM,2024-10-15 08:30:56+00:00,JICQOG,120L,"Strada Cuptorului 7 G, Sibiu, Romania",98.0,45.812664,24.134771,container,143,85
+1,SB-25-SOM,2024-10-15 08:31:30+00:00,GPHC,120L,"Strada Cuptorului 10, Sibiu, Romania",100.0,45.8131539,24.1356496,container,144,85
+1,SB-25-SOM,2024-10-15 08:43:00+00:00,AP3D,120L,"Strada Ulmului 50 A, Sibiu, Romania",89.0,45.81525569999999,24.1385702,container,150,85
+1,SB-25-SOM,2024-10-15 08:46:14+00:00,WZLA,120L,"Strada Ulmului 40, Sibiu, Romania",89.0,45.8147094,24.1395087,container,156,85
+1,SB-25-SOM,2024-10-15 08:54:22+00:00,JBCWEX,120L,"Strada Florilor 12 A, Sibiu, Romania",95.0,45.8100892,24.1415189,container,161,85
+1,SB-25-SOM,2024-10-15 08:58:46+00:00,QZOB,120L,"Strada Ulmului 5, Sibiu, Romania",95.0,45.8116357,24.141904,container,163,85
+1,SB-25-SOM,2024-10-15 08:59:29+00:00,5SY7,120L,"Strada Ulmului 9, Sibiu, Romania",93.0,45.8122535,24.142291,container,165,85
+1,SB-25-SOM,2024-10-15 09:00:00+00:00,H5RK,120L,"Strada Ulmului 15, Sibiu, Romania",100.0,45.8124639,24.1420424,container,166,85
+1,SB-25-SOM,2024-10-15 09:09:59+00:00,UJDFJW,120L,"Strada Lutului 74, Sibiu, Romania",85.0,45.8078105,24.1349943,container,176,85
+1,SB-25-SOM,2024-10-15 09:16:15+00:00,XFJB4O,120L,"Strada Lutului 17, Sibiu, Romania",91.0,45.8095422,24.1380444,container,191,85
+1,SB-25-SOM,2024-10-15 09:16:47+00:00,NDM7,120L,"Strada Lutului 14, Sibiu, Romania",88.0,45.809816,24.1380852,container,192,85
+1,SB-25-SOM,2024-10-15 09:18:59+00:00,YANR,120L,"Strada Sperantei 5, Sibiu, Romania",96.0,45.8082435,24.1387681,container,194,85
+1,SB-25-SOM,2024-10-15 09:26:47+00:00,R7PR,120L,"Strada Carpaților 31, Sibiu, Romania",96.0,45.8081484,24.141496,container,206,85
+1,SB-25-SOM,2024-10-15 09:30:51+00:00,K2PH,120L,"Strada Țiglarilor 21, Sibiu, Romania",95.0,45.8070362,24.1435363,container,213,85
+1,SB-25-SOM,2024-10-15 09:31:19+00:00,X5VJW2,120L,"Strada Țiglarilor 25, Sibiu, Romania",87.0,45.8070662,24.1432465,container,214,85
+1,SB-25-SOM,2024-10-15 09:36:21+00:00,6CJM,120L,"Strada Lungă 35 C, Sibiu, Romania",100.0,45.8047206,24.1442325,container,223,85
+1,SB-25-SOM,2024-10-15 09:38:20+00:00,6WVIGL,120L,"Strada Lungă 35, Sibiu, Romania",91.0,45.8047206,24.1442325,container,229,85
+1,SB-25-SOM,2024-10-15 09:39:17+00:00,FTXO,120L,"Strada Lungă 31, Sibiu, Romania",86.0,45.8040594,24.143992,container,231,85
+1,SB-25-SOM,2024-10-15 09:39:50+00:00,2MCS,120L,"Strada Lungă 29, Sibiu, Romania",100.0,45.80387349999999,24.1440906,container,232,85
+1,SB-25-SOM,2024-10-15 09:41:47+00:00,3AFF,120L,"Strada Lungă 17 A, Sibiu, Romania",95.0,45.8030152,24.1438551,container,233,85
+1,SB-25-SOM,2024-10-15 09:42:58+00:00,IQXF,1.100L,"Strada Lungă 9, Sibiu, Romania",96.0,45.8025894,24.1431737,container,234,70
+1,SB-25-SOM,2024-10-15 09:49:26+00:00,RSK3LI,120L,"Ion Luca Caragiale 8, Sibiu, Romania",89.0,45.8019245,24.1423152,container,240,85
+1,SB-25-SOM,2024-10-15 09:55:03+00:00,4YZE4J,120L,"Strada Lungă 10, Sibiu, Romania",97.0,45.8019372,24.143427,container,252,85
+1,SB-25-SOM,2024-10-15 09:57:22+00:00,ITS2,120L,"Strada Lungă 22, Sibiu, Romania",85.0,45.8031067,24.1442135,container,254,85
+1,SB-25-SOM,2024-10-15 09:58:41+00:00,6ZGKYZ,240L,"Strada Lungă 26, Sibiu, Romania",96.0,45.8033965,24.1445839,container,257,80
+1,SB-25-SOM,2024-10-15 10:02:32+00:00,6RCW,120L,"Strada General Bălan 40, Sibiu, Romania",92.0,45.8043709,24.1439175,container,262,85
+1,SB-25-SOM,2024-10-15 10:05:03+00:00,6732,120L,"Strada General Bălan 34, Sibiu, Romania",89.0,45.8037512,24.143363,container,268,85
+1,SB-25-SOM,2024-10-15 10:07:27+00:00,5R2U,120L,"Strada General Bălan 27, Sibiu, Romania",95.0,45.8034048,24.1427279,container,272,85
+1,SB-25-SOM,2024-10-15 10:10:23+00:00,EXNZ,120L,"Strada General Bălan 12, Sibiu, Romania",91.0,45.8024114,24.1423196,container,281,85
+1,SB-25-SOM,2024-10-15 10:11:56+00:00,HW34,120L,"Strada General Bălan 5, Sibiu, Romania",88.0,45.802245,24.1419439,container,283,85
+1,SB-25-SOM,2024-10-15 10:51:27+00:00,KY4M,120L,"Strada Honterus 6, Sibiu, Romania",93.0,45.8049019,24.1413365,container,287,85
+1,SB-25-SOM,2024-10-15 10:52:23+00:00,H7AM,120L,"Strada Honterus 13, Sibiu, Romania",98.0,45.8051785,24.1403618,container,289,85
+1,SB-25-SOM,2024-10-15 10:54:40+00:00,6QMX,120L,"Strada Honterus 33, Sibiu, Romania",89.0,45.8060027,24.1390281,container,292,85
+1,SB-25-SOM,2024-10-15 11:00:47+00:00,6RFTUR,120L,"Strada Democrației 19, Sibiu, Romania",98.0,45.8057314,24.1410638,container,302,85
+1,SB-25-SOM,2024-10-15 11:12:57+00:00,2BCN5D,120L,"Strada Simion Bărnuțiu 38, Sibiu, Romania",98.0,45.80710269999999,24.1414311,container,317,85
+1,SB-25-SOM,2024-10-15 11:13:25+00:00,PJW7,120L,"Strada Simion Bărnuțiu 33, Sibiu, Romania",88.0,45.8065389,24.1419417,container,318,85
+1,SB-25-SOM,2024-10-15 11:13:28+00:00,J2FI,120L,"Strada Simion Bărnuțiu 31, Sibiu, Romania",98.0,45.8064591,24.1420032,container,319,85
+1,SB-25-SOM,2024-10-15 11:14:13+00:00,KFY4DZ,120L,"Strada Viorelelor 26, Sibiu, Romania",92.0,45.8061824,24.1419149,container,321,85
+1,SB-25-SOM,2024-10-15 11:19:16+00:00,F3G5,120L,"Strada Simion Bărnuțiu 2 A, Sibiu, Romania",99.0,45.80569390000001,24.1442952,container,330,85
+2,SB-30-SOM,2024-10-15 04:35:35+00:00,FDHV,240L,"Strada Victor Hugo 9, Sibiu, Romania",85.0,45.7888858,24.1656902,container,346,80
+2,SB-30-SOM,2024-10-15 04:57:55+00:00,GA42ZD,240L,"Strada Ștefan cel Mare 193, Sibiu, Romania",97.0,45.7894282,24.1890978,container,355,80
+2,SB-30-SOM,2024-10-15 05:11:15+00:00,VNTZOL,1.100L,"Strada Ștefan cel Mare 152, Sibiu, Romania",96.0,45.7861017,24.1920002,container,358,70
+2,SB-30-SOM,2024-10-15 05:22:22+00:00,GPB5EF,240L,"Strada Ștefan cel Mare 193, Sibiu, Romania",96.0,45.7894282,24.1890978,container,361,80
+2,SB-30-SOM,2024-10-15 06:41:34+00:00,EA3A,120L,"Strada Ștefan cel Mare 147, Sibiu, Romania",91.0,45.7887263,24.1834794,container,372,85
+2,SB-30-SOM,2024-10-15 06:54:16+00:00,XKR4,120L,"Strada Ștefan cel Mare 137 B, Sibiu, Romania",92.0,45.7889846,24.1753864,container,374,85
+2,SB-30-SOM,2024-10-15 07:07:01+00:00,TXASO3,120L,"Strada Ștefan cel Mare 125, Sibiu, Romania",98.0,45.7894903,24.1737681,container,377,85
+2,SB-30-SOM,2024-10-15 07:09:12+00:00,F7J4,120L,"Strada Ștefan cel Mare 126 A, Sibiu, Romania",92.0,45.7889947,24.1745016,container,380,85
+2,SB-30-SOM,2024-10-15 07:11:20+00:00,GODE,120L,"Strada Pacii 4, Sibiu, Romania",94.0,45.78890860000001,24.1747277,container,383,85
+2,SB-30-SOM,2024-10-15 07:12:03+00:00,F64N,120L,"Strada Ștefan cel Mare 137, Sibiu, Romania",98.0,45.7889846,24.1753864,container,384,85
+2,SB-30-SOM,2024-10-15 07:13:54+00:00,54YS,120L,"Strada Ștefan cel Mare 1, Sibiu, Romania",96.0,45.789856,24.1534353,container,386,85
+2,SB-30-SOM,2024-10-15 07:15:26+00:00,3SWQ2K,120L,"Strada Semaforului 2, Sibiu, Romania",86.0,45.7818751,24.167202,container,390,85
+2,SB-30-SOM,2024-10-15 07:35:05+00:00,GQCD,120L,"Strada Ștefan cel Mare 99, Sibiu, Romania",94.0,45.7896726,24.1713996,container,395,85
+2,SB-30-SOM,2024-10-15 07:41:46+00:00,5NWM,120L,"Strada Ștefan cel Mare 59, Sibiu, Romania",85.0,45.7899906,24.1666485,container,403,85
+2,SB-30-SOM,2024-10-15 07:45:28+00:00,K6XJ,120L,"Strada Diaconul Coresi 3, Sibiu, Romania",89.0,45.7911114,24.164606,container,408,85
+2,SB-30-SOM,2024-10-15 07:56:40+00:00,XI3J,120L,"Strada Balea 11, Sibiu, Romania",92.0,45.7926963,24.1617645,container,415,85
+2,SB-30-SOM,2024-10-15 07:58:37+00:00,PZWGRR,120L,"Strada Balea 3, Sibiu, Romania",98.0,45.793147,24.161102,container,418,85
+2,SB-30-SOM,2024-10-15 08:18:22+00:00,QMRW,240L,"Strada Constantin Noica 20 A, Sibiu, Romania",86.0,45.7921181,24.1559759,container,434,80
+2,SB-30-SOM,2024-10-15 08:19:33+00:00,7VIZ,120L,"Strada Constantin Noica 18, Sibiu, Romania",91.0,45.7924052,24.1565636,container,436,85
+2,SB-30-SOM,2024-10-15 08:19:58+00:00,D7IW,120L,"Strada Constantin Noica 16, Sibiu, Romania",97.0,45.7925474,24.1570524,container,437,85
+2,SB-30-SOM,2024-10-15 08:22:17+00:00,X6RI,240L,"Strada Constantin Noica 20, Sibiu, Romania",86.0,45.7921181,24.1559759,container,440,80
+2,SB-30-SOM,2024-10-15 08:23:44+00:00,Q3R2,120L,"Strada Constantin Noica 25, Sibiu, Romania",85.0,45.7916912,24.1563655,container,442,85
+2,SB-30-SOM,2024-10-15 08:29:51+00:00,KOT4,120L,"Strada Constantin Noica 33 C, Sibiu, Romania",85.0,45.79127099999999,24.1555444,container,451,85
+2,SB-30-SOM,2024-10-15 08:33:24+00:00,T7XK,120L,"Strada Constantin Noica 42, Sibiu, Romania",100.0,45.790847,24.1533234,container,459,85
+2,SB-30-SOM,2024-10-15 08:34:12+00:00,NAV7,120L,"Strada Constantin Noica 44 A, Sibiu, Romania",96.0,45.7907239,24.1530439,container,460,85
+2,SB-30-SOM,2024-10-15 08:38:47+00:00,L7HU,120L,"Strada Revoluției 5, Sibiu, Romania",95.0,45.7882744,24.1564405,container,467,85
+2,SB-30-SOM,2024-10-15 08:39:50+00:00,I5QG,120L,"Strada Dobrun 8 A, Sibiu, Romania",93.0,45.790586,24.1519346,container,468,85
+2,SB-30-SOM,2024-10-15 08:41:01+00:00,D3OBAA,240L,"Strada Constantin Noica 60, Sibiu, Romania",98.0,45.7900609,24.1511505,container,470,80
+2,SB-30-SOM,2024-10-15 08:55:32+00:00,G5QV,120L,"Strada Ștefan cel Mare 7 A, Sibiu, Romania",91.0,45.7902665,24.1540334,container,481,85
+2,SB-30-SOM,2024-10-15 08:56:09+00:00,G2MC,120L,"Strada Ștefan cel Mare 7 E, Sibiu, Romania",89.0,45.7902665,24.1540334,container,484,85
+2,SB-30-SOM,2024-10-15 08:56:51+00:00,6W7P,120L,"Strada Ștefan cel Mare 11, Sibiu, Romania",100.0,45.7901976,24.154707,container,485,85
+2,SB-30-SOM,2024-10-15 08:57:30+00:00,FYQD,120L,"Strada Ștefan cel Mare 13 A, Sibiu, Romania",89.0,45.7902581,24.1549894,container,486,85
+2,SB-30-SOM,2024-10-15 09:00:56+00:00,FT7Y,120L,"Strada Ștefan cel Mare 25 A, Sibiu, Romania",95.0,45.7907492,24.156709,container,495,85
+2,SB-30-SOM,2024-10-15 09:01:34+00:00,NZQI,120L,"Strada Ștefan cel Mare 25, Sibiu, Romania",88.0,45.7907007,24.1564829,container,497,85
+2,SB-30-SOM,2024-10-15 10:03:13+00:00,INLF2G,240L,"Strada Ștefan cel Mare 166, Sibiu, Romania",92.0,45.7909446,24.2106185,container,505,80
+2,SB-30-SOM,2024-10-15 10:54:12+00:00,NMLTD3,120L,"Strada Ștefan cel Mare 30, Sibiu, Romania",100.0,45.7901018,24.1619779,container,511,85
+2,SB-30-SOM,2024-10-15 11:03:54+00:00,G5FQOZ,120L,"Strada Ștefan cel Mare 154, Sibiu, Romania",85.0,45.7821425,24.1926167,container,512,85
+2,SB-30-SOM,2024-10-15 11:14:18+00:00,7KPVEF,1.100L,"Strada Ștefan cel Mare 156 A, Sibiu, Romania",77.0,45.7805532,24.1938642,container,515,70
+2,SB-30-SOM,2024-10-15 11:15:30+00:00,2XBH6X,1.100L,"Strada Ștefan cel Mare 156 A, Sibiu, Romania",91.0,45.7805532,24.1938642,container,516,70
+2,SB-30-SOM,2024-10-15 11:35:09+00:00,OTBUCR,1.100L,"Strada Ștefan cel Mare 156, Sibiu, Romania",93.0,45.7862908,24.1930916,container,519,70
+2,SB-30-SOM,2024-10-15 11:51:05+00:00,6OLS,120L,"Strada Oncesti 3, Sibiu, Romania",89.0,45.781675,24.1678071,container,524,85
+2,SB-30-SOM,2024-10-15 11:51:47+00:00,RYBY,120L,"Strada Oncesti 1, Sibiu, Romania",89.0,45.7820992,24.1700576,container,525,85
+3,SB-45-SOM,2024-10-15 03:24:16+00:00,OWQY,120L,"Strada Avram Iancu 12 A, Sibiu, Romania",99.0,45.7979918,24.1535478,container,529,85
+3,SB-45-SOM,2024-10-15 03:25:30+00:00,OYZ4,120L,"Strada Avram Iancu 13 A, Sibiu, Romania",93.0,45.7984854,24.153532,container,531,85
+3,SB-45-SOM,2024-10-15 03:25:35+00:00,6B5I,120L,"Strada Avram Iancu 13, Sibiu, Romania",100.0,45.7984854,24.153532,container,532,85
+3,SB-45-SOM,2024-10-15 03:27:53+00:00,PABD,120L,"Strada Avram Iancu 9 C, Sibiu, Romania",99.0,45.7983602,24.1528471,container,536,85
+3,SB-45-SOM,2024-10-15 03:28:57+00:00,FQWK,120L,"Strada Avram Iancu 8, Sibiu, Romania",94.0,45.797807,24.1532023,container,539,85
+3,SB-45-SOM,2024-10-15 03:29:58+00:00,6EFC,120L,"Strada Avram Iancu 6, Sibiu, Romania",95.0,45.7978133,24.1528624,container,543,85
+3,SB-45-SOM,2024-10-15 03:39:16+00:00,CKBYOO,120L,"Strada G-ral Gheorghe Magheru 2, Sibiu, Romania",91.0,45.7964507,24.1528864,container,551,85
+3,SB-45-SOM,2024-10-15 03:40:31+00:00,R7EWOS,240L,"Piata mare 10, Sibiu, Romania",90.0,45.7960617,24.1526662,container,553,80
+3,SB-45-SOM,2024-10-15 03:41:39+00:00,GWMTJB,240L,"piața mare 11, Sibiu, Romania",83.0,45.7964345,24.1523465,container,554,80
+3,SB-45-SOM,2024-10-15 03:55:43+00:00,J7WC7W,240L,"Strada Nicolae Bălcescu 9, Sibiu, Romania",100.0,45.7951765,24.1509286,container,564,80
+3,SB-45-SOM,2024-10-15 04:15:36+00:00,AE5BTG,240L,"Strada Nicolae Bălcescu 39, Sibiu, Romania",94.0,45.7934536,24.1498616,container,576,80
+3,SB-45-SOM,2024-10-15 04:23:47+00:00,ZQZCLD,240L,"Piața Unirii 10, Sibiu, Romania",86.0,45.7923388,24.1480233,container,580,80
+3,SB-45-SOM,2024-10-15 04:24:11+00:00,EWSTO2,240L,"Strada Andrei Șaguna 4, Sibiu, Romania",80.0,45.7922987,24.1468913,container,581,80
+3,SB-45-SOM,2024-10-15 04:24:26+00:00,STNZIZ,240L,"Strada Andrei Șaguna 4, Sibiu, Romania",89.0,45.7922987,24.1468913,container,582,80
+3,SB-45-SOM,2024-10-15 04:28:38+00:00,V4LT5O,120L,"Strada Andrei Șaguna 5, Sibiu, Romania",92.0,45.7921862,24.1464521,container,584,85
+3,SB-45-SOM,2024-10-15 04:29:47+00:00,MQP7,120L,"Strada Andrei Șaguna 7, Sibiu, Romania",89.0,45.79233060000001,24.1461026,container,587,85
+3,SB-45-SOM,2024-10-15 04:51:23+00:00,MCUN5O,120L,"Strada Vasile Aaron 33, Sibiu, Romania",88.0,45.787744,24.173273,container,595,85
+3,SB-45-SOM,2024-10-15 04:55:34+00:00,LOCZQ2,240L,"Strada Vasile Aaron 18, Sibiu, Romania",100.0,45.7850693,24.1684584,container,599,80
+3,SB-45-SOM,2024-10-15 04:59:34+00:00,CEAV,120L,"Strada Șoimului 3, Sibiu, Romania",98.0,45.7831812,24.1674577,container,603,85
+3,SB-45-SOM,2024-10-15 05:04:27+00:00,EC56ZN,120L,"Strada Vasile Aaron 11, Sibiu, Romania",98.0,45.7840447,24.1652102,container,605,85
+3,SB-45-SOM,2024-10-15 05:05:47+00:00,YL4U,120L,"Strada Vasile Aaron 7, Sibiu, Romania",95.0,45.7838152,24.1650557,container,608,85
+3,SB-45-SOM,2024-10-15 05:07:33+00:00,ZKSMUP,120L,"Strada Vasile Aaron 2, Sibiu, Romania",95.0,45.783313,24.1649966,container,612,85
+3,SB-45-SOM,2024-10-15 05:19:24+00:00,RVTUKK,1.100L,"Strada Fabricii 8, Sibiu, Romania",88.0,45.795612,24.162611,container,618,70
+3,SB-45-SOM,2024-10-15 05:19:54+00:00,C6ZHR2,1.100L,"Strada Fabricii 8, Sibiu, Romania",98.0,45.795612,24.162611,container,619,70
+3,SB-45-SOM,2024-10-15 05:30:34+00:00,WOQ7CW,1.100L,"Strada Uzinei 3, Sibiu, Romania",83.0,45.7992753,24.160406,container,623,70
+3,SB-45-SOM,2024-10-15 05:32:15+00:00,OVU6LL,1.100L,"Strada Uzinei 9, Sibiu, Romania",88.0,45.7986735,24.1600755,container,624,70
+3,SB-45-SOM,2024-10-15 05:44:35+00:00,KXCA,120L,"Strada G-ral Gheorghe Magheru 55, Sibiu, Romania",85.0,45.79938079999999,24.1589113,container,625,85
+3,SB-45-SOM,2024-10-15 05:57:43+00:00,2SSUON,1.100L,"Strada Abatorului 4, Sibiu, Romania",99.0,45.80266959999999,24.1567423,container,630,70
