@@ -1,62 +1,71 @@
-# 📦 Optimizarea Colectării Deșeurilor — Fill Level Forecasting
+# aiot-waste-collection-optimization
 
-Acest proiect conține analiza, simularea și modelul predictiv dezvoltate în notebook-ul `fill_level_prediction_draft.ipynb` pentru optimizarea rutelor de colectare a deșeurilor în Sibiu.
+AIoT-powered optimization for predictive waste collection and route planning in
+Sibiu — reducing distance, cost and environmental impact.
 
----
+The project starts from real data collected by three waste-collection vehicles
+(routes SB25 / SB30 / SB45) and combines three ideas: **prediction** (which
+containers will need collecting), **optimization** (a shorter vehicle route) and
+**impact evaluation** (non-optimized vs optimized distance).
 
-## 📌 Obiectivul Proiectului
+## Project structure
 
-Proiectul compară două metodologii de decizie pentru identificarea containerelor care necesită colectare în ziua curentă:
+```
+aiot-main/
+├── data/
+│   ├── raw/              the 3 raw CSV files (untouched)
+│   └── processed/        data_combined.csv, data_geocoded.csv
+├── src/                  data preparation pipeline
+│   ├── data_preprocess.py   CSVPreprocessor: cleans a raw file, builds Address
+│   ├── data_loader.py       load_and_combine: merges routes, adds depots + fill_level
+│   └── geocoding.py         CoordinatesCalculator: address -> Latitude/Longitude
+├── app/
+│   ├── components/       reusable classes
+│   │   ├── distance_calculator.py   DistanceCalculator, StandardDistanceCalculator,
+│   │   │                            OSRMDistanceCalculator
+│   │   └── fill_predictor.py        FillLevelPredictor (Random Forest)
+│   └── main.py          Streamlit web interface
+└── requirements.txt
+```
 
-1. **Regula Fixă (Baseline - Fără AI):** Reacționează la nivelul de umplere curent ($t_0$). Dacă valoarea depășește pragul prestabilit, containerul este inclus pe rută.
-2. **Model Predictiv (Machine Learning):** Învață dinamica de umplere din date istorice, estimează nivelul de umplere pentru ziua următoare ($t_{+1}$) și aplică pragul pe valoarea prezisă.
+## Data pipeline (`src/`)
 
-> **Beneficiu practic:** Regula simplă este *reactivă* (intervine după ce containerul s-a umplut), în timp ce modelul predictiv este *proactiv* (identifică din timp containerele care vor deveni critice până la următoarea cursă scheduled, prevenind depășirile și mirosurile neplăcute).
+1. **`data_preprocess.py` → `CSVPreprocessor`** — cleans a raw file: removes rows
+   without a street/number or with an invalid number, and builds a single
+   `Address` column.
+2. **`data_loader.py` → `load_and_combine`** — merges the 3 routes, assigns a
+   `route_id` (1/2/3), adds a departure and an arrival depot for each route, and
+   generates a random `fill_level` (0–100%) for every container. → `data_combined.csv`
+3. **`geocoding.py` → `CoordinatesCalculator`** — turns text addresses into
+   coordinates (Latitude/Longitude) via Google Maps. → `data_geocoded.csv`
 
----
+## Components (`app/components/`)
 
-## 🛠️ Structura Notebook-ului (`fill_level_prediction_draft.ipynb`)
+- **`DistanceCalculator`** (base class) — works on a list of `(lat, lon)` points:
+  route length in the given order, nearest-neighbour optimization, and a
+  neoptimized-vs-optimized comparison.
+- **`StandardDistanceCalculator`** — straight-line distance (haversine).
+- **`OSRMDistanceCalculator`** — real road distance via the public OSRM server
+  (no Docker), including the street-following geometry drawn on the map; falls
+  back to the standard calculator if OSRM is unavailable.
+- **`FillLevelPredictor`** — next-day fill-level prediction with a
+  **Random Forest** (decision trees), trained on a simulated 7-day history.
 
-Notebook-ul este structurat pe 7 etape principale:
+## Web interface (`app/main.py`)
 
-* **Etapa 1 — Cadrul Conceptual:** Clarificarea diferenței dintre o regulă scrisă manual (deterministă) și un sistem predictiv ce descoperă tipare din date.
-* **Etapa 2 — Curățarea și Structurarea Datelor:**
-  * Încărcarea `data_geocoded.csv` ($638$ rânduri).
-  * Identificarea celor $6$ rânduri cu `fill_level` lipsă ca fiind depozitele de start/sosire ($3 \text{ rute} \times 2 \text{ puncte}$) și marcarea lor în coloana `point_type` (`depot_departure`, `depot_arrival`, `container`).
-  * Extragerea subsetului de $632$ containere și adăugarea unei chei sintetice unice `uid` pentru prevenirea erorilor legate de ID-uri duplicate.
-* **Etapa 3 — Regula Simplă (Baseline):**
-  * Praguri pe capacități: **120L** (85%), **240L** (80%), **1.100L** (70%).
-  * Rezultat: **138 containere** selectate.
-* **Etapa 4 — Simularea Istoricului de Umplere:**
-  * Simularea a 30 de zile retrograde per container, aplicând o rată zilnică stocastică de umplere în funcție de capacitate (120L: 3-6%, 240L: 4-7%, 1.100L: 6-10%).
-  * Generarea setului istoric ($18.960$ rânduri: $632 \text{ containere} \times 30 \text{ zile}$).
-* **Etapa 5 — Antrenarea Modelului:**
-  * Feature-uri: `simulated_fill_level`, `previous_day_level`, `growth_rate`.
-  * Target: `next_day_level`.
-  * Split Train/Test (80/20) și antrenare **Regresie Liniară** ($\text{MAE} \approx 1.00$ p.p.).
-* **Etapa 6 — Aplicarea Predicției:**
-  * Rularea modelului pe starea din ziua $0$ și aplicarea pragurilor pe valoarea prezisă.
-  * Rezultat: **150 containere** selectate.
-* **Etapa 7 — Analiză Comparativă:**
-  * **138 vs. 150 containere**.
-  * Modelul a identificat **12 containere suplimentare** care erau sub prag azi, dar vor depăși pragul mâine.
+For a selected route it shows: filters, statistics, the container table, the
+**non-optimized vs optimized route comparison** (straight-line and road distance,
+side-by-side maps with hover details) and the **Random Forest prediction**
+(test MAE, rule-today vs prediction-tomorrow).
 
----
+## Setup & run
 
-## 📂 Fișiere Generat / Output-uri (`data/processed/`)
+```bash
+pip install -r requirements.txt
+python -m streamlit run app/main.py
+```
 
-Seturile de date generate de notebook și salvate în folderul `data/processed/`:
-
-| Nume Fișier | Mărime | Descriere |
-| :--- | :---: | :--- |
-| 📄 `collection_simple_rule.csv` | ~19 KB | Lista celor **138 containere** selectate prin regula simplă (bazată pe nivelul curent). |
-| 📄 `simulated_history.csv` | ~522 KB | Istoricul simulat pe 30 de zile pentru cele 632 containere ($18.960$ rânduri). |
-| 📄 `collection_predictive.csv` | ~17 KB | Lista celor **150 containere** selectate prin modelul predictiv (bazat pe nivelul estimat). |
-
----
-
-## 🚀 Cum se rulează
-
-1. Asigură-te că fișierul de intrare `data_geocoded.csv` se află în directorul corespunzător.
-2. Deschide notebook-ul `fill_level_prediction_draft.ipynb` în VS Code sau Jupyter Lab.
-3. Rulează celulele secvențial. Fișierele `.csv` rezultate vor fi salvate automat în `data/processed/`.
+The app reads `data/processed/data_geocoded.csv`, which is already included, so
+you can run it directly. The OSRM road distance uses the public server
+`router.project-osrm.org` (needs internet); without it, the app automatically
+uses the straight-line distance.
