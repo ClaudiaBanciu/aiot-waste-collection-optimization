@@ -1,50 +1,67 @@
 """
-Pasul 5: Interfața web interactivă (Streamlit)
--------------------------------------------------
-Instalare (o dată):
-    pip install streamlit streamlit-folium
+Streamlit application entry point.
 
-Rulare:
-    streamlit run app/main.py   (sau: python -m streamlit run app/main.py)
+Run with:
+    streamlit run app/main.py
+    # or:
+    python -m streamlit run app/main.py
 """
 
-import datetime as dt
-import numpy as np
+import os
+import sys
+
 import pandas as pd
-import altair as alt
-import folium
-from geopy.distance import geodesic
-from streamlit_folium import st_folium
 import streamlit as st
-import sys, os
 
-#import app.components 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from app.components.citeste_csv_robust import Read_Data
-from app.components.fill_level import Fill_level
-from app.components.distante import Distante
-from app.components.interfata import run as run_interfata
+from app.components.data_reader import DataReader
+from app.components.fill_level import FillLevel
+from app.components.interface import run
+from config import INPUT_FILE
 
-st.set_page_config(page_title="Gestiune deșeuri - Sibiu", layout="wide")
+st.set_page_config(page_title="Waste Management - Sibiu", layout="wide")
 
-INPUT_FILE = "data/processed/data_geocoded.csv"
 
 @st.cache_data
-def incarca_date(INPUT_FILE):
-    df = Read_Data.citeste_csv_robust(INPUT_FILE)
-    for col in ["Latitude", "Longitude"]:
+def load_data(input_file: str) -> pd.DataFrame:
+    """Read, clean, and enrich the geocoded CSV.
+
+    Steps:
+      1. Read with DataReader (auto-detects encoding and separator).
+      2. Coerce Latitude / Longitude to float.
+      3. Drop rows with missing coordinates.
+      4. Parse Datetime.
+      5. Normalise fill level via FillLevel (adds Fill_num column).
+      6. Derive time_numeric (decimal hours) and time (HH:MM string).
+    """
+    # 1. Read
+    df = DataReader(input_file).read()
+
+    # 2. Coerce coordinates
+    for col in ("Latitude", "Longitude"):
         if df[col].dtype == object:
             df[col] = pd.to_numeric(
-                df[col].astype(str).str.replace(",", ".", regex=False), errors="coerce"
+                df[col].astype(str).str.replace(",", ".", regex=False),
+                errors="coerce",
             )
+
+    # 3. Drop missing coordinates
     df = df.dropna(subset=["Latitude", "Longitude"]).copy()
+
+    # 4. Parse Datetime
     df["Datetime"] = pd.to_datetime(df["Datetime"])
-    df["Fill_num"] = Fill_level.normalizeaza_fill_level(df["fill_level"]).astype("Int64")
-    df["ora_numerica"] = df["Datetime"].dt.hour + df["Datetime"].dt.minute / 60
-    df["ora"] = df["Datetime"].dt.strftime("%H:%M")
+
+    # 5. Normalise fill level — FillLevel adds the Fill_num column in-place
+    df = FillLevel(df).data
+
+    # 6. Time helpers used in interface.py and webscript.py
+    df["time_numeric"] = df["Datetime"].dt.hour + df["Datetime"].dt.minute / 60
+    df["time"] = df["Datetime"].dt.strftime("%H:%M")
+
     return df
 
-df = incarca_date(INPUT_FILE)
+
+df = load_data(INPUT_FILE)
 
 if __name__ == "__main__":
-    run_interfata(df)
+    run(df)

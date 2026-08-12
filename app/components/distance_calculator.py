@@ -1,150 +1,193 @@
-
 import os
+from abc import ABC, abstractmethod
 
 import numpy as np
 import requests
 
 
-class DistanceCalculator:
-    """Common interface. All methods work with points = [(lat, lon), ...]."""
+class DistanceCalculator(ABC):
+    """Abstract base class for distance calculators.
 
-    metoda = "necunoscuta"
+    All methods work with points = [(lat, lon), ...].
+    Subclasses must implement matrix() — Python will raise TypeError
+    at instantiation time if they don't.
+    """
 
-    def matrice(self, puncte):
-        raise NotImplementedError
+    method: str = "unknown"
 
-    def lungime_traseu(self, puncte, matrice=None):
-        """Sum of consecutive distances (km), in the GIVEN order of the points."""
-        m = matrice if matrice is not None else self.matrice(puncte)
-        return sum(m[i][i + 1] for i in range(len(puncte) - 1))
+    @abstractmethod
+    def matrix(self, points: list[tuple]) -> list[list[float]]:
+        """Build and return the full N×N distance matrix (km)."""
 
-    def optimizeaza(self, puncte, matrice=None):
-        # Nearest-neighbour: start from the first point and always move to the
-        # closest not-yet-visited point. Returns (order_indices, distance_km).
-        n = len(puncte)
+    def route_length(self, points: list[tuple], matrix: list | None = None) -> float:
+        """Sum of consecutive distances (km) in the GIVEN order of the points."""
+        m = matrix if matrix is not None else self.matrix(points)
+        return sum(m[i][i + 1] for i in range(len(points) - 1))
+
+    def optimize(
+        self, points: list[tuple], matrix: list | None = None
+    ) -> tuple[list[int], float]:
+        """Nearest-neighbour heuristic: start from the first point and always
+        move to the closest not-yet-visited point.
+        Returns (order_indices, total_distance_km)."""
+        n = len(points)
         if n < 2:
             return list(range(n)), 0.0
-        m = matrice if matrice is not None else self.matrice(puncte)
-        ramase = set(range(1, n))
-        ordine, curent, total = [0], 0, 0.0
-        while ramase:
-            urm = min(ramase, key=lambda j: m[curent][j])
-            total += m[curent][urm]
-            ordine.append(urm)
-            ramase.discard(urm)
-            curent = urm
-        return ordine, total
+        m = matrix if matrix is not None else self.matrix(points)
+        remaining = set(range(1, n))
+        order, current, total = [0], 0, 0.0
+        while remaining:
+            next_pt = min(remaining, key=lambda j: m[current][j])
+            total += m[current][next_pt]
+            order.append(next_pt)
+            remaining.discard(next_pt)
+            current = next_pt
+        return order, total
 
-    def compara(self, puncte):
-        # Build the matrix ONCE and return the non-optimized distance, the
-        # optimized distance, the saving (%) and the optimal order of points.
-        n = len(puncte)
+    def compare(self, points: list[tuple]) -> dict:
+        """Build the matrix ONCE and return unoptimized distance, optimized
+        distance, savings (%) and the optimal order of points."""
+        n = len(points)
         if n < 2:
-            return {"metoda": self.metoda, "neoptimizat_km": 0.0, "optimizat_km": 0.0,
-                    "economie_%": 0.0, "ordine_optima": list(range(n))}
-        m = self.matrice(puncte)
-        neopt = self.lungime_traseu(puncte, m)
-        ordine, opt = self.optimizeaza(puncte, m)
-        economie = (1 - opt / neopt) * 100 if neopt else 0.0
-        return {"metoda": self.metoda, "neoptimizat_km": neopt, "optimizat_km": opt,
-                "economie_%": economie, "ordine_optima": ordine}
+            return {
+                "method": self.method,
+                "unoptimized_km": 0.0,
+                "optimized_km": 0.0,
+                "savings_%": 0.0,
+                "optimal_order": list(range(n)),
+            }
+        m = self.matrix(points)
+        unoptimized = self.route_length(points, m)
+        order, optimized = self.optimize(points, m)
+        savings = (1 - optimized / unoptimized) * 100 if unoptimized else 0.0
+        return {
+            "method": self.method,
+            "unoptimized_km": unoptimized,
+            "optimized_km": optimized,
+            "savings_%": savings,
+            "optimal_order": order,
+        }
 
 
 class StandardDistanceCalculator(DistanceCalculator):
-    """Standard, straight-line distance (haversine)."""
+    """Straight-line distance using the haversine formula."""
 
-    metoda = "standard"
+    method = "standard"
     R = 6371.0  # Earth's radius (km)
 
-    def matrice(self, puncte):
-        pts = np.radians(np.asarray(puncte, dtype=float))
+    def matrix(self, points: list[tuple]) -> list[list[float]]:
+        pts = np.radians(np.asarray(points, dtype=float))
         lat = pts[:, 0][:, None]
         lon = pts[:, 1][:, None]
         dlat = lat - lat.T
         dlon = lon - lon.T
-        a = np.sin(dlat / 2) ** 2 + np.cos(lat) * np.cos(lat.T) * np.sin(dlon / 2) ** 2
+        a = (
+            np.sin(dlat / 2) ** 2
+            + np.cos(lat) * np.cos(lat.T) * np.sin(dlon / 2) ** 2
+        )
         return (2 * self.R * np.arcsin(np.sqrt(a))).tolist()
 
 
 class OSRMDistanceCalculator(DistanceCalculator):
-    """Real road-network distance, computed via OSRM (the public server
-    router.project-osrm.org), with no Docker and no installation.
+    """Real road-network distance via the public OSRM server.
 
-    Uses the Route service (not Table): a single request gives the road length
-    of a trip passing through the given points, in the given order. For long
-    trips we split into consecutive overlapping chunks (sharing one point) so we
-    don't exceed the maximum URL length.
+    Uses the Route service: a single request gives the road length of a trip
+    through the given points in order. Long trips are split into overlapping
+    chunks to stay within URL length limits.
 
     The optimized order is computed geometrically (nearest-neighbour on
-    straight-line distances, fast and local), then we measure its REAL road
-    length. If the OSRM server does not respond, everything falls back to the
-    standard calculator.
+    straight-line distances), then measured on the real road network.
+    Falls back to StandardDistanceCalculator if the server is unreachable.
     """
 
-    metoda = "osrm"
+    method = "osrm"
 
-    def __init__(self, url=None, fallback=None, chunk=90):
-        self.url = (url or os.environ.get("OSRM_URL", "https://router.project-osrm.org")).rstrip("/")
+    def __init__(
+        self,
+        url: str | None = None,
+        fallback: DistanceCalculator | None = None,
+        chunk: int = 90,
+    ):
+        self.url = (
+            url or os.environ.get("OSRM_URL", "https://router.project-osrm.org")
+        ).rstrip("/")
         self.fallback = fallback or StandardDistanceCalculator()
         self.chunk = chunk
-        self._disponibil = None
+        self._available: bool | None = None
 
-    def disponibil(self) -> bool:
-        """Check only once whether the OSRM server responds."""
-        if self._disponibil is None:
+    def available(self) -> bool:
+        """Check once per session whether the OSRM server is reachable."""
+        if self._available is None:
             try:
-                r = requests.get(f"{self.url}/route/v1/driving/24.15,45.79;24.16,45.80"
-                                 "?overview=false", timeout=6)
-                self._disponibil = r.status_code == 200 and r.json().get("code") == "Ok"
+                r = requests.get(
+                    f"{self.url}/route/v1/driving/24.15,45.79;24.16,45.80"
+                    "?overview=false",
+                    timeout=6,
+                )
+                self._available = (
+                    r.status_code == 200 and r.json().get("code") == "Ok"
+                )
             except Exception:
-                self._disponibil = False
-        return self._disponibil
+                self._available = False
+        return self._available
 
-    def _segment(self, puncte):
-        """With a single Route request: (road length in km, road geometry).
-        We ask for overview=full + geometries=geojson to get the real
-        street-following outline."""
-        coord = ";".join(f"{lon},{lat}" for lat, lon in puncte)
+    def _segment(self, points: list[tuple]) -> tuple[float, list[tuple]]:
+        """Single Route request: returns (road_length_km, geometry)."""
+        coord = ";".join(f"{lon},{lat}" for lat, lon in points)
         url = f"{self.url}/route/v1/driving/{coord}?overview=full&geometries=geojson"
         r = requests.get(url, timeout=40)
         r.raise_for_status()
-        ruta = r.json()["routes"][0]
-        distanta = ruta["distance"] / 1000
-        # GeoJSON gives [lon, lat] coordinates -> we return them as (lat, lon) for folium
-        geometrie = [(lat, lon) for lon, lat in ruta["geometry"]["coordinates"]]
-        return distanta, geometrie
+        route = r.json()["routes"][0]
+        distance = route["distance"] / 1000
+        # GeoJSON gives [lon, lat] → return as (lat, lon) for folium
+        geometry = [(lat, lon) for lon, lat in route["geometry"]["coordinates"]]
+        return distance, geometry
 
-    def traseu_pe_sosea(self, puncte):
-        """Full road trip in the GIVEN order, split into consecutive chunks that
-        overlap by one point. Returns (total_distance_km, geometry)."""
-        total, geometrie, pas = 0.0, [], self.chunk - 1
-        for start in range(0, len(puncte) - 1, pas):
-            bucata = puncte[start:start + self.chunk]
-            if len(bucata) >= 2:
-                dist, geom = self._segment(bucata)
+    def road_route(self, points: list[tuple]) -> tuple[float, list[tuple]]:
+        """Full road trip in the given order, split into overlapping chunks.
+        Returns (total_distance_km, geometry)."""
+        total, geometry, step = 0.0, [], self.chunk - 1
+        for start in range(0, len(points) - 1, step):
+            chunk = points[start : start + self.chunk]
+            if len(chunk) >= 2:
+                dist, geom = self._segment(chunk)
                 total += dist
-                geometrie.extend(geom)
-        return total, geometrie
+                geometry.extend(geom)
+        return total, geometry
 
-    def compara(self, puncte):
-        n = len(puncte)
+    def matrix(self, points: list[tuple]) -> list[list[float]]:
+        """Not used directly — road distances are obtained via road_route()."""
+        return self.fallback.matrix(points)
+
+    def compare(self, points: list[tuple]) -> dict:
+        n = len(points)
         if n < 2:
-            return {"metoda": self.metoda, "neoptimizat_km": 0.0, "optimizat_km": 0.0,
-                    "economie_%": 0.0, "ordine_optima": list(range(n)),
-                    "geom_neopt": [], "geom_opt": []}
-        # find the optimal order geometrically (fast, local)
-        ordine, _ = self.fallback.optimizeaza(puncte)
+            return {
+                "method": self.method,
+                "unoptimized_km": 0.0,
+                "optimized_km": 0.0,
+                "savings_%": 0.0,
+                "optimal_order": list(range(n)),
+                "geom_unopt": [],
+                "geom_opt": [],
+            }
+        order, _ = self.fallback.optimize(points)
         try:
-            neopt, geom_neopt = self.traseu_pe_sosea(puncte)
-            opt, geom_opt = self.traseu_pe_sosea([puncte[i] for i in ordine])
-            self.metoda = "osrm"
+            unoptimized, geom_unopt = self.road_route(points)
+            optimized, geom_opt = self.road_route([points[i] for i in order])
+            self.method = "osrm"
         except Exception:
-            # any OSRM problem -> fall back to the standard distance (no geometry)
-            rez = self.fallback.compara(puncte)
-            rez["metoda"] = "standard (fallback)"
-            rez["geom_neopt"] = rez["geom_opt"] = []
-            return rez
-        economie = (1 - opt / neopt) * 100 if neopt else 0.0
-        return {"metoda": self.metoda, "neoptimizat_km": neopt, "optimizat_km": opt,
-                "economie_%": economie, "ordine_optima": ordine,
-                "geom_neopt": geom_neopt, "geom_opt": geom_opt}
+            result = self.fallback.compare(points)
+            result["method"] = "standard (fallback)"
+            result["geom_unopt"] = result["geom_opt"] = []
+            return result
+        savings = (1 - optimized / unoptimized) * 100 if unoptimized else 0.0
+        return {
+            "method": self.method,
+            "unoptimized_km": unoptimized,
+            "optimized_km": optimized,
+            "savings_%": savings,
+            "optimal_order": order,
+            "geom_unopt": geom_unopt,
+            "geom_opt": geom_opt,
+        }
