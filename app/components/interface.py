@@ -13,7 +13,6 @@ module-level functions.
 import os
 import sys
 
-import altair as alt
 import folium
 import pandas as pd
 import streamlit as st
@@ -35,10 +34,10 @@ from config import THRESHOLD
 @st.cache_data(show_spinner="Computing distances (standard + OSRM on road)...")
 def _compare_distances_cached(points_tuple: tuple) -> dict:
     points = list(points_tuple)
-    standard = StandardDistanceCalculator().compare(points)
+    standard = StandardDistanceCalculator().compare(points, fixed_last=True)
     osrm_calc = OSRMDistanceCalculator()
     osrm_ok = osrm_calc.available()
-    osrm = osrm_calc.compare(points) if osrm_ok else None
+    osrm = osrm_calc.compare(points, fixed_last=True) if osrm_ok else None
     return {"standard": standard, "osrm": osrm, "osrm_ok": osrm_ok}
 
 
@@ -79,13 +78,20 @@ class RouteMap:
 
     @classmethod
     def from_route(cls, df_route: pd.DataFrame) -> "RouteMap":
-        """Factory: extract ordered (depot → stops) points from a route DataFrame."""
+        """Factory: extract ordered (depot → stops → dump) points from a route DataFrame.
+
+        The first depot row is the departure point (fixed start).
+        The second depot row is the landfill/dump (fixed end).
+        Intermediate stops are sorted chronologically and can be reordered.
+        """
         depots = df_route[df_route["Id"].isna()]
         stops = df_route[df_route["Id"].notna()].sort_values("Datetime")
         parts = []
-        if len(depots):
-            parts.append(depots.iloc[[0]])   # departure depot only (no return)
+        if len(depots) >= 1:
+            parts.append(depots.iloc[[0]])    # departure depot (fixed start)
         parts.append(stops)
+        if len(depots) >= 2:
+            parts.append(depots.iloc[[-1]])   # landfill / dump (fixed end)
         ordered = pd.concat(parts).reset_index(drop=True)
         points = list(zip(ordered["Latitude"], ordered["Longitude"]))
         return cls(points, ordered)
@@ -116,12 +122,20 @@ class RouteMap:
             line, color="black", weight=3, opacity=0.7, dash_array="2, 8"
         ).add_to(map_)
 
+        n = len(self.points)
         stop_order = 0
         for i, (lat, lon) in enumerate(self.points):
             row = self.ordered.iloc[i]
-            if pd.isna(row["Id"]):
-                details = self._point_details(row, popup_title, None)
-                icon = folium.Icon(color="gray", icon="home", prefix="fa")
+            if i == 0 and pd.isna(row["Id"]):
+                # Fixed start — depot
+                stop_order += 1
+                details = self._point_details(row, popup_title, stop_order, kind="depot")
+                icon = self._numbered_pin(stop_order, "gray")
+            elif i == n - 1 and pd.isna(row["Id"]):
+                # Fixed end — dump / landfill
+                stop_order += 1
+                details = self._point_details(row, popup_title, stop_order, kind="dump")
+                icon = self._numbered_pin(stop_order, "black")
             else:
                 stop_order += 1
                 details = self._point_details(row, popup_title, stop_order)
@@ -150,10 +164,23 @@ class RouteMap:
         return folium.DivIcon(html=html, icon_size=(28, 28), icon_anchor=(14, 28))
 
     @staticmethod
-    def _point_details(row: pd.Series, title: str, stop_order: int | None) -> str:
-        """HTML tooltip/popup content for a single stop or depot."""
-        if pd.isna(row["Id"]):
-            return f"<b>Depot</b><br>{row['Address']}<br><i>{title}</i>"
+    def _point_details(
+        row: pd.Series,
+        title: str,
+        stop_order: int,
+        kind: str = "stop",
+    ) -> str:
+        """HTML tooltip/popup content for a single stop, depot, or dump."""
+        if kind == "depot":
+            return (
+                f"<b>Stop {stop_order} &middot; Depot</b><br>"
+                f"{row['Address']}<br><i>{title}</i>"
+            )
+        if kind == "dump":
+            return (
+                f"<b>Stop {stop_order} &middot; Landfill</b><br>"
+                f"{row['Address']}<br><i>{title}</i>"
+            )
         fill = f"{row['Fill_num']:.0f}%" if pd.notna(row["Fill_num"]) else "-"
         time = row["time"] if pd.notna(row["time"]) else "-"
         return (
@@ -235,15 +262,9 @@ def run(df: pd.DataFrame) -> None:
     st.caption(f"Route {selected_route} is served by: {', '.join(route_vehicles)}")
 
     # --- Quick metrics ---
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     col1.metric("Displayed containers", int(df_filtered["Id"].notna().sum()))
-    col2.metric(
-        "Average fill level",
-        f"{df_filtered['Fill_num'].mean():.1f}%"
-        if df_filtered["Fill_num"].notna().any()
-        else "-",
-    )
-    col3.metric("Vehicles on route", len(route_vehicles))
+    col2.metric("Vehicles on route", len(route_vehicles))
 
     # --- Container table ---
     st.subheader("Containers on route")
@@ -255,7 +276,7 @@ def run(df: pd.DataFrame) -> None:
             columns={"Fill_num": "Fill level (%)", "time": "Time",
                      "Car": "Vehicle", "Capacity": "Capacity"}
         ).sort_values("Time")
-        st.dataframe(table, use_container_width=True, hide_index=True)
+        st.dataframe(table, width="stretch", hide_index=True)
 
     # -----------------------------------------------------------------
     # ROUTE COMPARISON: unoptimized vs optimized
@@ -271,60 +292,53 @@ def run(df: pd.DataFrame) -> None:
     analyzer = RouteAnalyzer(route_map.points).compute()
     std = analyzer.standard
 
-    # --- Standard distance (straight line) ---
-    st.markdown("**Standard distance (straight line):**")
-    c1, c2, c3 = st.columns(3)
-    c1.metric("Unoptimized", f"{std['unoptimized_km']:.2f} km")
-    c2.metric("Optimized", f"{std['optimized_km']:.2f} km")
-    c3.metric("Savings", f"{std['savings_%']:.1f}%")
+    # --- Distance comparison: straight-line vs road ---
+    col_std, col_osrm = st.columns(2)
 
-    chart_rows = [
-        {"method": "straight line", "route": "unoptimized", "km": std["unoptimized_km"]},
-        {"method": "straight line", "route": "optimized",   "km": std["optimized_km"]},
-    ]
-
-    # --- OSRM road distance ---
-    if not analyzer.osrm_available:
-        st.info(
-            "The public OSRM server is not responding — only the standard distance "
-            "is shown. Road distance will appear when the server is reachable."
-        )
-    else:
-        osrm = analyzer.osrm
-        st.markdown("**Road distance (OSRM):**")
-        o1, o2, o3 = st.columns(3)
-        o1.metric("Unoptimized", f"{osrm['unoptimized_km']:.2f} km")
-        o2.metric("Optimized",   f"{osrm['optimized_km']:.2f} km")
-        factor = (
-            osrm["unoptimized_km"] / std["unoptimized_km"]
-            if std["unoptimized_km"] else 0
-        )
-        o3.metric("Road / straight-line factor", f"{factor:.2f}x")
-        chart_rows += [
-            {"method": "on road (OSRM)", "route": "unoptimized", "km": osrm["unoptimized_km"]},
-            {"method": "on road (OSRM)", "route": "optimized",   "km": osrm["optimized_km"]},
-        ]
-
-    chart = (
-        alt.Chart(pd.DataFrame(chart_rows))
-        .mark_bar()
-        .encode(
-            x=alt.X("route:N", title=None),
-            y=alt.Y("km:Q", title="Distance (km)"),
-            color=alt.Color("route:N", legend=None),
-            column=alt.Column("method:N", title=None),
-            tooltip=["method", "route", alt.Tooltip("km:Q", format=".2f")],
-        )
-        .properties(width=180, height=280)
-    )
-    st.altair_chart(chart, use_container_width=False)
-
-    if analyzer.osrm_available:
+    with col_std:
+        st.markdown("#### Straight-line distance")
         st.caption(
-            "Road distance (OSRM) is greater than straight-line because roads are not "
-            "straight. Note: nearest-neighbour optimization minimizes the straight-line "
-            "distance — measured on the road, the optimized order is not always shorter."
+            "Calculated with the Haversine formula directly between GPS coordinates. "
+            "Ignores roads, one-way streets and obstacles."
         )
+        st.metric("Unoptimized", f"{std['unoptimized_km']:.2f} km")
+        savings_std = std["savings_%"]
+        st.metric(
+            "Optimized (nearest-neighbour)",
+            f"{std['optimized_km']:.2f} km",
+            delta=f"-{savings_std:.1f}%" if savings_std >= 0 else f"+{abs(savings_std):.1f}%",
+            delta_color="inverse",
+        )
+
+    with col_osrm:
+        st.markdown("#### Road distance (OSRM)")
+        if not analyzer.osrm_available:
+            st.caption(
+                "Calculated on the real road network via the public OSRM server. "
+                "Accounts for streets, junctions and routing restrictions."
+            )
+            st.info("OSRM server unavailable — road distance cannot be shown.")
+        else:
+            osrm = analyzer.osrm
+            factor = (
+                osrm["unoptimized_km"] / std["unoptimized_km"]
+                if std["unoptimized_km"] else 0
+            )
+            st.caption(
+                "Calculated on the real road network via the public OSRM server. "
+                f"Roads are ~{factor:.2f}× longer than the straight-line distance."
+            )
+            st.metric("Unoptimized", f"{osrm['unoptimized_km']:.2f} km")
+            savings_osrm = (
+                (1 - osrm["optimized_km"] / osrm["unoptimized_km"]) * 100
+                if osrm["unoptimized_km"] else 0
+            )
+            st.metric(
+                "Optimized (nearest-neighbour)",
+                f"{osrm['optimized_km']:.2f} km",
+                delta=f"-{savings_osrm:.1f}%" if savings_osrm >= 0 else f"+{abs(savings_osrm):.1f}%",
+                delta_color="inverse",
+            )
 
     # --- Side-by-side maps ---
     st.markdown("**Visual on map** (left: real order / right: optimized order)")
@@ -346,7 +360,7 @@ def run(df: pd.DataFrame) -> None:
         st.caption(f"Unoptimized — {label}")
         st_folium(
             route_map.draw("red", "unoptimized route", geom_unopt),
-            height=430, use_container_width=True, key="map_unopt",
+            height=430, width="stretch", key="map_unopt",
         )
     with col_right:
         label = (
@@ -356,14 +370,8 @@ def run(df: pd.DataFrame) -> None:
         st.caption(f"Optimized (nearest-neighbour) — {label}")
         st_folium(
             optimized_map.draw("green", "optimized route", geom_opt),
-            height=430, use_container_width=True, key="map_opt",
+            height=430, width="stretch", key="map_opt",
         )
-
-    st.caption(
-        "Optimization uses the nearest-neighbour heuristic: starting from the depot, "
-        "always choose the closest unvisited stop. Does not guarantee the absolute "
-        "optimal route, but is fast and widely used as a starting point."
-    )
 
     # -----------------------------------------------------------------
     # FILL LEVEL PREDICTION with Random Forest
@@ -397,7 +405,7 @@ def run(df: pd.DataFrame) -> None:
         })
         st.dataframe(
             display[["Id", "Capacity", "Fill level today (%)", "Predicted fill tomorrow (%)"]],
-            use_container_width=True, hide_index=True,
+            width="stretch", hide_index=True,
         )
 
     st.caption(
