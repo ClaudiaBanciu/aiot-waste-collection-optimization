@@ -25,16 +25,26 @@ class DistanceCalculator(ABC):
         return sum(m[i][i + 1] for i in range(len(points) - 1))
 
     def optimize(
-        self, points: list[tuple], matrix: list | None = None
+        self,
+        points: list[tuple],
+        matrix: list | None = None,
+        fixed_last: bool = False,
     ) -> tuple[list[int], float]:
         """Nearest-neighbour heuristic: start from the first point and always
         move to the closest not-yet-visited point.
-        Returns (order_indices, total_distance_km)."""
+
+        If fixed_last is True, the last point is treated as a fixed endpoint
+        (e.g. a landfill/dump) and is always placed at the end — only the
+        intermediate stops are reordered.
+
+        Returns (order_indices, total_distance_km).
+        """
         n = len(points)
         if n < 2:
             return list(range(n)), 0.0
         m = matrix if matrix is not None else self.matrix(points)
-        remaining = set(range(1, n))
+        last = n - 1 if fixed_last else None
+        remaining = set(range(1, n - 1 if fixed_last else n))
         order, current, total = [0], 0, 0.0
         while remaining:
             next_pt = min(remaining, key=lambda j: m[current][j])
@@ -42,11 +52,17 @@ class DistanceCalculator(ABC):
             order.append(next_pt)
             remaining.discard(next_pt)
             current = next_pt
+        if fixed_last and last is not None:
+            total += m[current][last]
+            order.append(last)
         return order, total
 
-    def compare(self, points: list[tuple]) -> dict:
+    def compare(self, points: list[tuple], fixed_last: bool = False) -> dict:
         """Build the matrix ONCE and return unoptimized distance, optimized
-        distance, savings (%) and the optimal order of points."""
+        distance, savings (%) and the optimal order of points.
+
+        fixed_last — see optimize().
+        """
         n = len(points)
         if n < 2:
             return {
@@ -58,7 +74,7 @@ class DistanceCalculator(ABC):
             }
         m = self.matrix(points)
         unoptimized = self.route_length(points, m)
-        order, optimized = self.optimize(points, m)
+        order, optimized = self.optimize(points, m, fixed_last=fixed_last)
         savings = (1 - optimized / unoptimized) * 100 if unoptimized else 0.0
         return {
             "method": self.method,
@@ -156,10 +172,27 @@ class OSRMDistanceCalculator(DistanceCalculator):
         return total, geometry
 
     def matrix(self, points: list[tuple]) -> list[list[float]]:
-        """Not used directly — road distances are obtained via road_route()."""
-        return self.fallback.matrix(points)
+        """N×N road-distance matrix (km) via the OSRM table service.
 
-    def compare(self, points: list[tuple]) -> dict:
+        Uses the /table/v1 endpoint which returns all pairwise road distances
+        in a single request — much more efficient than N² route calls and
+        correct for nearest-neighbour optimization on real roads.
+
+        Falls back to the straight-line matrix if the request fails.
+        """
+        try:
+            coord = ";".join(f"{lon},{lat}" for lat, lon in points)
+            url = f"{self.url}/table/v1/driving/{coord}?annotations=distance"
+            r = requests.get(url, timeout=40)
+            r.raise_for_status()
+            raw = r.json().get("distances", [])
+            if not raw:
+                raise ValueError("Empty distance matrix from OSRM table.")
+            return [[d / 1000 for d in row] for row in raw]
+        except Exception:
+            return self.fallback.matrix(points)
+
+    def compare(self, points: list[tuple], fixed_last: bool = False) -> dict:
         n = len(points)
         if n < 2:
             return {
@@ -171,13 +204,18 @@ class OSRMDistanceCalculator(DistanceCalculator):
                 "geom_unopt": [],
                 "geom_opt": [],
             }
-        order, _ = self.fallback.optimize(points)
         try:
+            # Build the road-distance matrix and optimize on it — nearest-neighbour
+            # now minimizes real road distances, not straight-line distances.
+            road_matrix = self.matrix(points)
+            order, _ = self.optimize(points, road_matrix, fixed_last=fixed_last)
+
+            # Measure full road distances with geometry for map rendering.
             unoptimized, geom_unopt = self.road_route(points)
             optimized, geom_opt = self.road_route([points[i] for i in order])
             self.method = "osrm"
         except Exception:
-            result = self.fallback.compare(points)
+            result = self.fallback.compare(points, fixed_last=fixed_last)
             result["method"] = "standard (fallback)"
             result["geom_unopt"] = result["geom_opt"] = []
             return result

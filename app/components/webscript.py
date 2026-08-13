@@ -121,7 +121,7 @@ class LegacyRouteViewer:
             table = df_f[["Id", "Car", "Address", "time", "Fill_num", "Capacity"]].copy()
             table = table.rename(columns={"Fill_num": "Fill Level (%)", "time": "Time"})
             table = table.sort_values("Time")
-            st.dataframe(table, use_container_width=True, hide_index=True)
+            st.dataframe(table, width="stretch", hide_index=True)
 
     def _render_distances(self) -> None:
         """Per-vehicle unoptimized vs optimized distance comparison."""
@@ -129,16 +129,25 @@ class LegacyRouteViewer:
         total_unopt = total_opt = 0.0
 
         for vehicle in self.route_vehicles:
-            group = (
-                self.df_route[self.df_route["Car"] == vehicle]
-                .sort_values("Datetime")
-                .reset_index(drop=True)
-            )
+            vehicle_df = self.df_route[self.df_route["Car"] == vehicle]
+            depots = vehicle_df[vehicle_df["Id"].isna()]
+            stops  = vehicle_df[vehicle_df["Id"].notna()].sort_values("Datetime")
+
+            # Rebuild ordered sequence: depot (fixed start) → stops → dump (fixed end)
+            parts: list[pd.DataFrame] = []
+            if len(depots) >= 1:
+                parts.append(depots.iloc[[0]])
+            parts.append(stops)
+            if len(depots) >= 2:
+                parts.append(depots.iloc[[-1]])
+            group = pd.concat(parts).reset_index(drop=True)
+
             if len(group) < 2:
                 continue
+            has_fixed_end = len(depots) >= 2
             points = list(zip(group["Latitude"], group["Longitude"]))
             dist_unopt = self._calc.route_length(points)
-            order, dist_opt = self._calc.optimize(points)
+            order, dist_opt = self._calc.optimize(points, fixed_last=has_fixed_end)
 
             total_unopt += dist_unopt
             total_opt += dist_opt
@@ -233,7 +242,7 @@ class LegacyRouteViewer:
             .encode(x="time_numeric:Q", y="Fill Level (%):Q")
         )
         st.altair_chart(
-            (scatter + line).properties(height=350), use_container_width=True
+            (scatter + line).properties(height=350), width="stretch"
         )
         st.caption(
             "Time on the axis is a decimal number (e.g. 7.85 = 07:51). "
