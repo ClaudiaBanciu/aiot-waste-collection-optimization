@@ -13,6 +13,7 @@ module-level functions.
 import os
 import sys
 
+import altair as alt
 import folium
 import pandas as pd
 import streamlit as st
@@ -24,7 +25,7 @@ from app.components.distance_calculator import (
     StandardDistanceCalculator,
 )
 from app.components.fill_predictor import FillLevelPredictor
-from config import THRESHOLD
+from config import THRESHOLD, THRESHOLDS, N_DAYS, SIMULATED_HISTORY_FILE
 
 
 # =====================================================================
@@ -42,17 +43,31 @@ def _compare_distances_cached(points_tuple: tuple) -> dict:
 
 
 @st.cache_resource(show_spinner=False)
-def _train_predictor_cached(_df: pd.DataFrame) -> tuple[float, pd.DataFrame]:
-    """Train the Random Forest once on all containers.
-    Leading underscore tells Streamlit not to hash the DataFrame."""
+def _train_predictor_cached(
+    _df: pd.DataFrame,
+) -> tuple[float, pd.DataFrame, pd.DataFrame]:
+    """Train the Random Forest once on all containers and save the history CSV.
+
+    Leading underscore tells Streamlit not to hash the DataFrame.
+
+    Returns
+    -------
+    (mae, predictions, history)
+      mae         — float, test-set Mean Absolute Error
+      predictions — DataFrame with fill_current / fill_predicted per container
+      history     — DataFrame with 30-day simulated sawtooth history per container
+    """
     containers = _df[
         _df["Id"].notna() & _df["Capacity"].notna() & _df["Fill_num"].notna()
     ][["Id", "Capacity", "route_id"]].copy()
     containers["fill_level"] = _df.loc[containers.index, "Fill_num"].astype(float)
-    predictor = FillLevelPredictor(n_days=7)
+
+    predictor = FillLevelPredictor(n_days=N_DAYS)
     predictor.train(containers)
+    predictor.save_history(SIMULATED_HISTORY_FILE)
+
     predictions = predictor.predict_next_day()
-    return predictor.mae_, predictions
+    return predictor.mae_, predictions, predictor.history_
 
 
 # =====================================================================
@@ -378,38 +393,136 @@ def run(df: pd.DataFrame) -> None:
     # -----------------------------------------------------------------
     st.subheader("Fill level prediction — Random Forest (decision trees)")
 
-    mae, predictions = _train_predictor_cached(df)
-    st.write(
-        "The model predicts **tomorrow's** fill level for each container, based on "
-        "the current level, the previous day's level, and the growth rate "
-        "(simulated 7-day history). Model: **RandomForestRegressor**."
-    )
-    st.metric("Mean Absolute Error (MAE) on test set", f"{mae:.2f} percentage points")
+    mae, predictions, history = _train_predictor_cached(df)
 
     pred_route = predictions[predictions["route_id"] == selected_route].copy()
-    count_today    = int((pred_route["fill_current"]   >= THRESHOLD).sum())
-    count_tomorrow = int((pred_route["fill_predicted"] >= THRESHOLD).sum())
+    route_container_ids = pred_route["Id"].dropna().unique().tolist()
+    hist_route = history[history["Id"].isin(route_container_ids)].copy()
 
-    cc1, cc2, cc3 = st.columns(3)
-    cc1.metric(f"Containers >= {THRESHOLD}% TODAY (rule)", count_today)
-    cc2.metric(f"Containers >= {THRESHOLD}% TOMORROW (prediction)", count_tomorrow)
-    cc3.metric(
-        "Extra vs rule", count_tomorrow - count_today,
-        help="Containers below threshold today but predicted to exceed it tomorrow.",
+    # Pre-compute all three tables once
+    rule_df = (
+        pred_route[pred_route["fill_current"] >= THRESHOLD][["Id", "Capacity", "fill_current"]]
+        .rename(columns={"fill_current": "Fill level today (%)"})
+        .sort_values("Fill level today (%)", ascending=False)
+        .reset_index(drop=True)
+    )
+    above_pred = (
+        pred_route[pred_route["fill_predicted"] >= THRESHOLD][
+            ["Id", "Capacity", "fill_current", "fill_predicted"]
+        ]
+        .rename(columns={
+            "fill_current":   "Fill level today (%)",
+            "fill_predicted": "Predicted tomorrow (%)",
+        })
+        .sort_values("Predicted tomorrow (%)", ascending=False)
+        .reset_index(drop=True)
+    )
+    all_pred = (
+        pred_route[["Id", "Capacity", "fill_current", "fill_predicted"]]
+        .rename(columns={
+            "fill_current":   "Fill level today (%)",
+            "fill_predicted": "Predicted tomorrow (%)",
+        })
+        .sort_values("Predicted tomorrow (%)", ascending=False)
+        .reset_index(drop=True)
     )
 
-    with st.expander("View predictions for this route", expanded=False):
-        display = pred_route.rename(columns={
-            "fill_current":   "Fill level today (%)",
-            "fill_predicted": "Predicted fill tomorrow (%)",
-        })
-        st.dataframe(
-            display[["Id", "Capacity", "Fill level today (%)", "Predicted fill tomorrow (%)"]],
-            width="stretch", hide_index=True,
-        )
+    st.write(
+        f"Threshold: **{THRESHOLD}%** · {N_DAYS}-day sawtooth history · "
+        f"Model: **RandomForestRegressor** · MAE: **{mae:.2f}** pp"
+    )
+
+    # Stage 1 & Stage 2 side by side
+    col_s1, col_s2 = st.columns(2)
+
+    with col_s1:
+        st.markdown("#### Stage 1 — Rule (today)")
+        st.metric(f"Containers ≥ {THRESHOLD}%", len(rule_df))
+        with st.expander("See table"):
+            if rule_df.empty:
+                st.info("No containers above threshold today.")
+            else:
+                st.dataframe(rule_df, width="stretch", hide_index=True)
+
+    with col_s2:
+        st.markdown("#### Stage 2 — Prediction (tomorrow)")
+        st.metric(f"Containers predicted ≥ {THRESHOLD}%", len(above_pred))
+        with st.expander("See table"):
+            if above_pred.empty:
+                st.info("No containers predicted above threshold tomorrow.")
+            else:
+                st.dataframe(above_pred, width="stretch", hide_index=True)
+
+    with st.expander("All containers — today vs tomorrow"):
+        st.dataframe(all_pred, width="stretch", hide_index=True)
 
     st.caption(
-        "Difference from a fixed rule: the model catches containers that are below "
-        "the threshold TODAY but WILL exceed it tomorrow — so they can be collected "
-        "proactively in a single pass. Note: the history is simulated, not real."
+        f"Note: history is simulated (sawtooth pattern), not real sensor data. "
+        f"Saved to `{SIMULATED_HISTORY_FILE}`."
     )
+
+    # -----------------------------------------------------------------
+    # 30-DAY FILL HISTORY PER CONTAINER
+    # -----------------------------------------------------------------
+    st.subheader("Fill level history — last 30 days (simulated)")
+
+    if hist_route.empty:
+        st.info("No history available for this route.")
+    else:
+        id_options = sorted(hist_route["Id"].dropna().unique().tolist())
+        selected_id = st.selectbox(
+            "Select container ID", id_options, key="hist_container_id"
+        )
+
+        hist_sel = hist_route[hist_route["Id"] == selected_id].sort_values("day").copy()
+        capacity  = hist_sel["Capacity"].iloc[0]
+        hist_sel["date_label"] = hist_sel["day"].apply(
+            lambda d: "Today" if d == 0 else f"{-d}d ago"
+        )
+
+        line = (
+            alt.Chart(hist_sel)
+            .mark_line(point=alt.OverlayMarkDef(size=40))
+            .encode(
+                x=alt.X(
+                    "day:Q",
+                    title="Day (0 = today)",
+                    axis=alt.Axis(labelExpr="datum.value === 0 ? 'Today' : datum.value + 'd'"),
+                ),
+                y=alt.Y(
+                    "fill_level:Q",
+                    title="Fill level (%)",
+                    scale=alt.Scale(domain=[0, 105]),
+                ),
+                tooltip=[
+                    alt.Tooltip("date_label:N", title="Day"),
+                    alt.Tooltip("fill_level:Q", title="Fill level (%)", format=".1f"),
+                ],
+                color=alt.value("#1f77b4"),
+            )
+            .properties(
+                title=f"Container {selected_id}  ·  {capacity}  ·  threshold {THRESHOLD}%",
+                height=320,
+            )
+        )
+
+        threshold_line = (
+            alt.Chart(pd.DataFrame({"thr": [THRESHOLD]}))
+            .mark_rule(color="red", strokeDash=[6, 3], strokeWidth=1.5)
+            .encode(y="thr:Q")
+        )
+
+        threshold_label = (
+            alt.Chart(pd.DataFrame({
+                "thr":   [THRESHOLD],
+                "day":   [-(N_DAYS - 2)],
+                "label": [f"Threshold {THRESHOLD}%"],
+            }))
+            .mark_text(align="left", color="red", fontSize=11, dy=-6)
+            .encode(x="day:Q", y="thr:Q", text="label:N")
+        )
+
+        st.altair_chart(
+            (line + threshold_line + threshold_label).interactive(),
+            width="stretch",
+        )
