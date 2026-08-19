@@ -1,8 +1,17 @@
 import os
+import time
 from abc import ABC, abstractmethod
 
 import numpy as np
 import requests
+
+# Roads are ~35% longer than straight-line distances on average.
+# Applied in StandardDistanceCalculator so the fallback distances are
+# a realistic proxy for road distances rather than a systematic underestimate.
+_DETOUR_FACTOR = 1.35
+
+# Seconds to wait before the 2nd and 3rd attempt on transient OSRM failures.
+_RETRY_DELAYS = (1, 3)
 
 
 class DistanceCalculator(ABC):
@@ -86,7 +95,8 @@ class DistanceCalculator(ABC):
 
 
 class StandardDistanceCalculator(DistanceCalculator):
-    """Straight-line distance using the haversine formula."""
+    """Straight-line distance using the haversine formula, scaled by a detour
+    factor to better approximate real road distances when used as a fallback."""
 
     method = "standard"
     R = 6371.0  # Earth's radius (km)
@@ -101,7 +111,7 @@ class StandardDistanceCalculator(DistanceCalculator):
             np.sin(dlat / 2) ** 2
             + np.cos(lat) * np.cos(lat.T) * np.sin(dlon / 2) ** 2
         )
-        return (2 * self.R * np.arcsin(np.sqrt(a))).tolist()
+        return (2 * self.R * np.arcsin(np.sqrt(a)) * _DETOUR_FACTOR).tolist()
 
 
 class OSRMDistanceCalculator(DistanceCalculator):
@@ -111,8 +121,8 @@ class OSRMDistanceCalculator(DistanceCalculator):
     through the given points in order. Long trips are split into overlapping
     chunks to stay within URL length limits.
 
-    The optimized order is computed geometrically (nearest-neighbour on
-    straight-line distances), then measured on the real road network.
+    The optimized order is computed on the real road-distance matrix, then
+    measured on the road network with geometry for map rendering.
     Falls back to StandardDistanceCalculator if the server is unreachable.
     """
 
@@ -123,12 +133,14 @@ class OSRMDistanceCalculator(DistanceCalculator):
         url: str | None = None,
         fallback: DistanceCalculator | None = None,
         chunk: int = 90,
+        timeout: tuple[float, float] = (6.0, 40.0),
     ):
         self.url = (
             url or os.environ.get("OSRM_URL", "https://router.project-osrm.org")
         ).rstrip("/")
         self.fallback = fallback or StandardDistanceCalculator()
         self.chunk = chunk
+        self.timeout = timeout  # (connect_timeout, read_timeout) in seconds
         self._available: bool | None = None
 
     def available(self) -> bool:
@@ -138,7 +150,7 @@ class OSRMDistanceCalculator(DistanceCalculator):
                 r = requests.get(
                     f"{self.url}/route/v1/driving/24.15,45.79;24.16,45.80"
                     "?overview=false",
-                    timeout=6,
+                    timeout=self.timeout[0],
                 )
                 self._available = (
                     r.status_code == 200 and r.json().get("code") == "Ok"
@@ -147,12 +159,26 @@ class OSRMDistanceCalculator(DistanceCalculator):
                 self._available = False
         return self._available
 
+    def _get(self, url: str) -> requests.Response:
+        """GET with retries on transient network failures (timeout, connection error).
+        Non-transient HTTP errors (4xx/5xx) surface immediately."""
+        last_exc: Exception = RuntimeError("no attempts made")
+        for delay in (None, *_RETRY_DELAYS):
+            if delay:
+                time.sleep(delay)
+            try:
+                r = requests.get(url, timeout=self.timeout[1])
+                r.raise_for_status()
+                return r
+            except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as exc:
+                last_exc = exc
+        raise last_exc
+
     def _segment(self, points: list[tuple]) -> tuple[float, list[tuple]]:
         """Single Route request: returns (road_length_km, geometry)."""
         coord = ";".join(f"{lon},{lat}" for lat, lon in points)
         url = f"{self.url}/route/v1/driving/{coord}?overview=full&geometries=geojson"
-        r = requests.get(url, timeout=40)
-        r.raise_for_status()
+        r = self._get(url)
         route = r.json()["routes"][0]
         distance = route["distance"] / 1000
         # GeoJSON gives [lon, lat] → return as (lat, lon) for folium
@@ -178,13 +204,12 @@ class OSRMDistanceCalculator(DistanceCalculator):
         in a single request — much more efficient than N² route calls and
         correct for nearest-neighbour optimization on real roads.
 
-        Falls back to the straight-line matrix if the request fails.
+        Falls back to the StandardDistanceCalculator matrix if the request fails.
         """
         try:
             coord = ";".join(f"{lon},{lat}" for lat, lon in points)
             url = f"{self.url}/table/v1/driving/{coord}?annotations=distance"
-            r = requests.get(url, timeout=40)
-            r.raise_for_status()
+            r = self._get(url)
             raw = r.json().get("distances", [])
             if not raw:
                 raise ValueError("Empty distance matrix from OSRM table.")
@@ -213,7 +238,6 @@ class OSRMDistanceCalculator(DistanceCalculator):
             # Measure full road distances with geometry for map rendering.
             unoptimized, geom_unopt = self.road_route(points)
             optimized, geom_opt = self.road_route([points[i] for i in order])
-            self.method = "osrm"
         except Exception:
             result = self.fallback.compare(points, fixed_last=fixed_last)
             result["method"] = "standard (fallback)"
