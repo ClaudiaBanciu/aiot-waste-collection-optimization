@@ -1,8 +1,10 @@
 import os
 import time
 from abc import ABC, abstractmethod
+from pathlib import Path
 
 import numpy as np
+import pandas as pd
 import requests
 
 # Roads are ~35% longer than straight-line distances on average.
@@ -33,45 +35,9 @@ class DistanceCalculator(ABC):
         m = matrix if matrix is not None else self.matrix(points)
         return sum(m[i][i + 1] for i in range(len(points) - 1))
 
-    def optimize(
-        self,
-        points: list[tuple],
-        matrix: list | None = None,
-        fixed_last: bool = False,
-    ) -> tuple[list[int], float]:
-        """Nearest-neighbour heuristic: start from the first point and always
-        move to the closest not-yet-visited point.
-
-        If fixed_last is True, the last point is treated as a fixed endpoint
-        (e.g. a landfill/dump) and is always placed at the end — only the
-        intermediate stops are reordered.
-
-        Returns (order_indices, total_distance_km).
-        """
-        n = len(points)
-        if n < 2:
-            return list(range(n)), 0.0
-        m = matrix if matrix is not None else self.matrix(points)
-        last = n - 1 if fixed_last else None
-        remaining = set(range(1, n - 1 if fixed_last else n))
-        order, current, total = [0], 0, 0.0
-        while remaining:
-            next_pt = min(remaining, key=lambda j: m[current][j])
-            total += m[current][next_pt]
-            order.append(next_pt)
-            remaining.discard(next_pt)
-            current = next_pt
-        if fixed_last and last is not None:
-            total += m[current][last]
-            order.append(last)
-        return order, total
-
-    def compare(self, points: list[tuple], fixed_last: bool = False) -> dict:
-        """Build the matrix ONCE and return unoptimized distance, optimized
-        distance, savings (%) and the optimal order of points.
-
-        fixed_last — see optimize().
-        """
+    def compare(self, points: list[tuple]) -> dict:
+        """Build the matrix once, run NearestNeighborSolver, return distances and optimal order."""
+        from app.ml.nn.nearest_neighbor import NearestNeighborSolver
         n = len(points)
         if n < 2:
             return {
@@ -83,7 +49,10 @@ class DistanceCalculator(ABC):
             }
         m = self.matrix(points)
         unoptimized = self.route_length(points, m)
-        order, optimized = self.optimize(points, m, fixed_last=fixed_last)
+        path_names, optimized = NearestNeighborSolver().solve(
+            np.array(m), [f"P{i}" for i in range(n)], verbose=False
+        )
+        order = [int(name[1:]) for name in path_names]
         savings = (1 - optimized / unoptimized) * 100 if unoptimized else 0.0
         return {
             "method": self.method,
@@ -217,7 +186,8 @@ class OSRMDistanceCalculator(DistanceCalculator):
         except Exception:
             return self.fallback.matrix(points)
 
-    def compare(self, points: list[tuple], fixed_last: bool = False) -> dict:
+    def compare(self, points: list[tuple]) -> dict:
+        from app.ml.nn.nearest_neighbor import NearestNeighborSolver
         n = len(points)
         if n < 2:
             return {
@@ -230,16 +200,15 @@ class OSRMDistanceCalculator(DistanceCalculator):
                 "geom_opt": [],
             }
         try:
-            # Build the road-distance matrix and optimize on it — nearest-neighbour
-            # now minimizes real road distances, not straight-line distances.
             road_matrix = self.matrix(points)
-            order, _ = self.optimize(points, road_matrix, fixed_last=fixed_last)
-
-            # Measure full road distances with geometry for map rendering.
+            path_names, _ = NearestNeighborSolver().solve(
+                np.array(road_matrix), [f"P{i}" for i in range(n)], verbose=False
+            )
+            order = [int(name[1:]) for name in path_names]
             unoptimized, geom_unopt = self.road_route(points)
             optimized, geom_opt = self.road_route([points[i] for i in order])
         except Exception:
-            result = self.fallback.compare(points, fixed_last=fixed_last)
+            result = self.fallback.compare(points)
             result["method"] = "standard (fallback)"
             result["geom_unopt"] = result["geom_opt"] = []
             return result
@@ -253,3 +222,53 @@ class OSRMDistanceCalculator(DistanceCalculator):
             "geom_unopt": geom_unopt,
             "geom_opt": geom_opt,
         }
+
+
+_MATRIX_DIR = Path(__file__).resolve().parents[2] / "data" / "distance_matrices" / "google_maps"
+
+
+class SequentialRouteDistanceCalculator:
+    """Computes total driven distance from precomputed Google Maps distance
+    matrices following stops in their original recorded order:
+    depot → stop_1 → stop_2 → ... → landfill (no return trip).
+
+    Matrix files must be generated first:
+        python src/compute_distance_matrices.py
+    """
+
+    def __init__(self, matrix_files: list[str]):
+        self.matrix_files = matrix_files
+
+    @classmethod
+    def for_car(cls, car: str) -> "SequentialRouteDistanceCalculator":
+        """Convenience constructor: build from a single car name."""
+        return cls([str(_MATRIX_DIR / f"{car}_distance_matrix.csv")])
+
+    @staticmethod
+    def available(car: str) -> bool:
+        """True if a precomputed matrix CSV exists for this car."""
+        return (_MATRIX_DIR / f"{car}_distance_matrix.csv").exists()
+
+    def load_matrix(self, file_path: str) -> pd.DataFrame:
+        return pd.read_csv(file_path, index_col=0)
+
+    def calculate_sequential_distance(self, df: pd.DataFrame) -> float:
+        """Sum consecutive legs: point_0 → point_1 → ... → point_n."""
+        total_distance = 0.0
+        num_points = len(df)
+        for i in range(num_points - 1):
+            distance = df.iloc[i, i + 1]
+            total_distance += distance
+        return total_distance
+
+    def process_all(self) -> None:
+        for file_path in self.matrix_files:
+            df = self.load_matrix(file_path)
+            total = self.calculate_sequential_distance(df)
+            file_name = os.path.basename(file_path)
+            print(f"🔹 {file_name}: Sequential total distance: {total:.2f} km")
+
+    def distance_for_first_file(self) -> float:
+        """Return the sequential distance for the first (and typically only) file."""
+        df = self.load_matrix(self.matrix_files[0])
+        return self.calculate_sequential_distance(df)
