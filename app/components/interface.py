@@ -15,6 +15,7 @@ import sys
 
 import altair as alt
 import folium
+import numpy as np
 import pandas as pd
 import streamlit as st
 from streamlit_folium import st_folium
@@ -22,23 +23,89 @@ from streamlit_folium import st_folium
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from app.components.distance_calculator import (
     OSRMDistanceCalculator,
+    SequentialRouteDistanceCalculator,
     StandardDistanceCalculator,
 )
 from app.components.fill_predictor import FillLevelPredictor
+from app.ml.nn.nearest_neighbor import NearestNeighborSolver
 from config import THRESHOLD, THRESHOLDS, N_DAYS, SIMULATED_HISTORY_FILE
+
+_DIST_DIR   = os.path.join(os.path.dirname(__file__), "..", "..", "data", "distance_matrices")
+_MATRIX_DIR = os.path.join(_DIST_DIR, "google_maps")
+_STD_DIR    = os.path.join(_DIST_DIR, "standard")
+_OSRM_DIR   = os.path.join(_DIST_DIR, "osrm")
 
 
 # =====================================================================
 # Streamlit-cached helpers (module-level for decorator compatibility)
 # =====================================================================
 
+@st.cache_data(show_spinner="Running Nearest Neighbour algorithm...")
+def _nn_results_cached(car: str) -> dict:
+    """Run NearestNeighborSolver on the precomputed Google Maps matrix."""
+    solver = NearestNeighborSolver()
+    matrix_path = os.path.join(_MATRIX_DIR, f"{car}_distance_matrix.csv")
+    if not os.path.exists(matrix_path):
+        return {"google_maps": None}
+    path, dist = solver.from_file(matrix_path, verbose=False)
+    return {"google_maps": {"optimized_km": dist, "path": path}}
+
+
+@st.cache_data(show_spinner=False)
+def _sequential_distance_cached(car: str) -> float | None:
+    if not SequentialRouteDistanceCalculator.available(car):
+        return None
+    calc = SequentialRouteDistanceCalculator.for_car(car)
+    return calc.distance_for_first_file()
+
+
+def _save_matrix(matrix: list[list[float]], car: str, directory: str) -> None:
+    """Save an N×N matrix to directory/{car}_distance_matrix.csv. Skips if already exists."""
+    os.makedirs(directory, exist_ok=True)
+    path = os.path.join(directory, f"{car}_distance_matrix.csv")
+    if os.path.exists(path):
+        return
+    n = len(matrix)
+    labels = [f"Point_{i + 1}" for i in range(n)]
+    pd.DataFrame(matrix, index=labels, columns=labels).to_csv(path)
+
+
 @st.cache_data(show_spinner="Computing distances (standard + OSRM on road)...")
-def _compare_distances_cached(points_tuple: tuple) -> dict:
+def _compare_distances_cached(points_tuple: tuple, car: str) -> dict:
     points = list(points_tuple)
-    standard = StandardDistanceCalculator().compare(points, fixed_last=True)
+
+    # Standard — compute matrix explicitly so we can save it
+    std_calc = StandardDistanceCalculator()
+    std_matrix = std_calc.matrix(points)
+    if car:
+        _save_matrix(std_matrix, car, _STD_DIR)
+    unoptimized = std_calc.route_length(points, std_matrix)
+    n = len(points)
+    path_names, optimized = NearestNeighborSolver().solve(
+        np.array(std_matrix), [f"P{i}" for i in range(n)], verbose=False
+    )
+    order = [int(name[1:]) for name in path_names]
+    savings = (1 - optimized / unoptimized) * 100 if unoptimized else 0.0
+    standard = {
+        "method": "standard",
+        "unoptimized_km": unoptimized,
+        "optimized_km": optimized,
+        "savings_%": savings,
+        "optimal_order": order,
+    }
+
+    # OSRM — compare() uses road_route() for actual measurements;
+    # we separately fetch the table matrix to save it (fails silently for >100 pts)
     osrm_calc = OSRMDistanceCalculator()
     osrm_ok = osrm_calc.available()
-    osrm = osrm_calc.compare(points, fixed_last=True) if osrm_ok else None
+    osrm = osrm_calc.compare(points) if osrm_ok else None
+    if osrm_ok and car:
+        try:
+            osrm_matrix = osrm_calc.matrix(points)
+            _save_matrix(osrm_matrix, car, _OSRM_DIR)
+        except Exception:
+            pass
+
     return {"standard": standard, "osrm": osrm, "osrm_ok": osrm_ok}
 
 
@@ -228,9 +295,9 @@ class RouteAnalyzer:
         self.points = points
         self._result: dict | None = None
 
-    def compute(self) -> "RouteAnalyzer":
+    def compute(self, car: str = "") -> "RouteAnalyzer":
         """Run both distance methods and cache the result. Returns self."""
-        self._result = _compare_distances_cached(tuple(self.points))
+        self._result = _compare_distances_cached(tuple(self.points), car)
         return self
 
     def _require_computed(self) -> None:
@@ -294,9 +361,9 @@ def run(df: pd.DataFrame) -> None:
         st.dataframe(table, width="stretch", hide_index=True)
 
     # -----------------------------------------------------------------
-    # ROUTE COMPARISON: unoptimized vs optimized
+    # ROUTE DISTANCES: original vs NN-optimized
     # -----------------------------------------------------------------
-    st.subheader("Route comparison: unoptimized vs optimized")
+    st.subheader("Route distances: original vs optimized")
 
     route_map = RouteMap.from_route(df_route)
 
@@ -304,52 +371,70 @@ def run(df: pd.DataFrame) -> None:
         st.warning("The route does not have enough points to calculate distance.")
         return
 
-    analyzer = RouteAnalyzer(route_map.points).compute()
+    car = route_vehicles[0] if route_vehicles else None
+    analyzer = RouteAnalyzer(route_map.points).compute(car or "")
     std = analyzer.standard
+    nn_results = _nn_results_cached(car) if car else {}
 
-    # --- Distance comparison: straight-line vs road ---
-    col_std, col_osrm = st.columns(2)
+    col_gm, col_std_nn, col_osrm_nn = st.columns(3)
 
-    with col_std:
-        st.markdown("#### Straight-line distance")
-        st.caption(
-            "Calculated with the Haversine formula directly between GPS coordinates. "
-            "Ignores roads, one-way streets and obstacles."
+    _cap_style = "min-height:52px;font-size:0.85em;color:gray;margin-bottom:0.5em"
+
+    with col_gm:
+        st.markdown("#### Google Maps")
+        st.markdown(
+            f'<div style="{_cap_style}">Precomputed matrix — actual road distances, '
+            "stops in recorded order vs NN-optimized order.</div>",
+            unsafe_allow_html=True,
         )
-        st.metric("Unoptimized", f"{std['unoptimized_km']:.2f} km")
+        gm_seq = _sequential_distance_cached(car) if car else None
+        gm_nn = nn_results.get("google_maps")
+        if gm_seq is None:
+            st.info("Matrix file not found. Run `python src/compute_distance_matrices.py`.")
+        else:
+            savings = (1 - gm_nn["optimized_km"] / gm_seq) * 100 if (gm_nn and gm_seq) else 0
+            st.metric("Original (sequential)", f"{gm_seq:.2f} km")
+            if gm_nn:
+                st.metric(
+                    "NN optimized",
+                    f"{gm_nn['optimized_km']:.2f} km",
+                    delta=f"-{savings:.1f}%" if savings >= 0 else f"+{abs(savings):.1f}%",
+                    delta_color="inverse",
+                )
+
+    with col_std_nn:
+        st.markdown("#### Standard (haversine)")
+        st.markdown(
+            f'<div style="{_cap_style}">Straight-line distance × 1.35 detour factor. '
+            "Ignores roads and one-way streets.</div>",
+            unsafe_allow_html=True,
+        )
         savings_std = std["savings_%"]
+        st.metric("Original", f"{std['unoptimized_km']:.2f} km")
         st.metric(
-            "Optimized (nearest-neighbour)",
+            "NN optimized",
             f"{std['optimized_km']:.2f} km",
             delta=f"-{savings_std:.1f}%" if savings_std >= 0 else f"+{abs(savings_std):.1f}%",
             delta_color="inverse",
         )
 
-    with col_osrm:
-        st.markdown("#### Road distance (OSRM)")
+    with col_osrm_nn:
+        st.markdown("#### OSRM (road network)")
+        st.markdown(
+            f'<div style="{_cap_style}">Real road distances via OSRM routing server.</div>',
+            unsafe_allow_html=True,
+        )
         if not analyzer.osrm_available:
-            st.caption(
-                "Calculated on the real road network via the public OSRM server. "
-                "Accounts for streets, junctions and routing restrictions."
-            )
-            st.info("OSRM server unavailable — road distance cannot be shown.")
+            st.info("OSRM server unavailable.")
         else:
             osrm = analyzer.osrm
-            factor = (
-                osrm["unoptimized_km"] / std["unoptimized_km"]
-                if std["unoptimized_km"] else 0
-            )
-            st.caption(
-                "Calculated on the real road network via the public OSRM server. "
-                f"Roads are ~{factor:.2f}× longer than the straight-line distance."
-            )
-            st.metric("Unoptimized", f"{osrm['unoptimized_km']:.2f} km")
             savings_osrm = (
                 (1 - osrm["optimized_km"] / osrm["unoptimized_km"]) * 100
                 if osrm["unoptimized_km"] else 0
             )
+            st.metric("Original", f"{osrm['unoptimized_km']:.2f} km")
             st.metric(
-                "Optimized (nearest-neighbour)",
+                "NN optimized",
                 f"{osrm['optimized_km']:.2f} km",
                 delta=f"-{savings_osrm:.1f}%" if savings_osrm >= 0 else f"+{abs(savings_osrm):.1f}%",
                 delta_color="inverse",
