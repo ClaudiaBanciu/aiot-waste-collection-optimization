@@ -376,6 +376,9 @@ def run(df: pd.DataFrame) -> None:
     std = analyzer.standard
     nn_results = _nn_results_cached(car) if car else {}
 
+    gm_seq = _sequential_distance_cached(car) if car else None
+    gm_nn = nn_results.get("google_maps")
+
     col_gm, col_std_nn, col_osrm_nn = st.columns(3)
 
     _cap_style = "min-height:52px;font-size:0.85em;color:gray;margin-bottom:0.5em"
@@ -387,8 +390,6 @@ def run(df: pd.DataFrame) -> None:
             "stops in recorded order vs NN-optimized order.</div>",
             unsafe_allow_html=True,
         )
-        gm_seq = _sequential_distance_cached(car) if car else None
-        gm_nn = nn_results.get("google_maps")
         if gm_seq is None:
             st.info("Matrix file not found. Run `python src/compute_distance_matrices.py`.")
         else:
@@ -441,35 +442,34 @@ def run(df: pd.DataFrame) -> None:
             )
 
     # --- Side-by-side maps ---
-    st.markdown("**Visual on map** (left: real order / right: optimized order)")
+    st.markdown("**Visual on map** (left: real order / right: NN-optimized via Google Maps)")
 
-    optimal_order = std["optimal_order"]
+    # Use Google Maps NN path for the optimized map order; fall back to standard haversine.
+    if gm_nn and gm_nn.get("path"):
+        optimal_order = [int(name.split("_")[1]) - 1 for name in gm_nn["path"]]
+    else:
+        optimal_order = std["optimal_order"]
     optimized_map = route_map.reorder(optimal_order)
-
-    geom_unopt = geom_opt = None
-    if analyzer.osrm_available and analyzer.osrm.get("geom_unopt"):
-        geom_unopt = analyzer.osrm["geom_unopt"]
-        geom_opt   = analyzer.osrm["geom_opt"]
 
     col_left, col_right = st.columns(2)
     with col_left:
-        label = (
-            f"{analyzer.osrm['unoptimized_km']:.2f} km on road"
-            if geom_unopt else f"{std['unoptimized_km']:.2f} km straight line"
-        )
-        st.caption(f"Unoptimized — {label}")
+        if gm_seq is not None:
+            unopt_label = f"{gm_seq:.2f} km · Google Maps · original order"
+        else:
+            unopt_label = f"{std['unoptimized_km']:.2f} km · straight-line"
+        st.caption(f"Unoptimized — {unopt_label}")
         st_folium(
-            route_map.draw("red", "unoptimized route", geom_unopt),
+            route_map.draw("red", "unoptimized route"),
             height=430, width="stretch", key="map_unopt",
         )
     with col_right:
-        label = (
-            f"{analyzer.osrm['optimized_km']:.2f} km on road"
-            if geom_opt else f"{std['optimized_km']:.2f} km straight line"
-        )
-        st.caption(f"Optimized (nearest-neighbour) — {label}")
+        if gm_nn:
+            opt_label = f"{gm_nn['optimized_km']:.2f} km · Google Maps NN"
+        else:
+            opt_label = f"{std['optimized_km']:.2f} km · straight-line NN"
+        st.caption(f"Optimized (NN) — {opt_label}")
         st_folium(
-            optimized_map.draw("green", "optimized route", geom_opt),
+            optimized_map.draw("green", "optimized route (Google Maps NN)"),
             height=430, width="stretch", key="map_opt",
         )
 
