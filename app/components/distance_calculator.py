@@ -15,6 +15,15 @@ _DETOUR_FACTOR = 1.35
 # Seconds to wait before the 2nd and 3rd attempt on transient OSRM failures.
 _RETRY_DELAYS = (1, 3)
 
+# The public OSRM server rejects a /table request with "TooBig" once
+# sources × destinations exceeds 10,000 (its max-table-size of 100, squared).
+# A 100×100 block sits exactly on that cap while keeping the URL near 5 KB,
+# comfortably under the usual 8 KB header limit.
+_TABLE_BLOCK = 100
+
+# Courtesy pause between block requests so the shared demo server isn't hammered.
+_TABLE_PAUSE = 0.2
+
 
 class DistanceCalculator(ABC):
     """Abstract base class for distance calculators.
@@ -103,6 +112,8 @@ class OSRMDistanceCalculator(DistanceCalculator):
         fallback: DistanceCalculator | None = None,
         chunk: int = 90,
         timeout: tuple[float, float] = (6.0, 40.0),
+        table_block: int = _TABLE_BLOCK,
+        table_pause: float = _TABLE_PAUSE,
     ):
         self.url = (
             url or os.environ.get("OSRM_URL", "https://router.project-osrm.org")
@@ -110,6 +121,10 @@ class OSRMDistanceCalculator(DistanceCalculator):
         self.fallback = fallback or StandardDistanceCalculator()
         self.chunk = chunk
         self.timeout = timeout  # (connect_timeout, read_timeout) in seconds
+        # Rows/columns per /table request. Raise this when pointing at your own
+        # OSRM instance started with a larger --max-table-size.
+        self.table_block = table_block
+        self.table_pause = table_pause
         self._available: bool | None = None
 
     def available(self) -> bool:
@@ -144,9 +159,21 @@ class OSRMDistanceCalculator(DistanceCalculator):
         raise last_exc
 
     def _segment(self, points: list[tuple]) -> tuple[float, list[tuple]]:
-        """Single Route request: returns (road_length_km, geometry)."""
+        """Single Route request: returns (road_length_km, geometry).
+
+        `continue_straight=false` is essential here. It defaults to true, which
+        forbids a U-turn at each waypoint and sends the route around the block
+        instead — inflating a dense collection round by ~10%. The /table matrix
+        the route order is optimized on has no such constraint, so leaving the
+        default in place would measure a different route than the one optimized.
+        A collection truck can reverse direction at a stop, so false is also the
+        physically correct choice.
+        """
         coord = ";".join(f"{lon},{lat}" for lat, lon in points)
-        url = f"{self.url}/route/v1/driving/{coord}?overview=full&geometries=geojson"
+        url = (
+            f"{self.url}/route/v1/driving/{coord}"
+            "?overview=full&geometries=geojson&continue_straight=false"
+        )
         r = self._get(url)
         route = r.json()["routes"][0]
         distance = route["distance"] / 1000
@@ -166,25 +193,120 @@ class OSRMDistanceCalculator(DistanceCalculator):
                 geometry.extend(geom)
         return total, geometry
 
+    def _table_block(
+        self,
+        points: list[tuple],
+        rows: list[int],
+        cols: list[int],
+    ) -> list[list[float | None]]:
+        """One /table request for the sub-matrix rows × cols (metres).
+
+        Only the coordinates actually needed are sent, and `sources` /
+        `destinations` select which of them are origins and which are
+        destinations. This keeps both the cell count (rows × cols) and the
+        URL length within the server's limits.
+        """
+        if rows == cols:
+            # Diagonal block — send each coordinate once, sources/destinations
+            # both default to "all".
+            sel = rows
+            query = "annotations=distance"
+        else:
+            sel = rows + cols
+            src = ";".join(str(k) for k in range(len(rows)))
+            dst = ";".join(str(k) for k in range(len(rows), len(sel)))
+            query = f"annotations=distance&sources={src}&destinations={dst}"
+
+        coord = ";".join(f"{points[i][1]},{points[i][0]}" for i in sel)
+        r = self._get(f"{self.url}/table/v1/driving/{coord}?{query}")
+        raw = r.json().get("distances")
+        if not raw:
+            raise ValueError("Empty distance matrix from OSRM table.")
+        return raw
+
     def matrix(self, points: list[tuple]) -> list[list[float]]:
         """N×N road-distance matrix (km) via the OSRM table service.
 
-        Uses the /table/v1 endpoint which returns all pairwise road distances
-        in a single request — much more efficient than N² route calls and
-        correct for nearest-neighbour optimization on real roads.
+        The public OSRM server caps a table request at
+        `sources × destinations <= _TABLE_MAX_CELLS`, so anything past ~100
+        points fails as `TooBig` in a single request. The matrix is therefore
+        assembled from square blocks of at most `_TABLE_BLOCK` rows/columns,
+        which keeps every request inside both that cap and the server's URL
+        length limit.
 
-        Falls back to the StandardDistanceCalculator matrix if the request fails.
+        Unroutable pairs come back as null and are filled from the haversine
+        fallback. If a whole block fails, only that block falls back, so a
+        transient error no longer silently degrades the entire matrix.
         """
-        try:
-            coord = ";".join(f"{lon},{lat}" for lat, lon in points)
-            url = f"{self.url}/table/v1/driving/{coord}?annotations=distance"
-            r = self._get(url)
-            raw = r.json().get("distances", [])
-            if not raw:
-                raise ValueError("Empty distance matrix from OSRM table.")
-            return [[d / 1000 for d in row] for row in raw]
-        except Exception:
-            return self.fallback.matrix(points)
+        n = len(points)
+        if n == 0:
+            return []
+
+        fallback: list[list[float]] | None = None
+
+        def fallback_matrix() -> list[list[float]]:
+            nonlocal fallback
+            if fallback is None:
+                fallback = self.fallback.matrix(points)
+            return fallback
+
+        result = [[0.0] * n for _ in range(n)]
+        block = self.table_block
+
+        for i0 in range(0, n, block):
+            rows = list(range(i0, min(i0 + block, n)))
+            for j0 in range(0, n, block):
+                cols = list(range(j0, min(j0 + block, n)))
+                try:
+                    raw = self._table_block(points, rows, cols)
+                except Exception:
+                    fb = fallback_matrix()
+                    for a, i in enumerate(rows):
+                        for b, j in enumerate(cols):
+                            result[i][j] = fb[i][j]
+                    continue
+
+                for a, i in enumerate(rows):
+                    for b, j in enumerate(cols):
+                        d = raw[a][b]
+                        # null = no route found between this pair
+                        result[i][j] = (
+                            d / 1000 if d is not None else fallback_matrix()[i][j]
+                        )
+
+                if self.table_pause:
+                    time.sleep(self.table_pause)
+
+        return result
+
+    def snap_report(self, points: list[tuple], threshold_m: float = 100.0) -> list[dict]:
+        """Flag points that sit far from any drivable road.
+
+        OSRM snaps every coordinate to the nearest road before routing. A large
+        snap distance means the coordinate is not where the address says it is —
+        usually a bad geocode — and it silently produces long phantom legs.
+        Returns one entry per point exceeding `threshold_m`, worst first.
+
+        Uses the /nearest service, one request per point, so call it on a
+        route's points once rather than in a hot loop.
+        """
+        flagged = []
+        for i, (lat, lon) in enumerate(points):
+            try:
+                r = self._get(f"{self.url}/nearest/v1/driving/{lon},{lat}?number=1")
+                wp = r.json()["waypoints"][0]
+            except Exception:
+                continue
+            if wp["distance"] > threshold_m:
+                flagged.append({
+                    "index": i,
+                    "input": (lat, lon),
+                    "snapped_to": wp.get("name") or "(unnamed road)",
+                    "snap_distance_m": wp["distance"],
+                })
+            if self.table_pause:
+                time.sleep(self.table_pause)
+        return sorted(flagged, key=lambda d: -d["snap_distance_m"])
 
     def compare(self, points: list[tuple]) -> dict:
         from app.ml.nn.nearest_neighbor import NearestNeighborSolver

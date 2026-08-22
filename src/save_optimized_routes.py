@@ -32,6 +32,7 @@ from app.ml.nn.nearest_neighbor import NearestNeighborSolver
 
 GEOCODED_CSV = PROJECT_ROOT / "data" / "processed" / "data_geocoded.csv"
 GM_MATRIX_DIR = PROJECT_ROOT / "data" / "distance_matrices" / "google_maps"
+OSRM_MATRIX_DIR = PROJECT_ROOT / "data" / "distance_matrices" / "osrm"
 OUTPUT_DIR = PROJECT_ROOT / "outputs" / "routes"
 CARS = ["SB-25-SOM", "SB-30-SOM", "SB-45-SOM"]
 
@@ -123,6 +124,13 @@ def save_osrm(car: str, car_df: pd.DataFrame) -> None:
     point_labels = [f"Point_{i + 1}" for i in range(n)]
 
     matrix = np.array(osrm.matrix(points))
+
+    # Persist the matrix so the app reuses it instead of re-querying OSRM.
+    OSRM_MATRIX_DIR.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(matrix, index=point_labels, columns=point_labels).to_csv(
+        OSRM_MATRIX_DIR / f"{car}_distance_matrix.csv"
+    )
+
     path, total_km = NearestNeighborSolver().solve(matrix, point_labels, verbose=False)
     if path is None:
         print(f"[{car}] OSRM NN failed — skipping.")
