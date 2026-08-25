@@ -27,8 +27,22 @@ from app.components.distance_calculator import (
     StandardDistanceCalculator,
 )
 from app.components.fill_predictor import FillLevelPredictor
+from app.components.predicted_bins import (
+    ROUTE_LINE_STYLE,
+    PredictedBins,
+    PredictedBinsMap,
+    PredictedRoute,
+)
 from app.ml.nn.nearest_neighbor import NearestNeighborSolver
-from config import THRESHOLD, THRESHOLDS, N_DAYS, SIMULATED_HISTORY_FILE
+from config import (
+    N_DAYS,
+    PREDICTED_BINS_FILE,
+    PREDICTED_MATRIX_DIR,
+    PREDICTED_ROUNDS_FILE,
+    SIMULATED_HISTORY_FILE,
+    THRESHOLD,
+    THRESHOLDS,
+)
 
 _DIST_DIR   = os.path.join(os.path.dirname(__file__), "..", "..", "data", "distance_matrices")
 _MATRIX_DIR = os.path.join(_DIST_DIR, "google_maps")
@@ -109,6 +123,26 @@ def _compare_distances_cached(points_tuple: tuple, car: str) -> dict:
     return {"standard": standard, "osrm": osrm, "osrm_ok": osrm_ok}
 
 
+@st.cache_data(show_spinner="Tracing the route along the streets (OSRM)...")
+def _road_geometry_cached(points_tuple: tuple) -> list[tuple] | None:
+    """Road-following outline through the points in the given order.
+
+    Returns ``None`` when OSRM cannot supply one, in which case the caller draws
+    no line at all rather than a straight-line stand-in.
+    """
+    points = list(points_tuple)
+    if len(points) < 2:
+        return None
+    calculator = OSRMDistanceCalculator()
+    if not calculator.available():
+        return None
+    try:
+        _, geometry = calculator.road_route(points)
+    except Exception:
+        return None
+    return geometry or None
+
+
 @st.cache_resource(show_spinner=False)
 def _train_predictor_cached(
     _df: pd.DataFrame,
@@ -134,7 +168,71 @@ def _train_predictor_cached(
     predictor.save_history(SIMULATED_HISTORY_FILE)
 
     predictions = predictor.predict_next_day()
+    # predict_next_day() keys rows by their position in `containers`; map that
+    # back to the row of _df each prediction came from, so the predicted bins
+    # can be joined to their address, coordinates, and distance-matrix row.
+    predictions["source_index"] = containers.index.to_numpy()[
+        predictions["key"].to_numpy()
+    ]
     return predictor.mae_, predictions, predictor.history_
+
+
+@st.cache_resource(show_spinner="Collecting predicted bins and slicing their distance matrix...")
+def _predicted_bins_cached(
+    _df: pd.DataFrame,
+    _predictions: pd.DataFrame,
+    threshold: float,
+) -> dict:
+    """Build the predicted-bin list, export it, and slice a matrix per vehicle.
+
+    Everything this builds is written to disk — the app shows the map, the files
+    carry the detail:
+      - ``PREDICTED_BINS_FILE``   — every predicted bin with its coordinates.
+      - ``PREDICTED_ROUNDS_FILE`` — one row per vehicle: bins and round length.
+      - ``PREDICTED_MATRIX_DIR``  — one distance matrix per car, cut out of that
+        car's Google Maps matrix and restricted to depot + predicted bins +
+        landfill.
+
+    Returns
+    -------
+    {"bins": PredictedBins, "routes": {car: {...}}}
+      Each car entry holds its ``PredictedRoute``, the nearest-neighbour
+      visiting order and its distance, and the matrix path.
+    """
+    bins = PredictedBins.from_predictions(_df, _predictions, threshold)
+    bins.to_csv(PREDICTED_BINS_FILE)
+
+    routes: dict[str, dict] = {}
+    for car in bins.cars:
+        route = PredictedRoute.build(bins.for_car(car), _df, car)
+        if route is None:
+            continue
+        order, optimized_km = route.optimized()
+        matrix_path = route.save_matrix(
+            os.path.join(PREDICTED_MATRIX_DIR, f"{car}_distance_matrix.csv")
+        )
+        routes[car] = {
+            "route":          route,
+            "optimized_km":   optimized_km,
+            "order":          order,
+            "matrix_path":    str(matrix_path),
+        }
+
+    rounds = pd.DataFrame([
+        {
+            "Car":                  car_name,
+            "route_id":             leg["route"].nodes["route_id"].iloc[0],
+            "bins":                 leg["route"].n_bins,
+            "optimized_round_km":   round(leg["optimized_km"], 2),
+            "distance_matrix":      leg["matrix_path"],
+        }
+        for car_name, leg in routes.items()
+    ])
+    if not rounds.empty:
+        os.makedirs(os.path.dirname(PREDICTED_ROUNDS_FILE), exist_ok=True)
+        rounds.to_csv(PREDICTED_ROUNDS_FILE, index=False)
+
+    return {"bins": bins, "routes": routes}
 
 
 # =====================================================================
@@ -192,17 +290,17 @@ class RouteMap:
     ) -> folium.Map:
         """Build and return a folium map for this route.
 
-        If geometry is provided (OSRM road outline), the dotted line follows
-        the streets; otherwise it connects stops with straight lines.
+        ``geometry`` is an OSRM road outline: the line then follows the actual
+        streets. Without one the map shows the stops alone — a straight line
+        between stops would trace a path no truck can drive, so it is better to
+        draw nothing than to draw a road that is not there.
         """
         center_lat = sum(p[0] for p in self.points) / len(self.points)
         center_lon = sum(p[1] for p in self.points) / len(self.points)
         map_ = folium.Map(location=[center_lat, center_lon], zoom_start=13)
 
-        line = geometry if geometry else self.points
-        folium.PolyLine(
-            line, color="black", weight=3, opacity=0.7, dash_array="2, 8"
-        ).add_to(map_)
+        if geometry:
+            folium.PolyLine(geometry, **ROUTE_LINE_STYLE).add_to(map_)
 
         n = len(self.points)
         stop_order = 0
@@ -458,8 +556,10 @@ def run(df: pd.DataFrame) -> None:
         else:
             unopt_label = f"{std['unoptimized_km']:.2f} km · straight-line"
         st.caption(f"Unoptimized — {unopt_label}")
+        # compare() already traced this exact order on the road network.
+        geom_unopt = analyzer.osrm.get("geom_unopt") if analyzer.osrm else None
         st_folium(
-            route_map.draw("red", "unoptimized route"),
+            route_map.draw("red", "unoptimized route", geometry=geom_unopt),
             height=430, width="stretch", key="map_unopt",
         )
     with col_right:
@@ -468,8 +568,11 @@ def run(df: pd.DataFrame) -> None:
         else:
             opt_label = f"{std['optimized_km']:.2f} km · straight-line NN"
         st.caption(f"Optimized (NN) — {opt_label}")
+        geom_opt = _road_geometry_cached(tuple(optimized_map.points))
         st_folium(
-            optimized_map.draw("green", "optimized route (Google Maps NN)"),
+            optimized_map.draw(
+                "green", "optimized route (Google Maps NN)", geometry=geom_opt
+            ),
             height=430, width="stretch", key="map_opt",
         )
 
@@ -517,11 +620,18 @@ def run(df: pd.DataFrame) -> None:
         f"Model: **RandomForestRegressor** · MAE: **{mae:.2f}** pp"
     )
 
-    # Stage 1 & Stage 2 side by side
-    col_s1, col_s2 = st.columns(2)
+    st.write(
+        f"**Full today** counts the containers already measured at "
+        f"{THRESHOLD}% or above — they need collecting now. **Full tomorrow** is "
+        f"what the model expects to cross {THRESHOLD}% by the next day, so those "
+        f"bins can be emptied on tomorrow's round before they overflow. A "
+        f"container can appear in both."
+    )
 
-    with col_s1:
-        st.markdown("#### Stage 1 — Rule (today)")
+    col_today, col_tomorrow = st.columns(2)
+
+    with col_today:
+        st.markdown("#### Full today")
         st.metric(f"Containers ≥ {THRESHOLD}%", len(rule_df))
         with st.expander("See table"):
             if rule_df.empty:
@@ -529,8 +639,8 @@ def run(df: pd.DataFrame) -> None:
             else:
                 st.dataframe(rule_df, width="stretch", hide_index=True)
 
-    with col_s2:
-        st.markdown("#### Stage 2 — Prediction (tomorrow)")
+    with col_tomorrow:
+        st.markdown("#### Full tomorrow")
         st.metric(f"Containers predicted ≥ {THRESHOLD}%", len(above_pred))
         with st.expander("See table"):
             if above_pred.empty:
@@ -541,10 +651,57 @@ def run(df: pd.DataFrame) -> None:
     with st.expander("All containers — today vs tomorrow"):
         st.dataframe(all_pred, width="stretch", hide_index=True)
 
-    st.caption(
-        f"Note: history is simulated (sawtooth pattern), not real sensor data. "
-        f"Saved to `{SIMULATED_HISTORY_FILE}`."
-    )
+    # -----------------------------------------------------------------
+    # PREDICTED BINS — map here; list, rounds, and matrices written to disk
+    # -----------------------------------------------------------------
+    st.subheader(f"Bins predicted \u2265 {THRESHOLD}% tomorrow")
+
+    predicted = _predicted_bins_cached(df, predictions, THRESHOLD)
+    bins_all, pred_routes = predicted["bins"], predicted["routes"]
+
+    if bins_all.empty:
+        st.info("No containers are predicted to reach the threshold tomorrow.")
+    else:
+        scope = st.radio(
+            "Show",
+            ["This route", "All routes"],
+            horizontal=True,
+            key="pred_scope",
+            label_visibility="collapsed",
+        )
+        show_all = scope == "All routes"
+        bins_scope = bins_all if show_all else bins_all.for_route(selected_route)
+        legs = [pred_routes[c] for c in bins_scope.cars if c in pred_routes]
+
+        opt_km = sum(leg["optimized_km"] for leg in legs)
+
+        m1, m2 = st.columns(2)
+        m1.metric("Bins to collect", len(bins_scope))
+        m2.metric("Optimized round", f"{opt_km:.2f} km")
+
+        # --- Map ---
+        if show_all or len(legs) != 1:
+            # Stop numbers only mean something along a single vehicle's round,
+            # so anything else gets plain colour-coded markers. Hovering any of
+            # them names the route and vehicle it belongs to.
+            nodes = pd.concat(
+                [leg["route"].nodes for leg in legs], ignore_index=True
+            ) if legs else bins_scope.as_nodes()
+            folium_map = PredictedBinsMap(nodes).draw()
+        else:
+            # A single vehicle gets the round it should actually drive: stops in
+            # nearest-neighbour order, numbered and joined by the route line.
+            leg = legs[0]
+            nodes = leg["route"].ordered_nodes(leg["order"])
+            geometry = _road_geometry_cached(
+                tuple(zip(nodes["Latitude"], nodes["Longitude"]))
+            )
+            folium_map = PredictedBinsMap(nodes).draw(
+                numbered=True, geometry=geometry
+            )
+
+        st.markdown(PredictedBinsMap.legend_html(), unsafe_allow_html=True)
+        st_folium(folium_map, height=470, width="stretch", key="map_predicted")
 
     # -----------------------------------------------------------------
     # 30-DAY FILL HISTORY PER CONTAINER
