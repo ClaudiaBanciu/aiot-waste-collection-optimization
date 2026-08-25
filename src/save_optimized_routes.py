@@ -9,7 +9,7 @@ One txt file per car × method in outputs/routes/:
 Each file contains:
   - full point path  (Point_1 -> Point_5 -> ... -> Point_N)
   - total optimized distance
-  - per-stop block with point label, container ID, address, capacity, fill level
+  - per-stop block with point label, container ID, address, and capacity
 
 Run from the project root:
     python3 src/save_optimized_routes.py
@@ -69,10 +69,9 @@ def _write_route(
             kind = "DEPOT" if stop_num == 1 else "LANDFILL"
             f.write(f"Stop {stop_num:>3}  {point_label:<12}  [{kind}]\n")
         else:
-            fill = f"{row['fill_level']:.0f}%" if pd.notna(row.get("fill_level")) else "-"
             f.write(
                 f"Stop {stop_num:>3}  {point_label:<12}  "
-                f"[{row['Id']}]  cap:{row['Capacity']}  fill:{fill}\n"
+                f"[{row['Id']}]  cap:{row['Capacity']}\n"
             )
         f.write(f"              {row['Address']}\n\n")
 

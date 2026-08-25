@@ -11,7 +11,6 @@ Or import and call programmatically:
 import os
 import sys
 
-import numpy as np
 import pandas as pd
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
@@ -20,7 +19,7 @@ from data_preprocess import CSVPreprocessor
 
 
 class DataLoader:
-    """Reads raw CSVs, attaches depot rows, and assigns simulated fill levels.
+    """Reads raw CSVs and attaches depot rows.
 
     Usage:
         loader = DataLoader()
@@ -45,7 +44,6 @@ class DataLoader:
         frames = [self._load_route(file_path, route_id)
                   for file_path, route_id in self.raw_files]
         combined = pd.concat(frames, ignore_index=True)
-        combined = self._assign_fill_levels(combined)
         return combined[FINAL_COLUMNS]
 
     def save(self, df: pd.DataFrame, output: str | None = None) -> str:
@@ -86,21 +84,9 @@ class DataLoader:
                     "Id": None,
                     "Capacity": None,
                     "Address": address,
-                    "fill_level": None,
                 }
             ]
         )
-
-    @staticmethod
-    def _assign_fill_levels(df: pd.DataFrame) -> pd.DataFrame:
-        """Assign random fill levels to real stops (depots stay None)."""
-        result = df.copy()
-        rng = np.random.default_rng(42)
-        real_stops = result["Id"].notna()
-        result.loc[real_stops, "fill_level"] = rng.integers(
-            0, 101, size=real_stops.sum()
-        )
-        return result
 
 
 # ---------------------------------------------------------------------------

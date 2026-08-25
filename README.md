@@ -10,7 +10,7 @@
 
 1. **Predictive analytics** — forecast the fill level of each waste container for
    the next day using a machine-learning model (Random Forest), trained on a
-   simulated 30-day sawtooth history anchored to real sensor measurements.
+   simulated 30-day sawtooth history.
 2. **Route optimization** — apply the nearest-neighbour heuristic to the current
    collection order and compare the result against the as-driven route, using both
    straight-line (Haversine) and real road distances (OSRM).
@@ -36,7 +36,7 @@ aiot-waste-collection-optimization/
 │   │   ├── SB30SOM.csv           Route 2 — SB30
 │   │   └── SB45SOM.csv           Route 3 — SB45
 │   ├── processed/                Pipeline outputs (ready for the app)
-│   │   ├── data_combined.csv     Merged routes + depots + fill_level
+│   │   ├── data_combined.csv     Merged routes + depots
 │   │   └── data_geocoded.csv     + Latitude / Longitude (Google Maps)
 │   ├── simulated/
 │   │   └── simulated_history.csv 30-day sawtooth history (auto-generated on startup)
@@ -48,13 +48,12 @@ aiot-waste-collection-optimization/
 │
 ├── src/                          Data preparation pipeline (run once)
 │   ├── data_preprocess.py        CSVPreprocessor — cleans raw files, builds Address
-│   ├── data_loader.py            load_and_combine — merges routes, adds depots & fill_level
+│   ├── data_loader.py            load_and_combine — merges routes and adds depots
 │   └── geocoding.py              CoordinatesCalculator — address → Lat/Lon via Google Maps
 │
 ├── app/
 │   ├── components/               Reusable, independently testable classes
 │   │   ├── data_reader.py        DataReader — auto-detects CSV encoding and separator
-│   │   ├── fill_level.py         FillLevel — normalises the fill_level column to Fill_num (0-100)
 │   │   ├── fill_predictor.py     FillLevelPredictor — sawtooth simulation + Random Forest
 │   │   ├── predicted_bins.py     PredictedBins / PredictedRoute / PredictedBinsMap —
 │   │   │                         bins predicted above threshold: CSV, map, distance matrix
@@ -135,8 +134,8 @@ Simulates a 30-day **sawtooth fill history** for each container:
 - Each container fills at a fixed daily rate drawn from its capacity class
   (`120L` → 3–6 %/day, `240L` → 4–7 %/day, `1.100L` → 6–10 %/day).
 - The fill level resets to ~0 % when it reaches 100 % (collection event).
-- Day 0 is anchored to the real measured value so the simulated past is
-  consistent with the actual observation.
+- Day 0 is drawn uniformly in the 0–100 % range, so each container starts at
+  an independent point in its own fill cycle.
 - A **RandomForestRegressor** is trained **only on the ascending phase** of the
   sawtooth, so it learns the fill rate — not the post-collection drop.
 - The simulated history is saved automatically to `data/simulated/simulated_history.csv`.

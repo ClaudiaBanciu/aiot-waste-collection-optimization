@@ -159,9 +159,8 @@ def _train_predictor_cached(
       history     — DataFrame with 30-day simulated sawtooth history per container
     """
     containers = _df[
-        _df["Id"].notna() & _df["Capacity"].notna() & _df["Fill_num"].notna()
+        _df["Id"].notna() & _df["Capacity"].notna()
     ][["Id", "Capacity", "route_id"]].copy()
-    containers["fill_level"] = _df.loc[containers.index, "Fill_num"].astype(float)
 
     predictor = FillLevelPredictor(n_days=N_DAYS)
     predictor.train(containers)
@@ -361,13 +360,11 @@ class RouteMap:
                 f"<b>Stop {stop_order} &middot; Landfill</b><br>"
                 f"{row['Address']}<br><i>{title}</i>"
             )
-        fill = f"{row['Fill_num']:.0f}%" if pd.notna(row["Fill_num"]) else "-"
         time = row["time"] if pd.notna(row["time"]) else "-"
         return (
             f"<b>Stop {stop_order} &middot; {row['Id']}</b><br>"
             f"{row['Address']}<br>"
             f"Capacity: {row['Capacity']}<br>"
-            f"Fill level: {fill}<br>"
             f"Time: {time}<br>"
             f"Vehicle: {row['Car']}"
         )
@@ -433,28 +430,25 @@ def run(df: pd.DataFrame) -> None:
     st.sidebar.header("Filters")
     available_routes = sorted(df["route_id"].unique())
     selected_route = st.sidebar.selectbox("Route", available_routes)
-    level_min, level_max = st.sidebar.slider("Fill level (%) — range", 0, 100, (0, 100))
 
     df_route = df[df["route_id"] == selected_route].copy()
     route_vehicles = sorted(df_route["Car"].dropna().unique())
-    df_filtered = df_route[df_route["Fill_num"].between(level_min, level_max)].copy()
 
     st.caption(f"Route {selected_route} is served by: {', '.join(route_vehicles)}")
 
     # --- Quick metrics ---
     col1, col2 = st.columns(2)
-    col1.metric("Displayed containers", int(df_filtered["Id"].notna().sum()))
+    col1.metric("Displayed containers", int(df_route["Id"].notna().sum()))
     col2.metric("Vehicles on route", len(route_vehicles))
 
     # --- Container table ---
     st.subheader("Containers on route")
     with st.expander("View data as table", expanded=False):
-        table = df_filtered[df_filtered["Id"].notna()][
-            ["Id", "Car", "Address", "time", "Fill_num", "Capacity"]
+        table = df_route[df_route["Id"].notna()][
+            ["Id", "Car", "Address", "time", "Capacity"]
         ].copy()
         table = table.rename(
-            columns={"Fill_num": "Fill level (%)", "time": "Time",
-                     "Car": "Vehicle", "Capacity": "Capacity"}
+            columns={"time": "Time", "Car": "Vehicle", "Capacity": "Capacity"}
         ).sort_values("Time")
         st.dataframe(table, width="stretch", hide_index=True)
 

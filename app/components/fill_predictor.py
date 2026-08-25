@@ -16,8 +16,8 @@ class FillLevelPredictor:
       - When the fill level reaches 100 % the container is emptied and the
         cycle restarts — producing the characteristic sawtooth / saw-wave
         pattern of real waste containers.
-      - Day 0 is anchored to the real measured fill_level value so that the
-        simulated past is consistent with what we actually observed.
+      - Day 0 is drawn uniformly in the 0-100 % range, giving each container
+        an independent starting point in its own fill cycle.
 
     A RandomForestRegressor is then trained to predict TOMORROW's fill level
     from three features: current level, previous day's level, and the
@@ -65,7 +65,7 @@ class FillLevelPredictor:
 
         Parameters
         ----------
-        containers : DataFrame with columns Id, Capacity, fill_level
+        containers : DataFrame with columns Id, Capacity
                      (plus optional route_id, Car, Address, …).
 
         Returns
@@ -78,8 +78,8 @@ class FillLevelPredictor:
         ---------
         1. Draw a fixed daily rate ``r`` uniformly from the capacity range.
         2. The cycle duration is ``100 / r`` days (time to fill from 0 → 100 %).
-        3. Estimate how many days have elapsed since the last emptying at
-           day 0 as ``level_today / r``.
+        3. Draw today's level uniformly in [0, 100] and derive how many days
+           have elapsed since the last emptying as ``level_today / r``.
         4. For each past day, compute ``position_in_cycle`` using modular
            arithmetic so the sawtooth wraps naturally.
         5. Add Gaussian noise (σ = 1.5 %) and clip to [0, 100].
@@ -95,7 +95,7 @@ class FillLevelPredictor:
             rate = float(self.rng.uniform(lo, hi))
             cycle_duration = 100.0 / rate          # days for a full fill cycle
 
-            level_today = float(r["fill_level"])
+            level_today = float(self.rng.integers(0, 101))
             # Estimate phase: how many days since the last emptying at day 0
             days_since_empty_today = level_today / rate
 
@@ -150,7 +150,7 @@ class FillLevelPredictor:
 
         Parameters
         ----------
-        containers : DataFrame with Id, Capacity, fill_level (+ route_id).
+        containers : DataFrame with Id, Capacity (+ route_id).
 
         Returns
         -------
