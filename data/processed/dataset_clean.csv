@@ -1,642 +1,642 @@
-Car,Datetime,Id,Capacity,Address,route_id,fill_level
-SB-25-SOM,2024-10-15 06:14:38+00:00,O5AHDP,1.100L,"Calea Șurii Mari 39 B, Sibiu, Romania",1,2%
-SB-25-SOM,2024-10-15 06:19:38+00:00,O5AHDP,1.100L,"Calea Șurii Mari 39 B, Sibiu, Romania",1,37%
-SB-25-SOM,2024-10-15 06:32:00+00:00,NH7XHL,1.100L,"Calea Șurii Mari 39, Sibiu, Romania",1,46%
-SB-25-SOM,2024-10-15 06:38:19+00:00,HPDZUE,1.100L,"Strada Căprioarelor 1, Sibiu, Romania",1,37%
-SB-25-SOM,2024-10-15 06:46:41+00:00,BNY3U5,120L,"Strada Lungă 71, Sibiu, Romania",1,86%
-SB-25-SOM,2024-10-15 06:50:03+00:00,J4LA,120L,"Strada Țiglarilor 10, Sibiu, Romania",1,63%
-SB-25-SOM,2024-10-15 06:51:53+00:00,HLQKX5,1.100L,"Strada Țiglarilor 12, Sibiu, Romania",1,72%
-SB-25-SOM,2024-10-15 06:52:15+00:00,MO25A3,1.100L,"Strada Țiglarilor 12, Sibiu, Romania",1,65%
-SB-25-SOM,2024-10-15 06:52:47+00:00,OVR7LU,1.100L,"Strada Țiglarilor 12, Sibiu, Romania",1,73%
-SB-25-SOM,2024-10-15 06:54:43+00:00,M4FF,240L,"Strada Țiglarilor 20, Sibiu, Romania",1,15%
-SB-25-SOM,2024-10-15 06:55:18+00:00,MNQ5,120L,"Strada Țiglarilor 24, Sibiu, Romania",1,43%
-SB-25-SOM,2024-10-15 06:55:51+00:00,R2LY,120L,"Strada Țiglarilor 28, Sibiu, Romania",1,10%
-SB-25-SOM,2024-10-15 06:56:30+00:00,AGGC,120L,"Strada Eschile 3, Sibiu, Romania",1,86%
-SB-25-SOM,2024-10-15 06:58:07+00:00,3WT5,1.100L,"Strada Eschile 6, Sibiu, Romania",1,57%
-SB-25-SOM,2024-10-15 06:58:39+00:00,EXDE,1.100L,"Strada Eschile 6, Sibiu, Romania",1,20%
-SB-25-SOM,2024-10-15 07:01:56+00:00,RSUZ,120L,"Strada Eschile 12, Sibiu, Romania",1,30%
-SB-25-SOM,2024-10-15 07:02:21+00:00,ICLYI5,120L,"Strada Eschile 15, Sibiu, Romania",1,12%
-SB-25-SOM,2024-10-15 07:02:36+00:00,FZRC,120L,"Strada Eschile 17, Sibiu, Romania",1,9%
-SB-25-SOM,2024-10-15 07:03:39+00:00,QO42KH,120L,"Strada Eschile 22, Sibiu, Romania",1,64%
-SB-25-SOM,2024-10-15 07:04:30+00:00,L5FA,120L,"Strada Eschile 25, Sibiu, Romania",1,36%
-SB-25-SOM,2024-10-15 07:04:35+00:00,YMH42D,120L,"Strada Pandurilor 15, Sibiu, Romania",1,32%
-SB-25-SOM,2024-10-15 07:05:04+00:00,DVRI,120L,"Strada Eschile 31, Sibiu, Romania",1,62%
-SB-25-SOM,2024-10-15 07:05:19+00:00,Y3UO,120L,"Strada Eschile 33, Sibiu, Romania",1,60%
-SB-25-SOM,2024-10-15 07:05:34+00:00,OBFG,120L,"Strada Eschile 37, Sibiu, Romania",1,22%
-SB-25-SOM,2024-10-15 07:05:49+00:00,XYIKBN,120L,"Strada Eschile 39, Sibiu, Romania",1,39%
-SB-25-SOM,2024-10-15 07:06:04+00:00,PKH6XW,120L,"Strada Eschile 41, Sibiu, Romania",1,49%
-SB-25-SOM,2024-10-15 07:06:30+00:00,RW46BK,120L,"Strada Eschile 43, Sibiu, Romania",1,20%
-SB-25-SOM,2024-10-15 07:07:15+00:00,FX3V,120L,"Strada Eschile 36, Sibiu, Romania",1,51%
-SB-25-SOM,2024-10-15 07:07:55+00:00,LTVP5I,120L,"Strada Eschile 49, Sibiu, Romania",1,44%
-SB-25-SOM,2024-10-15 07:08:11+00:00,H2JM,120L,"Strada Eschile 40, Sibiu, Romania",1,54%
-SB-25-SOM,2024-10-15 07:09:00+00:00,XJTO,120L,"Strada Traian Demetrescu 142, Sibiu, Romania",1,40%
-SB-25-SOM,2024-10-15 07:09:32+00:00,BLI4,120L,"Strada Florilor 38, Sibiu, Romania",1,51%
-SB-25-SOM,2024-10-15 07:09:58+00:00,GVTV,120L,"Strada Florilor 36 A, Sibiu, Romania",1,79%
-SB-25-SOM,2024-10-15 07:10:40+00:00,2F2D,120L,"Strada Florilor 30, Sibiu, Romania",1,0%
-SB-25-SOM,2024-10-15 07:11:36+00:00,IRA5,120L,"Strada Florilor 22, Sibiu, Romania",1,31%
-SB-25-SOM,2024-10-15 07:11:37+00:00,WKDH,120L,"Strada Florilor 23, Sibiu, Romania",1,69%
-SB-25-SOM,2024-10-15 07:13:23+00:00,ZYZM,120L,"Strada Florilor 15, Sibiu, Romania",1,44%
-SB-25-SOM,2024-10-15 07:13:33+00:00,ZMUL,120L,"Strada Florilor 18, Sibiu, Romania",1,8%
-SB-25-SOM,2024-10-15 07:14:21+00:00,5FWEQY,120L,"Strada Florilor 13, Sibiu, Romania",1,56%
-SB-25-SOM,2024-10-15 07:14:33+00:00,4UZG,120L,"Strada Florilor 11, Sibiu, Romania",1,84%
-SB-25-SOM,2024-10-15 07:15:11+00:00,B6P3GH,120L,"Strada Florilor 12, Sibiu, Romania",1,52%
-SB-25-SOM,2024-10-15 07:15:31+00:00,KGBR,120L,"Strada Florilor 10, Sibiu, Romania",1,57%
-SB-25-SOM,2024-10-15 07:15:55+00:00,WAP3,120L,"Strada Florilor 3, Sibiu, Romania",1,73%
-SB-25-SOM,2024-10-15 07:17:13+00:00,ISKIQT,120L,"Strada Țiglarilor 67, Sibiu, Romania",1,4%
-SB-25-SOM,2024-10-15 07:17:47+00:00,H5JO,120L,"Strada Țiglarilor 52, Sibiu, Romania",1,69%
-SB-25-SOM,2024-10-15 07:19:04+00:00,RSVP,120L,"Strada Crizantemelor 7, Sibiu, Romania",1,44%
-SB-25-SOM,2024-10-15 07:19:07+00:00,PBLT,120L,"Strada Crizantemelor 8, Sibiu, Romania",1,0%
-SB-25-SOM,2024-10-15 07:19:36+00:00,BGLZ,120L,"Strada Crizantemelor 10, Sibiu, Romania",1,52%
-SB-25-SOM,2024-10-15 07:19:48+00:00,PKMB,120L,"Strada Crizantemelor 13, Sibiu, Romania",1,96%
-SB-25-SOM,2024-10-15 07:20:16+00:00,WUKQ,120L,"Strada Crizantemelor 12, Sibiu, Romania",1,16%
-SB-25-SOM,2024-10-15 07:21:00+00:00,QLZATW,120L,"Strada Crizantemelor 16, Sibiu, Romania",1,96%
-SB-25-SOM,2024-10-15 07:21:06+00:00,75RA,120L,"Strada Crizantemelor 17, Sibiu, Romania",1,4%
-SB-25-SOM,2024-10-15 07:21:09+00:00,75RA,120L,"Strada Crizantemelor 17, Sibiu, Romania",1,74%
-SB-25-SOM,2024-10-15 07:21:16+00:00,6OIV,120L,"Strada Crizantemelor 18, Sibiu, Romania",1,2%
-SB-25-SOM,2024-10-15 07:21:32+00:00,5KON,120L,"Strada Crizantemelor 19, Sibiu, Romania",1,98%
-SB-25-SOM,2024-10-15 07:21:47+00:00,L7GY,120L,"Strada Crizantemelor 21, Sibiu, Romania",1,33%
-SB-25-SOM,2024-10-15 07:22:17+00:00,A4FK,120L,"Strada Lăcrămioarelor 8, Sibiu, Romania",1,80%
-SB-25-SOM,2024-10-15 07:22:26+00:00,AJ2FQV,120L,"Strada Lăcrămioarelor 10, Sibiu, Romania",1,82%
-SB-25-SOM,2024-10-15 07:22:56+00:00,YJTH,120L,"Strada Lăcrămioarelor 14, Sibiu, Romania",1,57%
-SB-25-SOM,2024-10-15 07:23:19+00:00,A4NQ,120L,"Strada Lăcrămioarelor 16, Sibiu, Romania",1,78%
-SB-25-SOM,2024-10-15 07:23:36+00:00,A4NQ,120L,"Strada Lăcrămioarelor 16, Sibiu, Romania",1,68%
-SB-25-SOM,2024-10-15 07:23:50+00:00,AC4W,120L,"Strada Lăcrămioarelor 1, Sibiu, Romania",1,33%
-SB-25-SOM,2024-10-15 07:25:05+00:00,PCNHOZ,120L,"Strada Lăcrămioarelor 6, Sibiu, Romania",1,59%
-SB-25-SOM,2024-10-15 07:25:33+00:00,A2DB,120L,"Strada Lăcrămioarelor 4, Sibiu, Romania",1,41%
-SB-25-SOM,2024-10-15 07:25:49+00:00,7YUI,120L,"Strada Lăcrămioarelor 2, Sibiu, Romania",1,28%
-SB-25-SOM,2024-10-15 07:27:02+00:00,PNDB,120L,"Strada Pandurilor 14, Sibiu, Romania",1,21%
-SB-25-SOM,2024-10-15 07:27:03+00:00,O6TE,120L,"Strada Pandurilor 13, Sibiu, Romania",1,33%
-SB-25-SOM,2024-10-15 07:27:32+00:00,RQJH,120L,"Strada Pandurilor 12, Sibiu, Romania",1,14%
-SB-25-SOM,2024-10-15 07:27:52+00:00,BUAP,120L,"Strada Pandurilor 7, Sibiu, Romania",1,7%
-SB-25-SOM,2024-10-15 07:27:54+00:00,IRWG,120L,"Strada Pandurilor 10, Sibiu, Romania",1,60%
-SB-25-SOM,2024-10-15 07:29:04+00:00,AD3R,120L,"Strada Pandurilor 1, Sibiu, Romania",1,15%
-SB-25-SOM,2024-10-15 07:30:52+00:00,BQ6Y,120L,"Strada Țiglarilor 34, Sibiu, Romania",1,58%
-SB-25-SOM,2024-10-15 07:31:59+00:00,MNUD,120L,"Strada Țiglarilor 45, Sibiu, Romania",1,26%
-SB-25-SOM,2024-10-15 07:32:00+00:00,VWTU,240L,"Strada Țiglarilor 40, Sibiu, Romania",1,18%
-SB-25-SOM,2024-10-15 07:33:02+00:00,YVXSD6,120L,"Strada Țiglarilor 51, Sibiu, Romania",1,66%
-SB-25-SOM,2024-10-15 07:33:49+00:00,WFCE,120L,"Strada Țiglarilor 44, Sibiu, Romania",1,55%
-SB-25-SOM,2024-10-15 07:34:13+00:00,GZKP,120L,"Strada Crizantemelor 2, Sibiu, Romania",1,81%
-SB-25-SOM,2024-10-15 07:35:09+00:00,DUYR,120L,"Strada Țiglarilor 60, Sibiu, Romania",1,49%
-SB-25-SOM,2024-10-15 07:35:47+00:00,CAHMA5,120L,"Strada Țiglarilor 64, Sibiu, Romania",1,30%
-SB-25-SOM,2024-10-15 07:36:33+00:00,CXDWRY,120L,"Strada Țiglarilor 66, Sibiu, Romania",1,54%
-SB-25-SOM,2024-10-15 07:36:36+00:00,4BX3,120L,"Strada Țiglarilor 66, Sibiu, Romania",1,15%
-SB-25-SOM,2024-10-15 07:37:09+00:00,D5Y7,120L,"Strada Țiglarilor 75, Sibiu, Romania",1,80%
-SB-25-SOM,2024-10-15 07:37:11+00:00,B3ZB,120L,"Strada Țiglarilor 70, Sibiu, Romania",1,96%
-SB-25-SOM,2024-10-15 07:37:56+00:00,PVRAIY,120L,"Strada Țiglarilor 70, Sibiu, Romania",1,51%
-SB-25-SOM,2024-10-15 07:37:58+00:00,PVRAIY,120L,"Strada Țiglarilor 70, Sibiu, Romania",1,85%
-SB-25-SOM,2024-10-15 07:38:34+00:00,SGIW,120L,"Strada Țiglarilor 79, Sibiu, Romania",1,32%
-SB-25-SOM,2024-10-15 07:38:39+00:00,2L6I,120L,"Strada Țiglarilor 77, Sibiu, Romania",1,61%
-SB-25-SOM,2024-10-15 07:39:32+00:00,VIUB,120L,"Strada Țiglarilor 76, Sibiu, Romania",1,80%
-SB-25-SOM,2024-10-15 07:39:50+00:00,LIEV,120L,"Strada Țiglarilor 81 A, Sibiu, Romania",1,52%
-SB-25-SOM,2024-10-15 07:39:54+00:00,7KUU,120L,"Strada Țiglarilor 76 A, Sibiu, Romania",1,46%
-SB-25-SOM,2024-10-15 07:40:18+00:00,YUUH,120L,"Strada Țiglarilor 83, Sibiu, Romania",1,61%
-SB-25-SOM,2024-10-15 07:40:20+00:00,MX3D,120L,"Strada Țiglarilor 78, Sibiu, Romania",1,77%
-SB-25-SOM,2024-10-15 07:41:07+00:00,TQZ2,120L,"Strada Țiglarilor 83, Sibiu, Romania",1,50%
-SB-25-SOM,2024-10-15 07:42:00+00:00,4OBW,120L,"Strada Dulgherilor 7, Sibiu, Romania",1,7%
-SB-25-SOM,2024-10-15 07:42:17+00:00,42E3,120L,"Strada Dulgherilor 11, Sibiu, Romania",1,6%
-SB-25-SOM,2024-10-15 07:43:38+00:00,EHNR,120L,"Strada Dulgherilor 18, Sibiu, Romania",1,92%
-SB-25-SOM,2024-10-15 07:46:45+00:00,6HTD,120L,"Strada Țiglarilor 84, Sibiu, Romania",1,47%
-SB-25-SOM,2024-10-15 07:47:23+00:00,6IME,120L,"Strada Țiglarilor 85, Sibiu, Romania",1,41%
-SB-25-SOM,2024-10-15 07:48:16+00:00,A2MK,240L,"Strada Țiglarilor 89, Sibiu, Romania",1,74%
-SB-25-SOM,2024-10-15 07:48:40+00:00,74ZLG3,120L,"Strada Țiglarilor 92, Sibiu, Romania",1,4%
-SB-25-SOM,2024-10-15 07:49:53+00:00,B3FI,120L,"Strada Țiglarilor 95, Sibiu, Romania",1,66%
-SB-25-SOM,2024-10-15 07:50:50+00:00,FDSTRJ,120L,"Strada Zidarilor 1, Sibiu, Romania",1,79%
-SB-25-SOM,2024-10-15 07:50:56+00:00,H7MM,120L,"Strada Zidarilor 2, Sibiu, Romania",1,31%
-SB-25-SOM,2024-10-15 07:51:30+00:00,EUZU,120L,"Strada Zidarilor 7, Sibiu, Romania",1,54%
-SB-25-SOM,2024-10-15 07:51:50+00:00,LQS7,120L,"Strada Zidarilor 6, Sibiu, Romania",1,62%
-SB-25-SOM,2024-10-15 07:56:08+00:00,QOH2,120L,"Strada Țiglarilor 106, Sibiu, Romania",1,54%
-SB-25-SOM,2024-10-15 07:58:43+00:00,7WIN,240L,"Strada Țiglarilor 101, Sibiu, Romania",1,37%
-SB-25-SOM,2024-10-15 07:58:46+00:00,LUKAU6,240L,"Strada Țiglarilor 101, Sibiu, Romania",1,55%
-SB-25-SOM,2024-10-15 07:59:13+00:00,7VCQ,240L,"Strada Țiglarilor 101, Sibiu, Romania",1,36%
-SB-25-SOM,2024-10-15 08:01:02+00:00,FOY2RW,240L,"Strada Țiglarilor 103, Sibiu, Romania",1,70%
-SB-25-SOM,2024-10-15 08:01:07+00:00,7T6P,120L,"Strada Țiglarilor 103, Sibiu, Romania",1,9%
-SB-25-SOM,2024-10-15 08:01:28+00:00,DL7T,120L,"Strada Țiglarilor 103, Sibiu, Romania",1,87%
-SB-25-SOM,2024-10-15 08:01:55+00:00,L4APOF,120L,"Strada Țiglarilor 103, Sibiu, Romania",1,16%
-SB-25-SOM,2024-10-15 08:04:16+00:00,7QZLCR,1.100L,"Strada Țiglarilor 103, Sibiu, Romania",1,54%
-SB-25-SOM,2024-10-15 08:05:04+00:00,CUGP,120L,"Strada Țiglarilor 108, Sibiu, Romania",1,24%
-SB-25-SOM,2024-10-15 08:06:12+00:00,AWBU,120L,"Strada Țiglarilor 110, Sibiu, Romania",1,34%
-SB-25-SOM,2024-10-15 08:06:57+00:00,LDNFET,240L,"Strada Țiglarilor 105, Sibiu, Romania",1,28%
-SB-25-SOM,2024-10-15 08:07:34+00:00,5CNOGA,120L,"Strada Țiglarilor 116, Sibiu, Romania",1,7%
-SB-25-SOM,2024-10-15 08:08:07+00:00,CMJT,120L,"Strada Țiglarilor 118, Sibiu, Romania",1,49%
-SB-25-SOM,2024-10-15 08:08:20+00:00,VRJU,120L,"Strada Țiglarilor 120, Sibiu, Romania",1,38%
-SB-25-SOM,2024-10-15 08:08:57+00:00,4YA6,120L,"Strada Țiglarilor 122, Sibiu, Romania",1,55%
-SB-25-SOM,2024-10-15 08:09:32+00:00,MPB5UZ,120L,"Strada Cuptorului 33 A, Sibiu, Romania",1,8%
-SB-25-SOM,2024-10-15 08:10:06+00:00,UJED,240L,"Strada Țiglarilor 128 A, Sibiu, Romania",1,41%
-SB-25-SOM,2024-10-15 08:10:38+00:00,7GNE,120L,"Strada Țiglarilor 111, Sibiu, Romania",1,80%
-SB-25-SOM,2024-10-15 08:16:37+00:00,7EKJ,120L,"Strada Deventer 7, Sibiu, Romania",1,11%
-SB-25-SOM,2024-10-15 08:17:38+00:00,7AS6,120L,"Strada Deventer 15, Sibiu, Romania",1,68%
-SB-25-SOM,2024-10-15 08:19:41+00:00,CQS7,120L,"Strada Cuptorului 38, Sibiu, Romania",1,66%
-SB-25-SOM,2024-10-15 08:20:25+00:00,OTAV,120L,"Strada Cuptorului 36, Sibiu, Romania",1,70%
-SB-25-SOM,2024-10-15 08:21:09+00:00,SBEF,120L,"Strada Cuptorului 34, Sibiu, Romania",1,99%
-SB-25-SOM,2024-10-15 08:21:25+00:00,XAI5V2,120L,"Strada Cuptorului 31, Sibiu, Romania",1,59%
-SB-25-SOM,2024-10-15 08:21:48+00:00,F6QH,120L,"Strada Cuptorului 30, Sibiu, Romania",1,92%
-SB-25-SOM,2024-10-15 08:22:09+00:00,IYZ6,120L,"Strada Cuptorului 29, Sibiu, Romania",1,30%
-SB-25-SOM,2024-10-15 08:22:16+00:00,UNYVJN,120L,"Strada Cuptorului 26, Sibiu, Romania",1,72%
-SB-25-SOM,2024-10-15 08:23:20+00:00,R6JV,120L,"Strada Cuptorului 25, Sibiu, Romania",1,0%
-SB-25-SOM,2024-10-15 08:23:47+00:00,63NT,120L,"Strada Cuptorului 23, Sibiu, Romania",1,98%
-SB-25-SOM,2024-10-15 08:23:51+00:00,HQHV6X,120L,"Strada Cuptorului 20, Sibiu, Romania",1,52%
-SB-25-SOM,2024-10-15 08:24:30+00:00,73TR,120L,"Strada Cuptorului 19, Sibiu, Romania",1,76%
-SB-25-SOM,2024-10-15 08:25:38+00:00,C2ANBH,120L,"Strada Cuptorului 14 B, Sibiu, Romania",1,58%
-SB-25-SOM,2024-10-15 08:27:33+00:00,TDTR,120L,"Strada Cuptorului 13, Sibiu, Romania",1,44%
-SB-25-SOM,2024-10-15 08:28:06+00:00,E5AO,120L,"Strada Cuptorului 14, Sibiu, Romania",1,18%
-SB-25-SOM,2024-10-15 08:29:03+00:00,NL5N,120L,"Strada Cuptorului 1, Sibiu, Romania",1,51%
-SB-25-SOM,2024-10-15 08:29:45+00:00,ZJKN,120L,"Strada Cuptorului 3, Sibiu, Romania",1,1%
-SB-25-SOM,2024-10-15 08:30:53+00:00,X2CB,120L,"Strada Cuptorului 12, Sibiu, Romania",1,27%
-SB-25-SOM,2024-10-15 08:30:56+00:00,JICQOG,120L,"Strada Cuptorului 7 G, Sibiu, Romania",1,77%
-SB-25-SOM,2024-10-15 08:31:30+00:00,GPHC,120L,"Strada Cuptorului 10, Sibiu, Romania",1,20%
-SB-25-SOM,2024-10-15 08:36:36+00:00,2CB5UZ,1.100L,"Strada Cuptorului 12 B, Sibiu, Romania",1,33%
-SB-25-SOM,2024-10-15 08:40:11+00:00,SQK2,120L,"Strada Ulmului 62, Sibiu, Romania",1,89%
-SB-25-SOM,2024-10-15 08:40:37+00:00,5IM6RQ,120L,"Strada Ulmului 60, Sibiu, Romania",1,57%
-SB-25-SOM,2024-10-15 08:40:58+00:00,EFXC,120L,"Strada Ulmului 56, Sibiu, Romania",1,90%
-SB-25-SOM,2024-10-15 08:42:44+00:00,H7KEWX,120L,"Strada Ulmului 35 A, Sibiu, Romania",1,33%
-SB-25-SOM,2024-10-15 08:43:00+00:00,AP3D,120L,"Strada Ulmului 50 A, Sibiu, Romania",1,9%
-SB-25-SOM,2024-10-15 08:43:50+00:00,AFE3,120L,"Strada Ulmului 50 A, Sibiu, Romania",1,7%
-SB-25-SOM,2024-10-15 08:44:37+00:00,IJBU,120L,"Strada Ulmului 46, Sibiu, Romania",1,22%
-SB-25-SOM,2024-10-15 08:44:39+00:00,5HUB,120L,"Strada Ulmului 46, Sibiu, Romania",1,41%
-SB-25-SOM,2024-10-15 08:45:21+00:00,P7QA,120L,"Strada Ulmului 44, Sibiu, Romania",1,31%
-SB-25-SOM,2024-10-15 08:46:02+00:00,G4QPXW,120L,"Strada Ulmului 27, Sibiu, Romania",1,48%
-SB-25-SOM,2024-10-15 08:46:14+00:00,WZLA,120L,"Strada Ulmului 40, Sibiu, Romania",1,68%
-SB-25-SOM,2024-10-15 08:48:13+00:00,I6E5,120L,"Strada Ulmului 34, Sibiu, Romania",1,98%
-SB-25-SOM,2024-10-15 08:48:55+00:00,MCE7DG,120L,"Strada Ulmului 32, Sibiu, Romania",1,8%
-SB-25-SOM,2024-10-15 08:49:40+00:00,ORMMLR,120L,"Strada Ulmului 25, Sibiu, Romania",1,84%
-SB-25-SOM,2024-10-15 08:50:02+00:00,7TCM,1.100L,"Strada Ulmului 28, Sibiu, Romania",1,71%
-SB-25-SOM,2024-10-15 08:54:22+00:00,JBCWEX,120L,"Strada Florilor 12 A, Sibiu, Romania",1,0%
-SB-25-SOM,2024-10-15 08:58:13+00:00,W6TD,120L,"Strada Ulmului 1, Sibiu, Romania",1,84%
-SB-25-SOM,2024-10-15 08:58:46+00:00,QZOB,120L,"Strada Ulmului 5, Sibiu, Romania",1,85%
-SB-25-SOM,2024-10-15 08:58:47+00:00,OC26,120L,"Strada Ulmului 3, Sibiu, Romania",1,24%
-SB-25-SOM,2024-10-15 08:59:29+00:00,5SY7,120L,"Strada Ulmului 9, Sibiu, Romania",1,39%
-SB-25-SOM,2024-10-15 09:00:00+00:00,H5RK,120L,"Strada Ulmului 15, Sibiu, Romania",1,56%
-SB-25-SOM,2024-10-15 09:00:31+00:00,PSMN,120L,"Strada Ulmului 14, Sibiu, Romania",1,52%
-SB-25-SOM,2024-10-15 09:01:07+00:00,GI3Z,120L,"Strada Ulmului 18, Sibiu, Romania",1,41%
-SB-25-SOM,2024-10-15 09:01:25+00:00,UJ6YSF,120L,"Strada Ulmului 21, Sibiu, Romania",1,86%
-SB-25-SOM,2024-10-15 09:01:45+00:00,EGF425,120L,"Strada Record 37, Sibiu, Romania",1,78%
-SB-25-SOM,2024-10-15 09:02:29+00:00,6TZH,120L,"Strada Record 26, Sibiu, Romania",1,25%
-SB-25-SOM,2024-10-15 09:05:12+00:00,7KJ2,120L,"Strada Lacul lui Binder 4, Sibiu, Romania",1,43%
-SB-25-SOM,2024-10-15 09:05:24+00:00,KK4T,120L,"Strada Țiglarilor 101, Sibiu, Romania",1,81%
-SB-25-SOM,2024-10-15 09:06:40+00:00,SOROBW,120L,"Strada Lacul lui Binder 5, Sibiu, Romania",1,66%
-SB-25-SOM,2024-10-15 09:07:10+00:00,LNWFHI,240L,"Strada Lacul lui Binder FN, Sibiu, Romania",1,77%
-SB-25-SOM,2024-10-15 09:09:44+00:00,VNCA,120L,"Strada Lutului 76, Sibiu, Romania",1,8%
-SB-25-SOM,2024-10-15 09:09:59+00:00,UJDFJW,120L,"Strada Lutului 74, Sibiu, Romania",1,13%
-SB-25-SOM,2024-10-15 09:10:26+00:00,46JF75,120L,"Strada Lutului 60, Sibiu, Romania",1,88%
-SB-25-SOM,2024-10-15 09:11:46+00:00,T2X2,120L,"Strada Lutului 58, Sibiu, Romania",1,25%
-SB-25-SOM,2024-10-15 09:12:15+00:00,43XG,120L,"Strada Lutului 53, Sibiu, Romania",1,52%
-SB-25-SOM,2024-10-15 09:12:41+00:00,VYIT,120L,"Strada Lutului 43 A, Sibiu, Romania",1,60%
-SB-25-SOM,2024-10-15 09:12:56+00:00,PIJZ,120L,"Strada Lutului 48, Sibiu, Romania",1,67%
-SB-25-SOM,2024-10-15 09:14:01+00:00,B534,120L,"Strada Lutului 40, Sibiu, Romania",1,54%
-SB-25-SOM,2024-10-15 09:14:02+00:00,RVU6,120L,"Strada Lutului 35, Sibiu, Romania",1,47%
-SB-25-SOM,2024-10-15 09:14:29+00:00,4VYR,120L,"Strada Lutului 36, Sibiu, Romania",1,64%
-SB-25-SOM,2024-10-15 09:14:32+00:00,SNVZ,120L,"Strada Lutului 31, Sibiu, Romania",1,4%
-SB-25-SOM,2024-10-15 09:14:42+00:00,FFFY,120L,"Strada Lutului 34, Sibiu, Romania",1,72%
-SB-25-SOM,2024-10-15 09:14:54+00:00,FN4Z,120L,"Strada Lutului 29, Sibiu, Romania",1,34%
-SB-25-SOM,2024-10-15 09:15:12+00:00,YABH,120L,"Strada Lutului 32, Sibiu, Romania",1,20%
-SB-25-SOM,2024-10-15 09:15:32+00:00,WV3D,120L,"Strada Ulmului 21, Sibiu, Romania",1,94%
-SB-25-SOM,2024-10-15 09:16:13+00:00,N7YA,120L,"Strada Lutului 22, Sibiu, Romania",1,0%
-SB-25-SOM,2024-10-15 09:16:15+00:00,XFJB4O,120L,"Strada Lutului 17, Sibiu, Romania",1,8%
-SB-25-SOM,2024-10-15 09:16:47+00:00,NDM7,120L,"Strada Lutului 14, Sibiu, Romania",1,27%
-SB-25-SOM,2024-10-15 09:17:11+00:00,AVVB,120L,"Strada Lutului 8, Sibiu, Romania",1,86%
-SB-25-SOM,2024-10-15 09:18:59+00:00,YANR,120L,"Strada Sperantei 5, Sibiu, Romania",1,54%
-SB-25-SOM,2024-10-15 09:20:35+00:00,KIKG,120L,"Strada Carpaților 2, Sibiu, Romania",1,14%
-SB-25-SOM,2024-10-15 09:20:58+00:00,YIEA,120L,"Strada Carpaților 3 B, Sibiu, Romania",1,28%
-SB-25-SOM,2024-10-15 09:21:29+00:00,DOAY,120L,"Strada Carpaților 9, Sibiu, Romania",1,42%
-SB-25-SOM,2024-10-15 09:23:27+00:00,PWCW,120L,"Strada Carpaților 15, Sibiu, Romania",1,90%
-SB-25-SOM,2024-10-15 09:23:49+00:00,BT77,120L,"Strada Carpaților 17, Sibiu, Romania",1,66%
-SB-25-SOM,2024-10-15 09:23:55+00:00,OXYS,120L,"Strada Carpaților 16 A, Sibiu, Romania",1,39%
-SB-25-SOM,2024-10-15 09:25:01+00:00,JCPQ,120L,"Strada Carpaților 21, Sibiu, Romania",1,78%
-SB-25-SOM,2024-10-15 09:25:26+00:00,QE67,120L,"Strada Carpaților 23, Sibiu, Romania",1,35%
-SB-25-SOM,2024-10-15 09:25:43+00:00,U6RM,120L,"Strada Carpaților 25, Sibiu, Romania",1,9%
-SB-25-SOM,2024-10-15 09:26:12+00:00,C7GGQV,120L,"Strada Carpaților 29, Sibiu, Romania",1,47%
-SB-25-SOM,2024-10-15 09:26:21+00:00,H644,120L,"Strada Carpaților 28, Sibiu, Romania",1,24%
-SB-25-SOM,2024-10-15 09:26:47+00:00,R7PR,120L,"Strada Carpaților 31, Sibiu, Romania",1,11%
-SB-25-SOM,2024-10-15 09:27:10+00:00,6LTW,120L,"Strada Carpaților 33, Sibiu, Romania",1,83%
-SB-25-SOM,2024-10-15 09:28:16+00:00,SCSO,120L,"Strada Margaretelor 41, Sibiu, Romania",1,6%
-SB-25-SOM,2024-10-15 09:28:46+00:00,LP4Y,120L,"Strada Țiglarilor 39, Sibiu, Romania",1,6%
-SB-25-SOM,2024-10-15 09:29:11+00:00,6MZI,120L,"Strada Țiglarilor 35 A, Sibiu, Romania",1,53%
-SB-25-SOM,2024-10-15 09:30:02+00:00,6LPK,120L,"Strada Țiglarilor 33 A, Sibiu, Romania",1,66%
-SB-25-SOM,2024-10-15 09:30:40+00:00,F3DJ,120L,"Strada Țiglarilor 25, Sibiu, Romania",1,80%
-SB-25-SOM,2024-10-15 09:30:51+00:00,K2PH,120L,"Strada Țiglarilor 21, Sibiu, Romania",1,95%
-SB-25-SOM,2024-10-15 09:31:19+00:00,X5VJW2,120L,"Strada Țiglarilor 25, Sibiu, Romania",1,52%
-SB-25-SOM,2024-10-15 09:32:07+00:00,MHKA,120L,"Strada Țiglarilor 11, Sibiu, Romania",1,14%
-SB-25-SOM,2024-10-15 09:32:36+00:00,2ZO3T5,240L,"Strada Țiglarilor 7, Sibiu, Romania",1,27%
-SB-25-SOM,2024-10-15 09:32:41+00:00,5SD4,120L,"Strada Țiglarilor 7, Sibiu, Romania",1,65%
-SB-25-SOM,2024-10-15 09:33:19+00:00,WXUT,120L,"Strada Țiglarilor 3, Sibiu, Romania",1,9%
-SB-25-SOM,2024-10-15 09:33:43+00:00,6K5E,120L,"Strada Țiglarilor 3 A, Sibiu, Romania",1,94%
-SB-25-SOM,2024-10-15 09:34:22+00:00,X6LQ,120L,"Strada Lungă 53, Sibiu, Romania",1,11%
-SB-25-SOM,2024-10-15 09:35:02+00:00,FXZL,120L,"Strada Lungă 47, Sibiu, Romania",1,69%
-SB-25-SOM,2024-10-15 09:36:06+00:00,LRDP,120L,"Strada Lungă 37, Sibiu, Romania",1,33%
-SB-25-SOM,2024-10-15 09:36:21+00:00,6CJM,120L,"Strada Lungă 35 C, Sibiu, Romania",1,89%
-SB-25-SOM,2024-10-15 09:36:25+00:00,6DTX,120L,"Strada Lungă 35 A, Sibiu, Romania",1,24%
-SB-25-SOM,2024-10-15 09:37:16+00:00,UKOAXG,120L,"Strada Lungă 35, Sibiu, Romania",1,13%
-SB-25-SOM,2024-10-15 09:37:21+00:00,FX6X,120L,"Strada Lungă 35, Sibiu, Romania",1,24%
-SB-25-SOM,2024-10-15 09:37:57+00:00,WSNJB3,120L,"Strada Lungă 35, Sibiu, Romania",1,11%
-SB-25-SOM,2024-10-15 09:38:00+00:00,JF43EY,120L,"Strada Lungă 40, Sibiu, Romania",1,15%
-SB-25-SOM,2024-10-15 09:38:20+00:00,6WVIGL,120L,"Strada Lungă 35, Sibiu, Romania",1,22%
-SB-25-SOM,2024-10-15 09:39:14+00:00,WQJ4,120L,"Strada Lungă 31, Sibiu, Romania",1,36%
-SB-25-SOM,2024-10-15 09:39:17+00:00,FTXO,120L,"Strada Lungă 31, Sibiu, Romania",1,80%
-SB-25-SOM,2024-10-15 09:39:50+00:00,2MCS,120L,"Strada Lungă 29, Sibiu, Romania",1,100%
-SB-25-SOM,2024-10-15 09:41:47+00:00,3AFF,120L,"Strada Lungă 17 A, Sibiu, Romania",1,53%
-SB-25-SOM,2024-10-15 09:42:58+00:00,IQXF,1.100L,"Strada Lungă 9, Sibiu, Romania",1,85%
-SB-25-SOM,2024-10-15 09:44:32+00:00,IATBI7,120L,"Strada Lungă 7, Sibiu, Romania",1,48%
-SB-25-SOM,2024-10-15 09:44:34+00:00,BESN,120L,"Strada Lungă 7, Sibiu, Romania",1,94%
-SB-25-SOM,2024-10-15 09:47:34+00:00,RRYH,120L,"Strada Ion Luca Caragiale 1, Sibiu, Romania",1,99%
-SB-25-SOM,2024-10-15 09:47:58+00:00,G4N6,120L,"Strada Ion Luca Caragiale 2, Sibiu, Romania",1,34%
-SB-25-SOM,2024-10-15 09:48:46+00:00,7CX2,120L,"Strada Ion Luca Caragiale 2, Sibiu, Romania",1,90%
-SB-25-SOM,2024-10-15 09:49:26+00:00,RSK3LI,120L,"Ion Luca Caragiale 8, Sibiu, Romania",1,35%
-SB-25-SOM,2024-10-15 09:50:55+00:00,6BJBLA,120L,"Strada Reconstrucției 2 A, Sibiu, Romania",1,20%
-SB-25-SOM,2024-10-15 09:51:37+00:00,U67K,120L,"Strada Lungă 2 E, Sibiu, Romania",1,53%
-SB-25-SOM,2024-10-15 09:51:40+00:00,4UBK,120L,"Strada Râului 22 A, Sibiu, Romania",1,50%
-SB-25-SOM,2024-10-15 09:52:49+00:00,435TFU,120L,"Strada Lungă 2, Sibiu, Romania",1,98%
-SB-25-SOM,2024-10-15 09:53:40+00:00,5PA5,240L,"Strada Lungă 8 D, Sibiu, Romania",1,57%
-SB-25-SOM,2024-10-15 09:53:46+00:00,SBWR,120L,"Strada Lungă 6, Sibiu, Romania",1,43%
-SB-25-SOM,2024-10-15 09:53:48+00:00,PITBY7,240L,"Strada Lungă 8, Sibiu, Romania",1,44%
-SB-25-SOM,2024-10-15 09:54:06+00:00,EOJ7T5,240L,"Strada Lungă 8 C, Sibiu, Romania",1,13%
-SB-25-SOM,2024-10-15 09:54:13+00:00,7VYE37,240L,"Strada Lungă 8, Sibiu, Romania",1,81%
-SB-25-SOM,2024-10-15 09:54:26+00:00,5PME,240L,"Strada Lungă 8 B, Sibiu, Romania",1,28%
-SB-25-SOM,2024-10-15 09:55:01+00:00,KVT7,120L,"Strada Lungă 12, Sibiu, Romania",1,16%
-SB-25-SOM,2024-10-15 09:55:03+00:00,4YZE4J,120L,"Strada Lungă 10, Sibiu, Romania",1,21%
-SB-25-SOM,2024-10-15 09:56:30+00:00,BV2OVR,120L,"Strada Lungă 16, Sibiu, Romania",1,11%
-SB-25-SOM,2024-10-15 09:57:22+00:00,ITS2,120L,"Strada Lungă 22, Sibiu, Romania",1,60%
-SB-25-SOM,2024-10-15 09:57:23+00:00,5M7N,240L,"Strada Lungă 22 B, Sibiu, Romania",1,23%
-SB-25-SOM,2024-10-15 09:58:08+00:00,5FEK,120L,"Strada Lungă 26 A, Sibiu, Romania",1,71%
-SB-25-SOM,2024-10-15 09:58:41+00:00,6ZGKYZ,240L,"Strada Lungă 26, Sibiu, Romania",1,23%
-SB-25-SOM,2024-10-15 10:01:23+00:00,5CDN,120L,"Strada General Bălan 42, Sibiu, Romania",1,61%
-SB-25-SOM,2024-10-15 10:01:26+00:00,PEIN,120L,"Strada Lungă 33, Sibiu, Romania",1,100%
-SB-25-SOM,2024-10-15 10:01:55+00:00,FOAUWV,240L,"Strada General Bălan 51, Sibiu, Romania",1,77%
-SB-25-SOM,2024-10-15 10:01:59+00:00,IANB,120L,"Strada General Bălan 51, Sibiu, Romania",1,54%
-SB-25-SOM,2024-10-15 10:02:32+00:00,6RCW,120L,"Strada General Bălan 40, Sibiu, Romania",1,86%
-SB-25-SOM,2024-10-15 10:02:35+00:00,OJJ3,120L,"Strada General Bălan 47, Sibiu, Romania",1,55%
-SB-25-SOM,2024-10-15 10:02:46+00:00,PI7FPO,120L,"Strada General Bălan 47, Sibiu, Romania",1,80%
-SB-25-SOM,2024-10-15 10:04:26+00:00,MB3T,120L,"Strada Lungă 25, Sibiu, Romania",1,52%
-SB-25-SOM,2024-10-15 10:04:35+00:00,DAES,120L,"Strada General Bălan 37, Sibiu, Romania",1,12%
-SB-25-SOM,2024-10-15 10:05:01+00:00,QKYD,120L,"Strada General Bălan 35, Sibiu, Romania",1,2%
-SB-25-SOM,2024-10-15 10:05:03+00:00,6732,120L,"Strada General Bălan 34, Sibiu, Romania",1,1%
-SB-25-SOM,2024-10-15 10:05:50+00:00,OCG2,120L,"Strada General Bălan 33, Sibiu, Romania",1,19%
-SB-25-SOM,2024-10-15 10:06:55+00:00,BGGG,120L,"Strada General Bălan 28, Sibiu, Romania",1,58%
-SB-25-SOM,2024-10-15 10:07:22+00:00,63TS,120L,"Strada General Bălan 28, Sibiu, Romania",1,93%
-SB-25-SOM,2024-10-15 10:07:27+00:00,5R2U,120L,"Strada General Bălan 27, Sibiu, Romania",1,15%
-SB-25-SOM,2024-10-15 10:07:54+00:00,B2RM,120L,"Strada General Bălan 23, Sibiu, Romania",1,73%
-SB-25-SOM,2024-10-15 10:08:07+00:00,UFIX,120L,"Strada General Bălan 24, Sibiu, Romania",1,69%
-SB-25-SOM,2024-10-15 10:08:11+00:00,YWXV37,120L,"Strada General Bălan 21, Sibiu, Romania",1,25%
-SB-25-SOM,2024-10-15 10:08:30+00:00,LKP3XO,120L,"Strada General Bălan 22, Sibiu, Romania",1,52%
-SB-25-SOM,2024-10-15 10:08:32+00:00,QZMA,120L,"Strada General Bălan 19, Sibiu, Romania",1,76%
-SB-25-SOM,2024-10-15 10:09:07+00:00,NNJ2KY,120L,"Strada General Bălan 18, Sibiu, Romania",1,80%
-SB-25-SOM,2024-10-15 10:09:41+00:00,6BQJ,120L,"Strada General Bălan 14, Sibiu, Romania",1,69%
-SB-25-SOM,2024-10-15 10:09:43+00:00,JA5YGO,120L,"Strada General Bălan 11, Sibiu, Romania",1,74%
-SB-25-SOM,2024-10-15 10:10:23+00:00,EXNZ,120L,"Strada General Bălan 12, Sibiu, Romania",1,98%
-SB-25-SOM,2024-10-15 10:11:23+00:00,OO4C,120L,"Strada General Bălan 10, Sibiu, Romania",1,98%
-SB-25-SOM,2024-10-15 10:11:56+00:00,HW34,120L,"Strada General Bălan 5, Sibiu, Romania",1,17%
-SB-25-SOM,2024-10-15 10:50:30+00:00,TDAR,120L,"Strada Honterus 2, Sibiu, Romania",1,40%
-SB-25-SOM,2024-10-15 10:50:35+00:00,BDI4,120L,"Strada Înfrățirii 17, Sibiu, Romania",1,81%
-SB-25-SOM,2024-10-15 10:51:23+00:00,Z3HP,120L,"Strada Honterus 7, Sibiu, Romania",1,84%
-SB-25-SOM,2024-10-15 10:51:27+00:00,KY4M,120L,"Strada Honterus 6, Sibiu, Romania",1,38%
-SB-25-SOM,2024-10-15 10:52:04+00:00,WAFM,120L,"Strada Honterus 12, Sibiu, Romania",1,77%
-SB-25-SOM,2024-10-15 10:52:23+00:00,H7AM,120L,"Strada Honterus 13, Sibiu, Romania",1,91%
-SB-25-SOM,2024-10-15 10:52:42+00:00,ZBXZFK,120L,"Strada Honterus 26, Sibiu, Romania",1,27%
-SB-25-SOM,2024-10-15 10:54:01+00:00,U4YY,120L,"Strada Honterus 38, Sibiu, Romania",1,8%
-SB-25-SOM,2024-10-15 10:54:40+00:00,6QMX,120L,"Strada Honterus 33, Sibiu, Romania",1,4%
-SB-25-SOM,2024-10-15 10:54:53+00:00,VJBQ,120L,"Strada Honterus 35, Sibiu, Romania",1,64%
-SB-25-SOM,2024-10-15 10:56:30+00:00,MFIU,120L,"Strada Democrației 42, Sibiu, Romania",1,58%
-SB-25-SOM,2024-10-15 10:56:46+00:00,BNZ7,120L,"Strada Democrației 39, Sibiu, Romania",1,16%
-SB-25-SOM,2024-10-15 10:58:27+00:00,6I6E,120L,"Strada Democrației 33, Sibiu, Romania",1,20%
-SB-25-SOM,2024-10-15 10:58:42+00:00,2KZ2,120L,"Strada Democrației 32, Sibiu, Romania",1,13%
-SB-25-SOM,2024-10-15 10:58:47+00:00,WIBG,120L,"Strada Democrației 29, Sibiu, Romania",1,20%
-SB-25-SOM,2024-10-15 10:59:38+00:00,XSKK,120L,"Strada Democrației 28, Sibiu, Romania",1,68%
-SB-25-SOM,2024-10-15 11:00:07+00:00,4DOY,120L,"Strada Democrației 24, Sibiu, Romania",1,98%
-SB-25-SOM,2024-10-15 11:00:45+00:00,F3EENW,120L,"Strada Democrației 22, Sibiu, Romania",1,44%
-SB-25-SOM,2024-10-15 11:00:47+00:00,6RFTUR,120L,"Strada Democrației 19, Sibiu, Romania",1,56%
-SB-25-SOM,2024-10-15 11:01:24+00:00,EJ6F,120L,"Strada Democrației 20, Sibiu, Romania",1,16%
-SB-25-SOM,2024-10-15 11:01:28+00:00,DOLS,120L,"Strada Democrației 17, Sibiu, Romania",1,94%
-SB-25-SOM,2024-10-15 11:02:33+00:00,ENGP,120L,"Strada Democrației 11, Sibiu, Romania",1,43%
-SB-25-SOM,2024-10-15 11:03:01+00:00,YDGZ,120L,"Strada Democrației 14, Sibiu, Romania",1,49%
-SB-25-SOM,2024-10-15 11:03:59+00:00,5BEQ,120L,"Strada Democrației 12, Sibiu, Romania",1,84%
-SB-25-SOM,2024-10-15 11:05:50+00:00,NCTD,120L,"Strada Viorelelor 6, Sibiu, Romania",1,67%
-SB-25-SOM,2024-10-15 11:07:51+00:00,YIHVO4,120L,"Strada Viorelelor 5, Sibiu, Romania",1,10%
-SB-25-SOM,2024-10-15 11:08:18+00:00,VZ4J,120L,"Strada Viorelelor 14, Sibiu, Romania",1,93%
-SB-25-SOM,2024-10-15 11:08:58+00:00,2BSY,120L,"Strada Viorelelor 20, Sibiu, Romania",1,100%
-SB-25-SOM,2024-10-15 11:09:21+00:00,WCGB,120L,"Strada Viorelelor 13, Sibiu, Romania",1,61%
-SB-25-SOM,2024-10-15 11:10:18+00:00,ZYCY,120L,"Strada Viorelelor 23, Sibiu, Romania",1,44%
-SB-25-SOM,2024-10-15 11:10:33+00:00,CSJJ,120L,"Strada Viorelelor 21, Sibiu, Romania",1,48%
-SB-25-SOM,2024-10-15 11:11:31+00:00,ZU3B,120L,"Strada Viorelelor 25, Sibiu, Romania",1,55%
-SB-25-SOM,2024-10-15 11:12:13+00:00,OCKI,120L,"Strada Simion Bărnuțiu 41, Sibiu, Romania",1,41%
-SB-25-SOM,2024-10-15 11:12:57+00:00,2BCN5D,120L,"Strada Simion Bărnuțiu 38, Sibiu, Romania",1,84%
-SB-25-SOM,2024-10-15 11:13:25+00:00,PJW7,120L,"Strada Simion Bărnuțiu 33, Sibiu, Romania",1,3%
-SB-25-SOM,2024-10-15 11:13:28+00:00,J2FI,120L,"Strada Simion Bărnuțiu 31, Sibiu, Romania",1,68%
-SB-25-SOM,2024-10-15 11:13:53+00:00,6GHW,120L,"Strada Simion Bărnuțiu 32, Sibiu, Romania",1,48%
-SB-25-SOM,2024-10-15 11:14:13+00:00,KFY4DZ,120L,"Strada Viorelelor 26, Sibiu, Romania",1,66%
-SB-25-SOM,2024-10-15 11:14:15+00:00,LCPJ6E,120L,"Strada Simion Bărnuțiu 30, Sibiu, Romania",1,89%
-SB-25-SOM,2024-10-15 11:14:39+00:00,GJZX,120L,"Strada Simion Bărnuțiu 28, Sibiu, Romania",1,90%
-SB-25-SOM,2024-10-15 11:15:06+00:00,LZCS,120L,"Strada Simion Bărnuțiu 25, Sibiu, Romania",1,90%
-SB-25-SOM,2024-10-15 11:15:50+00:00,JPRILB,120L,"Strada Simion Bărnuțiu 23, Sibiu, Romania",1,70%
-SB-25-SOM,2024-10-15 11:16:42+00:00,N4WDNF,120L,"Strada Simion Bărnuțiu 16, Sibiu, Romania",1,41%
-SB-25-SOM,2024-10-15 11:17:04+00:00,Z7IT,120L,"Strada Simion Bărnuțiu 14, Sibiu, Romania",1,8%
-SB-25-SOM,2024-10-15 11:18:19+00:00,QFFS,120L,"Strada Simion Bărnuțiu 2, Sibiu, Romania",1,87%
-SB-25-SOM,2024-10-15 11:18:47+00:00,FECC,120L,"Strada Simion Bărnuțiu 1, Sibiu, Romania",1,33%
-SB-25-SOM,2024-10-15 11:19:16+00:00,F3G5,120L,"Strada Simion Bărnuțiu 2 A, Sibiu, Romania",1,53%
-SB-25-SOM,2024-10-15 11:19:56+00:00,K6LO3M,240L,"Simion Bărnuțiu 1 A, Sibiu, Romania",1,94%
-SB-30-SOM,2024-10-15 04:11:03+00:00,FJIP,120L,"Strada Ștefan cel Mare 31 B, Sibiu, Romania",2,48%
-SB-30-SOM,2024-10-15 04:12:08+00:00,755E,120L,"Strada Ștefan cel Mare 35, Sibiu, Romania",2,89%
-SB-30-SOM,2024-10-15 04:14:15+00:00,3FHA,120L,"Strasa Fratii Grahi 6, Sibiu, Romania",2,85%
-SB-30-SOM,2024-10-15 04:14:19+00:00,YCYR,120L,"Strada Ștefan cel Mare 41, Sibiu, Romania",2,26%
-SB-30-SOM,2024-10-15 04:15:28+00:00,SVPU,120L,"Strada Ștefan cel Mare 20, Sibiu, Romania",2,34%
-SB-30-SOM,2024-10-15 04:17:19+00:00,FHT5,120L,"Strada Ștefan cel Mare 43, Sibiu, Romania",2,89%
-SB-30-SOM,2024-10-15 04:17:25+00:00,NT3JGZ,240L,"Strada Ștefan cel Mare 28, Sibiu, Romania",2,21%
-SB-30-SOM,2024-10-15 04:18:25+00:00,V6CE,120L,"Strada Ștefan cel Mare 45, Sibiu, Romania",2,93%
-SB-30-SOM,2024-10-15 04:19:17+00:00,GG4D,120L,"Strada Ștefan cel Mare 38, Sibiu, Romania",2,5%
-SB-30-SOM,2024-10-15 04:19:53+00:00,FKVO,120L,"Strada Ștefan cel Mare 45 B, Sibiu, Romania",2,25%
-SB-30-SOM,2024-10-15 04:21:21+00:00,FI2S,120L,"Strada Ștefan cel Mare 48, Sibiu, Romania",2,36%
-SB-30-SOM,2024-10-15 04:32:45+00:00,3QIZ,120L,"Strada Ștefan cel Mare 56, Sibiu, Romania",2,13%
-SB-30-SOM,2024-10-15 04:33:43+00:00,C5IKLT,120L,"Strada Ștefan cel Mare 60, Sibiu, Romania",2,69%
-SB-30-SOM,2024-10-15 04:34:34+00:00,YWVT,120L,"Strada Victor Hugo 5, Sibiu, Romania",2,36%
-SB-30-SOM,2024-10-15 04:35:35+00:00,FDHV,240L,"Strada Victor Hugo 9, Sibiu, Romania",2,100%
-SB-30-SOM,2024-10-15 04:40:28+00:00,SFGE,120L,"Strada Ștefan cel Mare 74, Sibiu, Romania",2,15%
-SB-30-SOM,2024-10-15 04:41:17+00:00,KPX2,120L,"Strada Ștefan cel Mare 80, Sibiu, Romania",2,2%
-SB-30-SOM,2024-10-15 04:41:24+00:00,73OH,120L,"Strada Ștefan cel Mare 82, Sibiu, Romania",2,97%
-SB-30-SOM,2024-10-15 04:42:16+00:00,PFO5,120L,"Strada Ștefan cel Mare 86, Sibiu, Romania",2,95%
-SB-30-SOM,2024-10-15 04:45:32+00:00,NLVP,120L,"Strada Ștefan cel Mare 112, Sibiu, Romania",2,29%
-SB-30-SOM,2024-10-15 04:45:35+00:00,6GCFNF,120L,"Strada Ștefan cel Mare 112, Sibiu, Romania",2,47%
-SB-30-SOM,2024-10-15 04:46:57+00:00,SREA,120L,"Strada Ștefan cel Mare 120, Sibiu, Romania",2,93%
-SB-30-SOM,2024-10-15 04:55:25+00:00,FFEGF2,120L,"Strada Triajului 16, Sibiu, Romania",2,63%
-SB-30-SOM,2024-10-15 04:57:55+00:00,GA42ZD,240L,"Strada Ștefan cel Mare 193, Sibiu, Romania",2,69%
-SB-30-SOM,2024-10-15 05:05:05+00:00,CD52,120L,"Strada Ștefan cel Mare secprol, Nr. (), Nedefinită, Sibiu, Sibiu, Romania",2,94%
-SB-30-SOM,2024-10-15 05:05:46+00:00,CCR5,120L,"Strada Ștefan cel Mare secprol, Nr. (), Nedefinită, Sibiu, Sibiu, Romania",2,59%
-SB-30-SOM,2024-10-15 05:07:16+00:00,QFJ3V5,120L,"Strada Ștefan cel Mare 191, Sibiu, Romania",2,23%
-SB-30-SOM,2024-10-15 05:08:11+00:00,JHNZBA,120L,"Strada Ludos 5, Sibiu, Romania",2,8%
-SB-30-SOM,2024-10-15 05:11:15+00:00,VNTZOL,1.100L,"Strada Ștefan cel Mare 152, Sibiu, Romania",2,35%
-SB-30-SOM,2024-10-15 05:18:28+00:00,VJAJJ3,1.100L,"Strada Ștefan cel Mare 150, Sibiu, Romania",2,55%
-SB-30-SOM,2024-10-15 05:20:44+00:00,BLANMG,120L,"Strada Ștefan cel Mare 193, Sibiu, Romania",2,79%
-SB-30-SOM,2024-10-15 05:22:22+00:00,GPB5EF,240L,"Strada Ștefan cel Mare 193, Sibiu, Romania",2,81%
-SB-30-SOM,2024-10-15 05:25:44+00:00,GEUSVG,120L,"Strada Rampa Ștefan cel Mare 152, Sibiu, Romania",2,12%
-SB-30-SOM,2024-10-15 05:30:29+00:00,JQ7I,120L,"Strada Ștefan cel Mare 199, Sibiu, Romania",2,57%
-SB-30-SOM,2024-10-15 05:31:22+00:00,AETM2M,120L,"Strada Ștefan cel Mare 152, Sibiu, Romania",2,98%
-SB-30-SOM,2024-10-15 05:33:09+00:00,TKPOGB,120L,"Strada Ștefan cel Mare 152, Sibiu, Romania",2,47%
-SB-30-SOM,2024-10-15 05:45:59+00:00,X5LVA3,120L,"Strada Ștefan cel Mare 169, Sibiu, Romania",2,4%
-SB-30-SOM,2024-10-15 05:54:11+00:00,KZ5MXH,120L,"Strada Ștefan cel Mare 193B, Sibiu, Romania",2,23%
-SB-30-SOM,2024-10-15 06:32:13+00:00,BUF4AK,120L,"Strada Ștefan cel Mare 152, Sibiu, Romania",2,9%
-SB-30-SOM,2024-10-15 06:33:23+00:00,GWASFK,120L,"Strada Ștefan cel Mare 152-154, Sibiu, Romania",2,29%
-SB-30-SOM,2024-10-15 06:36:05+00:00,VMOKD2,1.100L,"Strada Ștefan cel Mare 152, Sibiu, Romania",2,2%
-SB-30-SOM,2024-10-15 06:39:11+00:00,AKGA,120L,"Strada Caprelor 2, Sibiu, Romania",2,46%
-SB-30-SOM,2024-10-15 06:41:34+00:00,EA3A,120L,"Strada Ștefan cel Mare 147, Sibiu, Romania",2,45%
-SB-30-SOM,2024-10-15 06:50:39+00:00,ZBQW67,120L,"Strada Ștefan cel Mare 147, Sibiu, Romania",2,62%
-SB-30-SOM,2024-10-15 06:54:16+00:00,XKR4,120L,"Strada Ștefan cel Mare 137 B, Sibiu, Romania",2,83%
-SB-30-SOM,2024-10-15 06:56:06+00:00,IIJR,120L,"Strada Ștefan cel Mare 137 B, Sibiu, Romania",2,37%
-SB-30-SOM,2024-10-15 07:06:51+00:00,TSFP,120L,"Strada Ștefan cel Mare 127, Sibiu, Romania",2,80%
-SB-30-SOM,2024-10-15 07:07:01+00:00,TXASO3,120L,"Strada Ștefan cel Mare 125, Sibiu, Romania",2,83%
-SB-30-SOM,2024-10-15 07:08:36+00:00,X2NJ,120L,"Strada Ștefan cel Mare 128, Sibiu, Romania",2,3%
-SB-30-SOM,2024-10-15 07:08:53+00:00,YHSC,120L,"Strada Ștefan cel Mare 135, Sibiu, Romania",2,6%
-SB-30-SOM,2024-10-15 07:09:12+00:00,F7J4,120L,"Strada Ștefan cel Mare 126 A, Sibiu, Romania",2,89%
-SB-30-SOM,2024-10-15 07:10:45+00:00,LD6EBW,120L,"Strada Pacii 2, Sibiu, Romania",2,48%
-SB-30-SOM,2024-10-15 07:10:47+00:00,FU5H,120L,"Strada Pacii 4, Sibiu, Romania",2,95%
-SB-30-SOM,2024-10-15 07:11:20+00:00,GODE,120L,"Strada Pacii 4, Sibiu, Romania",2,86%
-SB-30-SOM,2024-10-15 07:12:03+00:00,F64N,120L,"Strada Ștefan cel Mare 137, Sibiu, Romania",2,53%
-SB-30-SOM,2024-10-15 07:13:20+00:00,RRX4RQ,120L,"Strada Rampa Ștefan cel Mare 1, Sibiu, Romania",2,57%
-SB-30-SOM,2024-10-15 07:13:54+00:00,54YS,120L,"Strada Ștefan cel Mare 1, Sibiu, Romania",2,12%
-SB-30-SOM,2024-10-15 07:14:32+00:00,227VKI,120L,"Strada Rampa Ștefan cel Mare 5, Sibiu, Romania",2,76%
-SB-30-SOM,2024-10-15 07:15:08+00:00,F376,120L,"Strada Rampa Ștefan cel Mare 8, Sibiu, Romania",2,13%
-SB-30-SOM,2024-10-15 07:15:24+00:00,3X5QFQ,120L,"Strada Rampa Ștefan cel Mare 8, Sibiu, Romania",2,38%
-SB-30-SOM,2024-10-15 07:15:26+00:00,3SWQ2K,120L,"Strada Semaforului 2, Sibiu, Romania",2,60%
-SB-30-SOM,2024-10-15 07:16:32+00:00,EXYR,120L,"Strada Rampa Ștefan cel Mare 10, Sibiu, Romania",2,49%
-SB-30-SOM,2024-10-15 07:18:26+00:00,JGB3U2,1.100L,"Strada Rampa Ștefan cel Mare FN, Sibiu, Romania",2,38%
-SB-30-SOM,2024-10-15 07:23:42+00:00,ECGQHK,240L,"Strada Ștefan cel Mare 74, Sibiu, Romania",2,72%
-SB-30-SOM,2024-10-15 07:32:42+00:00,57CM,120L,"Strada Ștefan cel Mare 119 A, Sibiu, Romania",2,95%
-SB-30-SOM,2024-10-15 07:33:42+00:00,DKB6,120L,"Strada Ștefan cel Mare 111, Sibiu, Romania",2,90%
-SB-30-SOM,2024-10-15 07:35:05+00:00,GQCD,120L,"Strada Ștefan cel Mare 99, Sibiu, Romania",2,29%
-SB-30-SOM,2024-10-15 07:35:06+00:00,BWSI,120L,"Strada Ștefan cel Mare 99, Sibiu, Romania",2,8%
-SB-30-SOM,2024-10-15 07:35:51+00:00,IEIH,120L,"Strada Ștefan cel Mare 93, Sibiu, Romania",2,11%
-SB-30-SOM,2024-10-15 07:38:22+00:00,VHIH,120L,"Strada Ștefan cel Mare 77, Sibiu, Romania",2,74%
-SB-30-SOM,2024-10-15 07:38:57+00:00,EMLY,120L,"Strada Ștefan cel Mare 75, Sibiu, Romania",2,14%
-SB-30-SOM,2024-10-15 07:39:01+00:00,EP3I,120L,"Strada Ștefan cel Mare 75 B, Sibiu, Romania",2,85%
-SB-30-SOM,2024-10-15 07:39:49+00:00,CODXPK,120L,"Strada Ștefan cel Mare 73, Sibiu, Romania",2,50%
-SB-30-SOM,2024-10-15 07:41:45+00:00,AUAARV,240L,"Strada Ștefan cel Mare 57 A, Sibiu, Romania",2,80%
-SB-30-SOM,2024-10-15 07:41:46+00:00,5NWM,120L,"Strada Ștefan cel Mare 59, Sibiu, Romania",2,47%
-SB-30-SOM,2024-10-15 07:42:24+00:00,H43MHV,120L,"Strada Ștefan cel Mare 55, Sibiu, Romania",2,12%
-SB-30-SOM,2024-10-15 07:44:30+00:00,62BG,120L,"Strada Balea 37, Sibiu, Romania",2,49%
-SB-30-SOM,2024-10-15 07:44:52+00:00,7PMF,120L,"Strada Diaconul Coresi 2, Sibiu, Romania",2,5%
-SB-30-SOM,2024-10-15 07:45:21+00:00,4PS6,120L,"Strada Diaconul Coresi 2 C, Sibiu, Romania",2,32%
-SB-30-SOM,2024-10-15 07:45:28+00:00,K6XJ,120L,"Strada Diaconul Coresi 3, Sibiu, Romania",2,16%
-SB-30-SOM,2024-10-15 07:45:56+00:00,N2M7,120L,"Strada Diaconul Coresi 4, Sibiu, Romania",2,29%
-SB-30-SOM,2024-10-15 07:46:33+00:00,EFTB,120L,"Strada Axente Sever 37, Sibiu, Romania",2,10%
-SB-30-SOM,2024-10-15 07:50:38+00:00,CF3L,120L,"Strada Balea 35, Sibiu, Romania",2,72%
-SB-30-SOM,2024-10-15 07:51:02+00:00,QJNV,120L,"Strada Balea 33, Sibiu, Romania",2,2%
-SB-30-SOM,2024-10-15 07:52:39+00:00,5XXV2R,120L,"Strada Balea 25, Sibiu, Romania",2,76%
-SB-30-SOM,2024-10-15 07:54:05+00:00,UQOC,120L,"Strada Balea 19, Sibiu, Romania",2,21%
-SB-30-SOM,2024-10-15 07:56:40+00:00,XI3J,120L,"Strada Balea 11, Sibiu, Romania",2,88%
-SB-30-SOM,2024-10-15 07:57:21+00:00,BPKS,120L,"Strada Balea 7, Sibiu, Romania",2,85%
-SB-30-SOM,2024-10-15 07:58:02+00:00,ZJBL,120L,"Strada Balea 7, Sibiu, Romania",2,82%
-SB-30-SOM,2024-10-15 07:58:37+00:00,PZWGRR,120L,"Strada Balea 3, Sibiu, Romania",2,65%
-SB-30-SOM,2024-10-15 08:02:40+00:00,BVG5KV,1.100L,"Strada Bâlea 8, Sibiu, Romania",2,69%
-SB-30-SOM,2024-10-15 08:04:28+00:00,EEB7,120L,"Strada Balea 12, Sibiu, Romania",2,7%
-SB-30-SOM,2024-10-15 08:05:36+00:00,5KKL,120L,"Strada Spartacus 13, Sibiu, Romania",2,49%
-SB-30-SOM,2024-10-15 08:06:04+00:00,AQRN,120L,"Strada Spartacus 13 A, Sibiu, Romania",2,8%
-SB-30-SOM,2024-10-15 08:06:43+00:00,6NINN2,120L,"Strada Spartacus 15, Sibiu, Romania",2,95%
-SB-30-SOM,2024-10-15 08:09:43+00:00,4GKMDN,120L,"Strada Balea 2, Sibiu, Romania",2,12%
-SB-30-SOM,2024-10-15 08:10:28+00:00,GKP3,120L,"Strada Constantin Noica 2, Sibiu, Romania",2,16%
-SB-30-SOM,2024-10-15 08:10:30+00:00,QGSO,120L,"Strada Constantin Noica 2, Sibiu, Romania",2,37%
-SB-30-SOM,2024-10-15 08:11:08+00:00,UTY5,120L,"Strada Constantin Noica 3, Sibiu, Romania",2,54%
-SB-30-SOM,2024-10-15 08:12:24+00:00,4IPOVU,120L,"Strada Constantin Noica 8, Sibiu, Romania",2,26%
-SB-30-SOM,2024-10-15 08:13:01+00:00,VVM3,120L,"Strada Constantin Noica 10, Sibiu, Romania",2,59%
-SB-30-SOM,2024-10-15 08:14:05+00:00,JLEN,120L,"Strada Constantin Noica 11, Sibiu, Romania",2,50%
-SB-30-SOM,2024-10-15 08:15:15+00:00,DX5X,120L,"Strada Vartopu 6, Sibiu, Romania",2,55%
-SB-30-SOM,2024-10-15 08:15:25+00:00,DXZE,120L,"Strada Vartopu 1, Sibiu, Romania",2,9%
-SB-30-SOM,2024-10-15 08:16:24+00:00,PHLC,120L,"Strada Constantin Noica 12, Sibiu, Romania",2,67%
-SB-30-SOM,2024-10-15 08:18:22+00:00,QMRW,240L,"Strada Constantin Noica 20 A, Sibiu, Romania",2,2%
-SB-30-SOM,2024-10-15 08:19:17+00:00,FU57,120L,"Strada Constantin Noica 23, Sibiu, Romania",2,63%
-SB-30-SOM,2024-10-15 08:19:33+00:00,7VIZ,120L,"Strada Constantin Noica 18, Sibiu, Romania",2,95%
-SB-30-SOM,2024-10-15 08:19:58+00:00,D7IW,120L,"Strada Constantin Noica 16, Sibiu, Romania",2,91%
-SB-30-SOM,2024-10-15 08:20:02+00:00,HV4N,120L,"Strada Constantin Noica 16, Sibiu, Romania",2,49%
-SB-30-SOM,2024-10-15 08:21:39+00:00,EELK,240L,"Strada Constantin Noica 20, Sibiu, Romania",2,69%
-SB-30-SOM,2024-10-15 08:22:17+00:00,X6RI,240L,"Strada Constantin Noica 20, Sibiu, Romania",2,93%
-SB-30-SOM,2024-10-15 08:23:15+00:00,VQ2Y,240L,"Strada Constantin Noica 20, Sibiu, Romania",2,60%
-SB-30-SOM,2024-10-15 08:23:44+00:00,Q3R2,120L,"Strada Constantin Noica 25, Sibiu, Romania",2,7%
-SB-30-SOM,2024-10-15 08:23:49+00:00,GLL3,120L,"Strada Constantin Noica 25, Sibiu, Romania",2,29%
-SB-30-SOM,2024-10-15 08:25:06+00:00,DQ7X,120L,"Strada Constantin Noica 22 A, Sibiu, Romania",2,43%
-SB-30-SOM,2024-10-15 08:25:27+00:00,KZ5DQA,120L,"Strada Constantin Noica 25 A, Sibiu, Romania",2,87%
-SB-30-SOM,2024-10-15 08:25:30+00:00,E5JX,120L,"Strada Constantin Noica 29, Sibiu, Romania",2,51%
-SB-30-SOM,2024-10-15 08:26:35+00:00,FZFR2E,120L,"Strada Constantin Noica 26, Sibiu, Romania",2,16%
-SB-30-SOM,2024-10-15 08:27:27+00:00,DFFQ,120L,"Strada Constantin Noica 33 A, Sibiu, Romania",2,55%
-SB-30-SOM,2024-10-15 08:27:53+00:00,XSDX,120L,"Strada Constantin Noica 33, Sibiu, Romania",2,32%
-SB-30-SOM,2024-10-15 08:28:03+00:00,DDMJ,120L,"Strada Constantin Noica 33 C, Sibiu, Romania",2,48%
-SB-30-SOM,2024-10-15 08:29:51+00:00,KOT4,120L,"Strada Constantin Noica 33 C, Sibiu, Romania",2,98%
-SB-30-SOM,2024-10-15 08:29:54+00:00,MG73,120L,"Strada Constantin Noica 37, Sibiu, Romania",2,5%
-SB-30-SOM,2024-10-15 08:30:25+00:00,GCGR,120L,"Strada Constantin Noica 39, Sibiu, Romania",2,86%
-SB-30-SOM,2024-10-15 08:31:14+00:00,D4FX,120L,"Strada Constantin Noica 43, Sibiu, Romania",2,89%
-SB-30-SOM,2024-10-15 08:31:46+00:00,V7GD,120L,"Strada Constantin Noica 36, Sibiu, Romania",2,37%
-SB-30-SOM,2024-10-15 08:32:22+00:00,LTYP,120L,"Strada Constantin Noica 43 A, Sibiu, Romania",2,6%
-SB-30-SOM,2024-10-15 08:32:24+00:00,EJU3,120L,"Strada Constantin Noica 45, Sibiu, Romania",2,52%
-SB-30-SOM,2024-10-15 08:33:09+00:00,VT3W,120L,"Strada Constantin Noica 47, Sibiu, Romania",2,22%
-SB-30-SOM,2024-10-15 08:33:24+00:00,T7XK,120L,"Strada Constantin Noica 42, Sibiu, Romania",2,97%
-SB-30-SOM,2024-10-15 08:34:12+00:00,NAV7,120L,"Strada Constantin Noica 44 A, Sibiu, Romania",2,83%
-SB-30-SOM,2024-10-15 08:34:14+00:00,LSZK,120L,"Strada Constantin Noica 44, Sibiu, Romania",2,57%
-SB-30-SOM,2024-10-15 08:34:37+00:00,ZCAOHD,120L,"Strada Revoluției 1, Sibiu, Romania",2,38%
-SB-30-SOM,2024-10-15 08:35:54+00:00,3ROR,120L,"Strada Constantin Noica 53, Sibiu, Romania",2,18%
-SB-30-SOM,2024-10-15 08:36:36+00:00,GGJR,120L,"Strada Constantin Noica 48, Sibiu, Romania",2,62%
-SB-30-SOM,2024-10-15 08:37:24+00:00,DHVY,120L,"Strada Berăriei 13, Sibiu, Romania",2,58%
-SB-30-SOM,2024-10-15 08:38:16+00:00,Z3Q6ZS,120L,"Strada Dobrun 10, Sibiu, Romania",2,37%
-SB-30-SOM,2024-10-15 08:38:47+00:00,L7HU,120L,"Strada Revoluției 5, Sibiu, Romania",2,32%
-SB-30-SOM,2024-10-15 08:39:50+00:00,I5QG,120L,"Strada Dobrun 8 A, Sibiu, Romania",2,97%
-SB-30-SOM,2024-10-15 08:40:22+00:00,FUQBCW,120L,"Strada Dobrun 4, Sibiu, Romania",2,59%
-SB-30-SOM,2024-10-15 08:41:01+00:00,D3OBAA,240L,"Strada Constantin Noica 60, Sibiu, Romania",2,85%
-SB-30-SOM,2024-10-15 08:43:54+00:00,GPBCWR,120L,"Strada Piața Unirii 4, Sibiu, Romania",2,48%
-SB-30-SOM,2024-10-15 08:44:04+00:00,3V624D,120L,"Strada Piața Unirii 4, Sibiu, Romania",2,58%
-SB-30-SOM,2024-10-15 08:52:10+00:00,UYY7,120L,"Strada Constantin Noica 54, Sibiu, Romania",2,79%
-SB-30-SOM,2024-10-15 08:52:15+00:00,XSW3,120L,"Strada Constantin Noica 54, Sibiu, Romania",2,0%
-SB-30-SOM,2024-10-15 08:52:27+00:00,KPWA,120L,"Strada Constantin Noica 54, Sibiu, Romania",2,54%
-SB-30-SOM,2024-10-15 08:52:32+00:00,FA6J,120L,"Strada Constantin Noica 54, Sibiu, Romania",2,7%
-SB-30-SOM,2024-10-15 08:53:13+00:00,GLGN,120L,"Strada Constantin Noica 48, Sibiu, Romania",2,92%
-SB-30-SOM,2024-10-15 08:54:40+00:00,QQAP,120L,"Strada Ștefan cel Mare 3, Sibiu, Romania",2,31%
-SB-30-SOM,2024-10-15 08:54:47+00:00,G7FJ,120L,"Strada Ștefan cel Mare 3 B, Sibiu, Romania",2,29%
-SB-30-SOM,2024-10-15 08:55:31+00:00,N67S,120L,"Strada Ștefan cel Mare 7, Sibiu, Romania",2,23%
-SB-30-SOM,2024-10-15 08:55:32+00:00,G5QV,120L,"Strada Ștefan cel Mare 7 A, Sibiu, Romania",2,56%
-SB-30-SOM,2024-10-15 08:55:49+00:00,G3LE,120L,"Strada Ștefan cel Mare 7 C, Sibiu, Romania",2,17%
-SB-30-SOM,2024-10-15 08:55:54+00:00,G2YI,120L,"Strada Ștefan cel Mare 7 D, Sibiu, Romania",2,89%
-SB-30-SOM,2024-10-15 08:56:09+00:00,G2MC,120L,"Strada Ștefan cel Mare 7 E, Sibiu, Romania",2,95%
-SB-30-SOM,2024-10-15 08:56:51+00:00,6W7P,120L,"Strada Ștefan cel Mare 11, Sibiu, Romania",2,90%
-SB-30-SOM,2024-10-15 08:57:30+00:00,FYQD,120L,"Strada Ștefan cel Mare 13 A, Sibiu, Romania",2,3%
-SB-30-SOM,2024-10-15 08:57:32+00:00,5X5M,120L,"Strada Ștefan cel Mare 15, Sibiu, Romania",2,35%
-SB-30-SOM,2024-10-15 08:57:46+00:00,65WS,120L,"Strada Ștefan cel Mare 15, Sibiu, Romania",2,65%
-SB-30-SOM,2024-10-15 08:58:17+00:00,5ZYU,120L,"Strada Ștefan cel Mare 15, Sibiu, Romania",2,69%
-SB-30-SOM,2024-10-15 08:58:30+00:00,FXZW,120L,"Strada Ștefan cel Mare 17 A, Sibiu, Romania",2,33%
-SB-30-SOM,2024-10-15 08:58:58+00:00,FWEG,120L,"Strada Ștefan cel Mare 17 C, Sibiu, Romania",2,46%
-SB-30-SOM,2024-10-15 08:58:59+00:00,FYNH,120L,"Strada Ștefan cel Mare 17 B, Sibiu, Romania",2,77%
-SB-30-SOM,2024-10-15 09:00:23+00:00,CCPU,120L,"Strada Ștefan cel Mare 21, Sibiu, Romania",2,24%
-SB-30-SOM,2024-10-15 09:00:52+00:00,FRNB,120L,"Strada Ștefan cel Mare 25 B, Sibiu, Romania",2,20%
-SB-30-SOM,2024-10-15 09:00:56+00:00,FT7Y,120L,"Strada Ștefan cel Mare 25 A, Sibiu, Romania",2,56%
-SB-30-SOM,2024-10-15 09:01:31+00:00,AW4G,120L,"Strada Ștefan cel Mare 23, Sibiu, Romania",2,82%
-SB-30-SOM,2024-10-15 09:01:34+00:00,NZQI,120L,"Strada Ștefan cel Mare 25, Sibiu, Romania",2,74%
-SB-30-SOM,2024-10-15 09:02:31+00:00,CKFH5G,120L,"Strada Ștefan cel Mare 25, Sibiu, Romania",2,69%
-SB-30-SOM,2024-10-15 09:02:33+00:00,TEIH26,120L,"Strada Ștefan cel Mare 25, Sibiu, Romania",2,62%
-SB-30-SOM,2024-10-15 09:03:00+00:00,FPAB,120L,"Strada Ștefan cel Mare 27 A, Sibiu, Romania",2,65%
-SB-30-SOM,2024-10-15 09:03:29+00:00,AFPX,120L,"Strada Ștefan cel Mare 4, Sibiu, Romania",2,92%
-SB-30-SOM,2024-10-15 09:03:31+00:00,FOII,120L,"Strada Ștefan cel Mare 4 A, Sibiu, Romania",2,46%
-SB-30-SOM,2024-10-15 09:59:19+00:00,35GWZ3,120L,"Strada Ștefan cel Mare FN, Sibiu, Romania",2,71%
-SB-30-SOM,2024-10-15 10:02:35+00:00,3JPC,120L,"Strada Ștefan cel Mare 166, Sibiu, Romania",2,1%
-SB-30-SOM,2024-10-15 10:02:38+00:00,JMFE,120L,"Strada Ștefan cel Mare 166, Sibiu, Romania",2,72%
-SB-30-SOM,2024-10-15 10:03:13+00:00,INLF2G,240L,"Strada Ștefan cel Mare 166, Sibiu, Romania",2,92%
-SB-30-SOM,2024-10-15 10:04:04+00:00,H2TG,120L,"Strada Ștefan cel Mare 166, Sibiu, Romania",2,34%
-SB-30-SOM,2024-10-15 10:04:31+00:00,6ZAW,120L,"Strada Ștefan cel Mare 166, Sibiu, Romania",2,23%
-SB-30-SOM,2024-10-15 10:15:02+00:00,4QKUNQ,240L,"Strada Ștefan cel Mare 197, Sibiu, Romania",2,100%
-SB-30-SOM,2024-10-15 10:18:18+00:00,EKDT,120L,"Strada Ștefan cel Mare FARA NR, Sibiu, Romania",2,88%
-SB-30-SOM,2024-10-15 10:27:13+00:00,IAUD,120L,"Strada Ștefan cel Mare 197 A, Sibiu, Romania",2,92%
-SB-30-SOM,2024-10-15 10:43:55+00:00,R4WTEU,120L,"Strada Ștefan cel Mare 152, Sibiu, Romania",2,38%
-SB-30-SOM,2024-10-15 10:54:12+00:00,NMLTD3,120L,"Strada Ștefan cel Mare 30, Sibiu, Romania",2,32%
-SB-30-SOM,2024-10-15 11:03:54+00:00,G5FQOZ,120L,"Strada Ștefan cel Mare 154, Sibiu, Romania",2,90%
-SB-30-SOM,2024-10-15 11:07:51+00:00,5WP3P7,120L,"Strada Ștefan cel Mare 154, Sibiu, Romania",2,22%
-SB-30-SOM,2024-10-15 11:09:33+00:00,TSPC,120L,"Strada Ștefan cel Mare 154, Sibiu, Romania",2,7%
-SB-30-SOM,2024-10-15 11:14:18+00:00,7KPVEF,1.100L,"Strada Ștefan cel Mare 156 A, Sibiu, Romania",2,99%
-SB-30-SOM,2024-10-15 11:15:30+00:00,2XBH6X,1.100L,"Strada Ștefan cel Mare 156 A, Sibiu, Romania",2,54%
-SB-30-SOM,2024-10-15 11:16:21+00:00,KAN4FM,1.100L,"Strada Ștefan cel Mare 156 A, Sibiu, Romania",2,98%
-SB-30-SOM,2024-10-15 11:17:48+00:00,SUQIZF,1.100L,"Strada Ștefan cel Mare 156 A, Sibiu, Romania",2,68%
-SB-30-SOM,2024-10-15 11:35:09+00:00,OTBUCR,1.100L,"Strada Ștefan cel Mare 156, Sibiu, Romania",2,78%
-SB-30-SOM,2024-10-15 11:35:44+00:00,J5ZR2S,1.100L,"Strada Ștefan cel Mare 156, Sibiu, Romania",2,3%
-SB-30-SOM,2024-10-15 11:36:48+00:00,E7LF5S,1.100L,"Strada Ștefan cel Mare 156, Sibiu, Romania",2,74%
-SB-30-SOM,2024-10-15 11:47:44+00:00,HZIOKD,120L,"Strada Semaforului BL 15, Sibiu, Romania",2,85%
-SB-30-SOM,2024-10-15 11:49:55+00:00,R2STNH,120L,"Strada Oncesti 10, Sibiu, Romania",2,40%
-SB-30-SOM,2024-10-15 11:50:44+00:00,ZOTG,120L,"Strada Oncesti 5, Sibiu, Romania",2,30%
-SB-30-SOM,2024-10-15 11:51:05+00:00,6OLS,120L,"Strada Oncesti 3, Sibiu, Romania",2,93%
-SB-30-SOM,2024-10-15 11:51:47+00:00,RYBY,120L,"Strada Oncesti 1, Sibiu, Romania",2,78%
-SB-30-SOM,2024-10-15 11:53:24+00:00,QUMGAG,1.100L,"Strada Semaforului 2, Sibiu, Romania",2,86%
-SB-30-SOM,2024-10-15 11:54:54+00:00,LGKG,120L,"Strada Semaforului 4, Sibiu, Romania",2,10%
-SB-30-SOM,2024-10-15 11:57:30+00:00,PINFYG,120L,"Strada Semaforului 7, Sibiu, Romania",2,4%
-SB-45-SOM,2024-10-15 03:24:16+00:00,OWQY,120L,"Strada Avram Iancu 12 A, Sibiu, Romania",3,49%
-SB-45-SOM,2024-10-15 03:25:27+00:00,OYQE,120L,"Strada Avram Iancu 13 A, Sibiu, Romania",3,41%
-SB-45-SOM,2024-10-15 03:25:30+00:00,OYZ4,120L,"Strada Avram Iancu 13 A, Sibiu, Romania",3,66%
-SB-45-SOM,2024-10-15 03:25:35+00:00,6B5I,120L,"Strada Avram Iancu 13, Sibiu, Romania",3,65%
-SB-45-SOM,2024-10-15 03:26:26+00:00,Y6KM,120L,"Strada Avram Iancu 10, Sibiu, Romania",3,80%
-SB-45-SOM,2024-10-15 03:27:24+00:00,PAED,120L,"Strada Avram Iancu 9 B, Sibiu, Romania",3,60%
-SB-45-SOM,2024-10-15 03:27:27+00:00,PAFF,120L,"Strada Avram Iancu 9 A, Sibiu, Romania",3,69%
-SB-45-SOM,2024-10-15 03:27:53+00:00,PABD,120L,"Strada Avram Iancu 9 C, Sibiu, Romania",3,39%
-SB-45-SOM,2024-10-15 03:27:56+00:00,6VNM,120L,"Strada Avram Iancu 9, Sibiu, Romania",3,92%
-SB-45-SOM,2024-10-15 03:28:44+00:00,73FS,120L,"Strada Avram Iancu 7, Sibiu, Romania",3,31%
-SB-45-SOM,2024-10-15 03:28:57+00:00,FQWK,120L,"Strada Avram Iancu 8, Sibiu, Romania",3,53%
-SB-45-SOM,2024-10-15 03:29:02+00:00,PBTE,120L,"Strada Avram Iancu 8, Sibiu, Romania",3,55%
-SB-45-SOM,2024-10-15 03:29:42+00:00,DNFC,120L,"Strada Avram Iancu 5, Sibiu, Romania",3,59%
-SB-45-SOM,2024-10-15 03:29:54+00:00,632O,120L,"Strada Avram Iancu 5, Sibiu, Romania",3,64%
-SB-45-SOM,2024-10-15 03:29:58+00:00,6EFC,120L,"Strada Avram Iancu 6, Sibiu, Romania",3,22%
-SB-45-SOM,2024-10-15 03:31:07+00:00,O7HX,120L,"Piața Mare (), Sibiu, Romania",3,5%
-SB-45-SOM,2024-10-15 03:31:11+00:00,GFIUQ4,120L,"Strada Avram Iancu 1, Sibiu, Romania",3,88%
-SB-45-SOM,2024-10-15 03:33:37+00:00,GSIDPB,240L,"Piața Mare 16, Sibiu, Romania",3,69%
-SB-45-SOM,2024-10-15 03:34:28+00:00,EF55AH,1.100L,"Piața Mare 16, Sibiu, Romania",3,18%
-SB-45-SOM,2024-10-15 03:35:34+00:00,F4OF6F,240L,"Piața Mare 14, Sibiu, Romania",3,85%
-SB-45-SOM,2024-10-15 03:35:37+00:00,FHKIOX,240L,"Piața Mare 14, Sibiu, Romania",3,79%
-SB-45-SOM,2024-10-15 03:38:12+00:00,ALEZ,240L,"Strada G-ral Gheorghe Magheru 1, Sibiu, Romania",3,61%
-SB-45-SOM,2024-10-15 03:38:42+00:00,OREE,120L,"Strada G-ral Gheorghe Magheru 4, Sibiu, Romania",3,86%
-SB-45-SOM,2024-10-15 03:39:16+00:00,CKBYOO,120L,"Strada G-ral Gheorghe Magheru 2, Sibiu, Romania",3,35%
-SB-45-SOM,2024-10-15 03:39:19+00:00,W4NG,120L,"Piața Mare 10, Sibiu, Romania",3,60%
-SB-45-SOM,2024-10-15 03:40:31+00:00,R7EWOS,240L,"Piata mare 10, Sibiu, Romania",3,37%
-SB-45-SOM,2024-10-15 03:41:39+00:00,GWMTJB,240L,"piața mare 11, Sibiu, Romania",3,95%
-SB-45-SOM,2024-10-15 03:42:31+00:00,JEZC,120L,"Piața Mare 9 C, Sibiu, Romania",3,90%
-SB-45-SOM,2024-10-15 03:47:40+00:00,UUJUCY,1.100L,"Strada Arhivelor 1, Sibiu, Romania",3,80%
-SB-45-SOM,2024-10-15 03:48:20+00:00,YHGA,1.100L,"Strada Arhivelor 1, Sibiu, Romania",3,29%
-SB-45-SOM,2024-10-15 03:51:11+00:00,D4XT,240L,"Strada Nicolae Bălcescu 1, Sibiu, Romania",3,13%
-SB-45-SOM,2024-10-15 03:51:17+00:00,2GHMIL,240L,"Strada Nicolae Bălcescu 1, Sibiu, Romania",3,65%
-SB-45-SOM,2024-10-15 03:53:08+00:00,XMDUYK,120L,"Strada Nicolae Bălcescu 1, Sibiu, Romania",3,32%
-SB-45-SOM,2024-10-15 03:53:11+00:00,CPLKJX,120L,"Strada Nicolae Bălcescu 3, Sibiu, Romania",3,77%
-SB-45-SOM,2024-10-15 03:54:07+00:00,Z65N,120L,"Strada Nicolae Bălcescu 5, Sibiu, Romania",3,14%
-SB-45-SOM,2024-10-15 03:54:58+00:00,4UFQ,120L,"Strada Nicolae Bălcescu 7, Sibiu, Romania",3,13%
-SB-45-SOM,2024-10-15 03:55:43+00:00,J7WC7W,240L,"Strada Nicolae Bălcescu 9, Sibiu, Romania",3,42%
-SB-45-SOM,2024-10-15 04:01:18+00:00,AFXGZC,1.100L,"Strada Nicolae Bălcescu 6, Sibiu, Romania",3,83%
-SB-45-SOM,2024-10-15 04:03:15+00:00,5YJ5US,120L,"Strada Alexandru Papiu Ilarian 2, Sibiu, Romania",3,88%
-SB-45-SOM,2024-10-15 04:03:17+00:00,7Z5OJV,120L,"Strada Alexandru Papiu Ilarian 2, Sibiu, Romania",3,1%
-SB-45-SOM,2024-10-15 04:03:49+00:00,3BSO,120L,"Strada Nicolae Bălcescu 15, Sibiu, Romania",3,77%
-SB-45-SOM,2024-10-15 04:05:43+00:00,JOYK,240L,"Strada Nicolae Bălcescu 14, Sibiu, Romania",3,33%
-SB-45-SOM,2024-10-15 04:05:48+00:00,SRWL,120L,"Strada Nicolae Bălcescu 14, Sibiu, Romania",3,53%
-SB-45-SOM,2024-10-15 04:06:35+00:00,GP43,240L,"Strada Nicolae Bălcescu 17, Sibiu, Romania",3,44%
-SB-45-SOM,2024-10-15 04:08:22+00:00,Q7BX,120L,"Strada Nicolae Bălcescu 20, Sibiu, Romania",3,17%
-SB-45-SOM,2024-10-15 04:08:26+00:00,LLYONC,240L,"Strada Nicolae Bălcescu 20, Sibiu, Romania",3,58%
-SB-45-SOM,2024-10-15 04:12:51+00:00,4JT6V5,240L,"Strada Nicolae Bălcescu 33, Sibiu, Romania",3,80%
-SB-45-SOM,2024-10-15 04:13:18+00:00,ICJFIE,240L,"Strada Nicolae Bălcescu 28, Sibiu, Romania",3,45%
-SB-45-SOM,2024-10-15 04:15:36+00:00,AE5BTG,240L,"Strada Nicolae Bălcescu 39, Sibiu, Romania",3,75%
-SB-45-SOM,2024-10-15 04:17:49+00:00,HZCYJJ,240L,"Strada Nicolae Bălcescu 51, Sibiu, Romania",3,9%
-SB-45-SOM,2024-10-15 04:19:25+00:00,M2F7,120L,"Strada Nicolae Bălcescu 47 C, Sibiu, Romania",3,58%
-SB-45-SOM,2024-10-15 04:23:44+00:00,M3VLEF,240L,"Piața Unirii 10, Sibiu, Romania",3,77%
-SB-45-SOM,2024-10-15 04:23:47+00:00,ZQZCLD,240L,"Piața Unirii 10, Sibiu, Romania",3,9%
-SB-45-SOM,2024-10-15 04:24:11+00:00,EWSTO2,240L,"Strada Andrei Șaguna 4, Sibiu, Romania",3,0%
-SB-45-SOM,2024-10-15 04:24:26+00:00,STNZIZ,240L,"Strada Andrei Șaguna 4, Sibiu, Romania",3,70%
-SB-45-SOM,2024-10-15 04:25:50+00:00,ZW62PU,240L,"Strada Andrei Șaguna 4, Sibiu, Romania",3,36%
-SB-45-SOM,2024-10-15 04:28:38+00:00,V4LT5O,120L,"Strada Andrei Șaguna 5, Sibiu, Romania",3,43%
-SB-45-SOM,2024-10-15 04:28:41+00:00,TUOP4X,120L,"Strada Andrei Șaguna 5, Sibiu, Romania",3,24%
-SB-45-SOM,2024-10-15 04:29:45+00:00,X2LIGZ,240L,"Strada Andrei Șaguna 7, Sibiu, Romania",3,39%
-SB-45-SOM,2024-10-15 04:29:47+00:00,MQP7,120L,"Strada Andrei Șaguna 7, Sibiu, Romania",3,84%
-SB-45-SOM,2024-10-15 04:30:43+00:00,OLSL,120L,"Strada Andrei Șaguna 9 A, Sibiu, Romania",3,29%
-SB-45-SOM,2024-10-15 04:30:47+00:00,TNGM,120L,"Strada Andrei Șaguna 9, Sibiu, Romania",3,77%
-SB-45-SOM,2024-10-15 04:31:05+00:00,XG6O,120L,"Strada Andrei Șaguna 8, Sibiu, Romania",3,35%
-SB-45-SOM,2024-10-15 04:32:20+00:00,ZKJCGY,120L,"Strada Andrei Șaguna 17, Sibiu, Romania",3,11%
-SB-45-SOM,2024-10-15 04:33:27+00:00,ZC27JX,240L,"Strada Andrei Șaguna 21, Sibiu, Romania",3,51%
-SB-45-SOM,2024-10-15 04:34:59+00:00,U656,120L,"Strada Andrei Șaguna 23, Sibiu, Romania",3,31%
-SB-45-SOM,2024-10-15 04:49:26+00:00,E65XU2,240L,"Strada Pacii 12, Sibiu, Romania",3,52%
-SB-45-SOM,2024-10-15 04:51:23+00:00,MCUN5O,120L,"Strada Vasile Aaron 33, Sibiu, Romania",3,44%
-SB-45-SOM,2024-10-15 04:52:12+00:00,NKXK3O,1.100L,"Strada Iezer 14, Sibiu, Romania",3,41%
-SB-45-SOM,2024-10-15 04:52:32+00:00,DSGBQY,120L,"Strada Vasile Aaron 29, Sibiu, Romania",3,76%
-SB-45-SOM,2024-10-15 04:54:54+00:00,LOCZQ2,240L,"Strada Vasile Aaron 18, Sibiu, Romania",3,80%
-SB-45-SOM,2024-10-15 04:55:34+00:00,LOCZQ2,240L,"Strada Vasile Aaron 18, Sibiu, Romania",3,51%
-SB-45-SOM,2024-10-15 04:55:42+00:00,3WEG,120L,"Strada Vasile Aaron 27, Sibiu, Romania",3,100%
-SB-45-SOM,2024-10-15 04:56:24+00:00,CZBI,120L,"Strada Giuseppe Garibaldi 16, Sibiu, Romania",3,94%
-SB-45-SOM,2024-10-15 04:57:13+00:00,2JRZ,120L,"Strada Vasile Aaron 26, Sibiu, Romania",3,47%
-SB-45-SOM,2024-10-15 04:59:34+00:00,CEAV,120L,"Strada Șoimului 3, Sibiu, Romania",3,93%
-SB-45-SOM,2024-10-15 05:03:59+00:00,R3HR,120L,"Strada Vasile Aaron 13 A, Sibiu, Romania",3,74%
-SB-45-SOM,2024-10-15 05:04:27+00:00,EC56ZN,120L,"Strada Vasile Aaron 11, Sibiu, Romania",3,95%
-SB-45-SOM,2024-10-15 05:05:04+00:00,5GTH,120L,"Strada Vasile Aaron 9, Sibiu, Romania",3,91%
-SB-45-SOM,2024-10-15 05:05:06+00:00,XQZ5,120L,"Strada Vasile Aaron 9, Sibiu, Romania",3,21%
-SB-45-SOM,2024-10-15 05:05:47+00:00,YL4U,120L,"Strada Vasile Aaron 7, Sibiu, Romania",3,30%
-SB-45-SOM,2024-10-15 05:06:07+00:00,QRBP,120L,"Strada Vasile Aaron 6, Sibiu, Romania",3,64%
-SB-45-SOM,2024-10-15 05:06:43+00:00,SQT33G,120L,"Strada Vasile Aaron 5, Sibiu, Romania",3,60%
-SB-45-SOM,2024-10-15 05:06:46+00:00,RPN47O,240L,"Strada Vasile Aaron 5, Sibiu, Romania",3,44%
-SB-45-SOM,2024-10-15 05:07:33+00:00,ZKSMUP,120L,"Strada Vasile Aaron 2, Sibiu, Romania",3,14%
-SB-45-SOM,2024-10-15 05:07:36+00:00,P7IQ,120L,"Strada Vasile Aaron 4, Sibiu, Romania",3,25%
-SB-45-SOM,2024-10-15 05:08:16+00:00,XDM2,120L,"Strada Ștefan cel Mare 192, Sibiu, Romania",3,88%
-SB-45-SOM,2024-10-15 05:08:26+00:00,TPCE6T,120L,"Strada Vasile Aaron 1, Sibiu, Romania",3,41%
-SB-45-SOM,2024-10-15 05:08:29+00:00,Q7U2GS,120L,"Bulevardul G-ral Vasile Milea 35, Sibiu, Romania",3,50%
-SB-45-SOM,2024-10-15 05:18:42+00:00,XYLCCQ,1.100L,"Strada Fabricii 8, Sibiu, Romania",3,57%
-SB-45-SOM,2024-10-15 05:19:24+00:00,RVTUKK,1.100L,"Strada Fabricii 8, Sibiu, Romania",3,46%
-SB-45-SOM,2024-10-15 05:19:54+00:00,C6ZHR2,1.100L,"Strada Fabricii 8, Sibiu, Romania",3,50%
-SB-45-SOM,2024-10-15 05:22:43+00:00,NCOS,1.100L,"Strada Serbota 23, Sibiu, Romania",3,68%
-SB-45-SOM,2024-10-15 05:27:47+00:00,E6PUYX,1.100L,"Piața 1 Decembrie 1918 1, Sibiu, Romania",3,14%
-SB-45-SOM,2024-10-15 05:30:31+00:00,WOQ7CW,1.100L,"Strada Uzinei 3, Sibiu, Romania",3,15%
-SB-45-SOM,2024-10-15 05:30:34+00:00,WOQ7CW,1.100L,"Strada Uzinei 3, Sibiu, Romania",3,30%
-SB-45-SOM,2024-10-15 05:32:15+00:00,OVU6LL,1.100L,"Strada Uzinei 9, Sibiu, Romania",3,78%
-SB-45-SOM,2024-10-15 05:44:35+00:00,KXCA,120L,"Strada G-ral Gheorghe Magheru 55, Sibiu, Romania",3,43%
-SB-45-SOM,2024-10-15 05:47:55+00:00,NS6CBI,1.100L,"Strada Constituției BLOCURI 9 MAI, Sibiu, Romania",3,55%
-SB-45-SOM,2024-10-15 05:51:11+00:00,JVLS,1.100L,"Strada Autogarii 5, Sibiu, Romania",3,28%
-SB-45-SOM,2024-10-15 05:52:52+00:00,5OAGB7,1.100L,"Strada Regele Ferdinand 6, Sibiu, Romania",3,7%
-SB-45-SOM,2024-10-15 05:53:16+00:00,MKURSO,1.100L,"Strada Regele Ferdinand 6, Sibiu, Romania",3,54%
-SB-45-SOM,2024-10-15 05:56:19+00:00,XOXCRA,1.100L,"Strada Abatorului 2, Sibiu, Romania",3,73%
-SB-45-SOM,2024-10-15 05:57:43+00:00,2SSUON,1.100L,"Strada Abatorului 4, Sibiu, Romania",3,8%
-SB-45-SOM,2024-10-15 05:58:02+00:00,WDMXDG,1.100L,"Strada Abatorului 4, Sibiu, Romania",3,57%
+Car,Datetime,Id,Capacity,Address,route_id
+SB-25-SOM,2024-10-15 06:14:38+00:00,O5AHDP,1.100L,"Calea Șurii Mari 39 B, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:19:38+00:00,O5AHDP,1.100L,"Calea Șurii Mari 39 B, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:32:00+00:00,NH7XHL,1.100L,"Calea Șurii Mari 39, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:38:19+00:00,HPDZUE,1.100L,"Strada Căprioarelor 1, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:46:41+00:00,BNY3U5,120L,"Strada Lungă 71, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:50:03+00:00,J4LA,120L,"Strada Țiglarilor 10, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:51:53+00:00,HLQKX5,1.100L,"Strada Țiglarilor 12, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:52:15+00:00,MO25A3,1.100L,"Strada Țiglarilor 12, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:52:47+00:00,OVR7LU,1.100L,"Strada Țiglarilor 12, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:54:43+00:00,M4FF,240L,"Strada Țiglarilor 20, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:55:18+00:00,MNQ5,120L,"Strada Țiglarilor 24, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:55:51+00:00,R2LY,120L,"Strada Țiglarilor 28, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:56:30+00:00,AGGC,120L,"Strada Eschile 3, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:58:07+00:00,3WT5,1.100L,"Strada Eschile 6, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 06:58:39+00:00,EXDE,1.100L,"Strada Eschile 6, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:01:56+00:00,RSUZ,120L,"Strada Eschile 12, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:02:21+00:00,ICLYI5,120L,"Strada Eschile 15, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:02:36+00:00,FZRC,120L,"Strada Eschile 17, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:03:39+00:00,QO42KH,120L,"Strada Eschile 22, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:04:30+00:00,L5FA,120L,"Strada Eschile 25, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:04:35+00:00,YMH42D,120L,"Strada Pandurilor 15, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:05:04+00:00,DVRI,120L,"Strada Eschile 31, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:05:19+00:00,Y3UO,120L,"Strada Eschile 33, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:05:34+00:00,OBFG,120L,"Strada Eschile 37, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:05:49+00:00,XYIKBN,120L,"Strada Eschile 39, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:06:04+00:00,PKH6XW,120L,"Strada Eschile 41, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:06:30+00:00,RW46BK,120L,"Strada Eschile 43, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:07:15+00:00,FX3V,120L,"Strada Eschile 36, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:07:55+00:00,LTVP5I,120L,"Strada Eschile 49, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:08:11+00:00,H2JM,120L,"Strada Eschile 40, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:09:00+00:00,XJTO,120L,"Strada Traian Demetrescu 142, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:09:32+00:00,BLI4,120L,"Strada Florilor 38, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:09:58+00:00,GVTV,120L,"Strada Florilor 36 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:10:40+00:00,2F2D,120L,"Strada Florilor 30, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:11:36+00:00,IRA5,120L,"Strada Florilor 22, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:11:37+00:00,WKDH,120L,"Strada Florilor 23, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:13:23+00:00,ZYZM,120L,"Strada Florilor 15, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:13:33+00:00,ZMUL,120L,"Strada Florilor 18, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:14:21+00:00,5FWEQY,120L,"Strada Florilor 13, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:14:33+00:00,4UZG,120L,"Strada Florilor 11, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:15:11+00:00,B6P3GH,120L,"Strada Florilor 12, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:15:31+00:00,KGBR,120L,"Strada Florilor 10, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:15:55+00:00,WAP3,120L,"Strada Florilor 3, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:17:13+00:00,ISKIQT,120L,"Strada Țiglarilor 67, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:17:47+00:00,H5JO,120L,"Strada Țiglarilor 52, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:19:04+00:00,RSVP,120L,"Strada Crizantemelor 7, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:19:07+00:00,PBLT,120L,"Strada Crizantemelor 8, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:19:36+00:00,BGLZ,120L,"Strada Crizantemelor 10, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:19:48+00:00,PKMB,120L,"Strada Crizantemelor 13, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:20:16+00:00,WUKQ,120L,"Strada Crizantemelor 12, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:21:00+00:00,QLZATW,120L,"Strada Crizantemelor 16, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:21:06+00:00,75RA,120L,"Strada Crizantemelor 17, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:21:09+00:00,75RA,120L,"Strada Crizantemelor 17, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:21:16+00:00,6OIV,120L,"Strada Crizantemelor 18, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:21:32+00:00,5KON,120L,"Strada Crizantemelor 19, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:21:47+00:00,L7GY,120L,"Strada Crizantemelor 21, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:22:17+00:00,A4FK,120L,"Strada Lăcrămioarelor 8, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:22:26+00:00,AJ2FQV,120L,"Strada Lăcrămioarelor 10, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:22:56+00:00,YJTH,120L,"Strada Lăcrămioarelor 14, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:23:19+00:00,A4NQ,120L,"Strada Lăcrămioarelor 16, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:23:36+00:00,A4NQ,120L,"Strada Lăcrămioarelor 16, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:23:50+00:00,AC4W,120L,"Strada Lăcrămioarelor 1, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:25:05+00:00,PCNHOZ,120L,"Strada Lăcrămioarelor 6, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:25:33+00:00,A2DB,120L,"Strada Lăcrămioarelor 4, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:25:49+00:00,7YUI,120L,"Strada Lăcrămioarelor 2, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:27:02+00:00,PNDB,120L,"Strada Pandurilor 14, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:27:03+00:00,O6TE,120L,"Strada Pandurilor 13, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:27:32+00:00,RQJH,120L,"Strada Pandurilor 12, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:27:52+00:00,BUAP,120L,"Strada Pandurilor 7, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:27:54+00:00,IRWG,120L,"Strada Pandurilor 10, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:29:04+00:00,AD3R,120L,"Strada Pandurilor 1, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:30:52+00:00,BQ6Y,120L,"Strada Țiglarilor 34, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:31:59+00:00,MNUD,120L,"Strada Țiglarilor 45, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:32:00+00:00,VWTU,240L,"Strada Țiglarilor 40, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:33:02+00:00,YVXSD6,120L,"Strada Țiglarilor 51, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:33:49+00:00,WFCE,120L,"Strada Țiglarilor 44, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:34:13+00:00,GZKP,120L,"Strada Crizantemelor 2, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:35:09+00:00,DUYR,120L,"Strada Țiglarilor 60, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:35:47+00:00,CAHMA5,120L,"Strada Țiglarilor 64, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:36:33+00:00,CXDWRY,120L,"Strada Țiglarilor 66, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:36:36+00:00,4BX3,120L,"Strada Țiglarilor 66, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:37:09+00:00,D5Y7,120L,"Strada Țiglarilor 75, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:37:11+00:00,B3ZB,120L,"Strada Țiglarilor 70, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:37:56+00:00,PVRAIY,120L,"Strada Țiglarilor 70, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:37:58+00:00,PVRAIY,120L,"Strada Țiglarilor 70, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:38:34+00:00,SGIW,120L,"Strada Țiglarilor 79, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:38:39+00:00,2L6I,120L,"Strada Țiglarilor 77, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:39:32+00:00,VIUB,120L,"Strada Țiglarilor 76, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:39:50+00:00,LIEV,120L,"Strada Țiglarilor 81 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:39:54+00:00,7KUU,120L,"Strada Țiglarilor 76 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:40:18+00:00,YUUH,120L,"Strada Țiglarilor 83, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:40:20+00:00,MX3D,120L,"Strada Țiglarilor 78, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:41:07+00:00,TQZ2,120L,"Strada Țiglarilor 83, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:42:00+00:00,4OBW,120L,"Strada Dulgherilor 7, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:42:17+00:00,42E3,120L,"Strada Dulgherilor 11, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:43:38+00:00,EHNR,120L,"Strada Dulgherilor 18, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:46:45+00:00,6HTD,120L,"Strada Țiglarilor 84, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:47:23+00:00,6IME,120L,"Strada Țiglarilor 85, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:48:16+00:00,A2MK,240L,"Strada Țiglarilor 89, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:48:40+00:00,74ZLG3,120L,"Strada Țiglarilor 92, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:49:53+00:00,B3FI,120L,"Strada Țiglarilor 95, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:50:50+00:00,FDSTRJ,120L,"Strada Zidarilor 1, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:50:56+00:00,H7MM,120L,"Strada Zidarilor 2, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:51:30+00:00,EUZU,120L,"Strada Zidarilor 7, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:51:50+00:00,LQS7,120L,"Strada Zidarilor 6, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:56:08+00:00,QOH2,120L,"Strada Țiglarilor 106, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:58:43+00:00,7WIN,240L,"Strada Țiglarilor 101, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:58:46+00:00,LUKAU6,240L,"Strada Țiglarilor 101, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 07:59:13+00:00,7VCQ,240L,"Strada Țiglarilor 101, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:01:02+00:00,FOY2RW,240L,"Strada Țiglarilor 103, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:01:07+00:00,7T6P,120L,"Strada Țiglarilor 103, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:01:28+00:00,DL7T,120L,"Strada Țiglarilor 103, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:01:55+00:00,L4APOF,120L,"Strada Țiglarilor 103, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:04:16+00:00,7QZLCR,1.100L,"Strada Țiglarilor 103, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:05:04+00:00,CUGP,120L,"Strada Țiglarilor 108, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:06:12+00:00,AWBU,120L,"Strada Țiglarilor 110, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:06:57+00:00,LDNFET,240L,"Strada Țiglarilor 105, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:07:34+00:00,5CNOGA,120L,"Strada Țiglarilor 116, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:08:07+00:00,CMJT,120L,"Strada Țiglarilor 118, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:08:20+00:00,VRJU,120L,"Strada Țiglarilor 120, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:08:57+00:00,4YA6,120L,"Strada Țiglarilor 122, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:09:32+00:00,MPB5UZ,120L,"Strada Cuptorului 33 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:10:06+00:00,UJED,240L,"Strada Țiglarilor 128 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:10:38+00:00,7GNE,120L,"Strada Țiglarilor 111, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:16:37+00:00,7EKJ,120L,"Strada Deventer 7, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:17:38+00:00,7AS6,120L,"Strada Deventer 15, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:19:41+00:00,CQS7,120L,"Strada Cuptorului 38, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:20:25+00:00,OTAV,120L,"Strada Cuptorului 36, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:21:09+00:00,SBEF,120L,"Strada Cuptorului 34, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:21:25+00:00,XAI5V2,120L,"Strada Cuptorului 31, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:21:48+00:00,F6QH,120L,"Strada Cuptorului 30, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:22:09+00:00,IYZ6,120L,"Strada Cuptorului 29, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:22:16+00:00,UNYVJN,120L,"Strada Cuptorului 26, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:23:20+00:00,R6JV,120L,"Strada Cuptorului 25, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:23:47+00:00,63NT,120L,"Strada Cuptorului 23, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:23:51+00:00,HQHV6X,120L,"Strada Cuptorului 20, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:24:30+00:00,73TR,120L,"Strada Cuptorului 19, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:25:38+00:00,C2ANBH,120L,"Strada Cuptorului 14 B, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:27:33+00:00,TDTR,120L,"Strada Cuptorului 13, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:28:06+00:00,E5AO,120L,"Strada Cuptorului 14, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:29:03+00:00,NL5N,120L,"Strada Cuptorului 1, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:29:45+00:00,ZJKN,120L,"Strada Cuptorului 3, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:30:53+00:00,X2CB,120L,"Strada Cuptorului 12, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:30:56+00:00,JICQOG,120L,"Strada Cuptorului 7 G, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:31:30+00:00,GPHC,120L,"Strada Cuptorului 10, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:36:36+00:00,2CB5UZ,1.100L,"Strada Cuptorului 12 B, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:40:11+00:00,SQK2,120L,"Strada Ulmului 62, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:40:37+00:00,5IM6RQ,120L,"Strada Ulmului 60, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:40:58+00:00,EFXC,120L,"Strada Ulmului 56, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:42:44+00:00,H7KEWX,120L,"Strada Ulmului 35 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:43:00+00:00,AP3D,120L,"Strada Ulmului 50 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:43:50+00:00,AFE3,120L,"Strada Ulmului 50 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:44:37+00:00,IJBU,120L,"Strada Ulmului 46, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:44:39+00:00,5HUB,120L,"Strada Ulmului 46, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:45:21+00:00,P7QA,120L,"Strada Ulmului 44, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:46:02+00:00,G4QPXW,120L,"Strada Ulmului 27, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:46:14+00:00,WZLA,120L,"Strada Ulmului 40, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:48:13+00:00,I6E5,120L,"Strada Ulmului 34, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:48:55+00:00,MCE7DG,120L,"Strada Ulmului 32, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:49:40+00:00,ORMMLR,120L,"Strada Ulmului 25, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:50:02+00:00,7TCM,1.100L,"Strada Ulmului 28, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:54:22+00:00,JBCWEX,120L,"Strada Florilor 12 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:58:13+00:00,W6TD,120L,"Strada Ulmului 1, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:58:46+00:00,QZOB,120L,"Strada Ulmului 5, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:58:47+00:00,OC26,120L,"Strada Ulmului 3, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 08:59:29+00:00,5SY7,120L,"Strada Ulmului 9, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:00:00+00:00,H5RK,120L,"Strada Ulmului 15, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:00:31+00:00,PSMN,120L,"Strada Ulmului 14, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:01:07+00:00,GI3Z,120L,"Strada Ulmului 18, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:01:25+00:00,UJ6YSF,120L,"Strada Ulmului 21, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:01:45+00:00,EGF425,120L,"Strada Record 37, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:02:29+00:00,6TZH,120L,"Strada Record 26, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:05:12+00:00,7KJ2,120L,"Strada Lacul lui Binder 4, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:05:24+00:00,KK4T,120L,"Strada Țiglarilor 101, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:06:40+00:00,SOROBW,120L,"Strada Lacul lui Binder 5, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:07:10+00:00,LNWFHI,240L,"Strada Lacul lui Binder FN, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:09:44+00:00,VNCA,120L,"Strada Lutului 76, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:09:59+00:00,UJDFJW,120L,"Strada Lutului 74, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:10:26+00:00,46JF75,120L,"Strada Lutului 60, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:11:46+00:00,T2X2,120L,"Strada Lutului 58, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:12:15+00:00,43XG,120L,"Strada Lutului 53, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:12:41+00:00,VYIT,120L,"Strada Lutului 43 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:12:56+00:00,PIJZ,120L,"Strada Lutului 48, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:14:01+00:00,B534,120L,"Strada Lutului 40, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:14:02+00:00,RVU6,120L,"Strada Lutului 35, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:14:29+00:00,4VYR,120L,"Strada Lutului 36, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:14:32+00:00,SNVZ,120L,"Strada Lutului 31, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:14:42+00:00,FFFY,120L,"Strada Lutului 34, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:14:54+00:00,FN4Z,120L,"Strada Lutului 29, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:15:12+00:00,YABH,120L,"Strada Lutului 32, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:15:32+00:00,WV3D,120L,"Strada Ulmului 21, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:16:13+00:00,N7YA,120L,"Strada Lutului 22, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:16:15+00:00,XFJB4O,120L,"Strada Lutului 17, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:16:47+00:00,NDM7,120L,"Strada Lutului 14, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:17:11+00:00,AVVB,120L,"Strada Lutului 8, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:18:59+00:00,YANR,120L,"Strada Sperantei 5, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:20:35+00:00,KIKG,120L,"Strada Carpaților 2, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:20:58+00:00,YIEA,120L,"Strada Carpaților 3 B, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:21:29+00:00,DOAY,120L,"Strada Carpaților 9, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:23:27+00:00,PWCW,120L,"Strada Carpaților 15, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:23:49+00:00,BT77,120L,"Strada Carpaților 17, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:23:55+00:00,OXYS,120L,"Strada Carpaților 16 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:25:01+00:00,JCPQ,120L,"Strada Carpaților 21, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:25:26+00:00,QE67,120L,"Strada Carpaților 23, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:25:43+00:00,U6RM,120L,"Strada Carpaților 25, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:26:12+00:00,C7GGQV,120L,"Strada Carpaților 29, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:26:21+00:00,H644,120L,"Strada Carpaților 28, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:26:47+00:00,R7PR,120L,"Strada Carpaților 31, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:27:10+00:00,6LTW,120L,"Strada Carpaților 33, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:28:16+00:00,SCSO,120L,"Strada Margaretelor 41, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:28:46+00:00,LP4Y,120L,"Strada Țiglarilor 39, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:29:11+00:00,6MZI,120L,"Strada Țiglarilor 35 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:30:02+00:00,6LPK,120L,"Strada Țiglarilor 33 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:30:40+00:00,F3DJ,120L,"Strada Țiglarilor 25, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:30:51+00:00,K2PH,120L,"Strada Țiglarilor 21, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:31:19+00:00,X5VJW2,120L,"Strada Țiglarilor 25, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:32:07+00:00,MHKA,120L,"Strada Țiglarilor 11, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:32:36+00:00,2ZO3T5,240L,"Strada Țiglarilor 7, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:32:41+00:00,5SD4,120L,"Strada Țiglarilor 7, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:33:19+00:00,WXUT,120L,"Strada Țiglarilor 3, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:33:43+00:00,6K5E,120L,"Strada Țiglarilor 3 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:34:22+00:00,X6LQ,120L,"Strada Lungă 53, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:35:02+00:00,FXZL,120L,"Strada Lungă 47, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:36:06+00:00,LRDP,120L,"Strada Lungă 37, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:36:21+00:00,6CJM,120L,"Strada Lungă 35 C, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:36:25+00:00,6DTX,120L,"Strada Lungă 35 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:37:16+00:00,UKOAXG,120L,"Strada Lungă 35, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:37:21+00:00,FX6X,120L,"Strada Lungă 35, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:37:57+00:00,WSNJB3,120L,"Strada Lungă 35, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:38:00+00:00,JF43EY,120L,"Strada Lungă 40, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:38:20+00:00,6WVIGL,120L,"Strada Lungă 35, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:39:14+00:00,WQJ4,120L,"Strada Lungă 31, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:39:17+00:00,FTXO,120L,"Strada Lungă 31, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:39:50+00:00,2MCS,120L,"Strada Lungă 29, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:41:47+00:00,3AFF,120L,"Strada Lungă 17 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:42:58+00:00,IQXF,1.100L,"Strada Lungă 9, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:44:32+00:00,IATBI7,120L,"Strada Lungă 7, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:44:34+00:00,BESN,120L,"Strada Lungă 7, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:47:34+00:00,RRYH,120L,"Strada Ion Luca Caragiale 1, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:47:58+00:00,G4N6,120L,"Strada Ion Luca Caragiale 2, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:48:46+00:00,7CX2,120L,"Strada Ion Luca Caragiale 2, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:49:26+00:00,RSK3LI,120L,"Ion Luca Caragiale 8, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:50:55+00:00,6BJBLA,120L,"Strada Reconstrucției 2 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:51:37+00:00,U67K,120L,"Strada Lungă 2 E, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:51:40+00:00,4UBK,120L,"Strada Râului 22 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:52:49+00:00,435TFU,120L,"Strada Lungă 2, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:53:40+00:00,5PA5,240L,"Strada Lungă 8 D, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:53:46+00:00,SBWR,120L,"Strada Lungă 6, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:53:48+00:00,PITBY7,240L,"Strada Lungă 8, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:54:06+00:00,EOJ7T5,240L,"Strada Lungă 8 C, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:54:13+00:00,7VYE37,240L,"Strada Lungă 8, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:54:26+00:00,5PME,240L,"Strada Lungă 8 B, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:55:01+00:00,KVT7,120L,"Strada Lungă 12, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:55:03+00:00,4YZE4J,120L,"Strada Lungă 10, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:56:30+00:00,BV2OVR,120L,"Strada Lungă 16, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:57:22+00:00,ITS2,120L,"Strada Lungă 22, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:57:23+00:00,5M7N,240L,"Strada Lungă 22 B, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:58:08+00:00,5FEK,120L,"Strada Lungă 26 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 09:58:41+00:00,6ZGKYZ,240L,"Strada Lungă 26, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:01:23+00:00,5CDN,120L,"Strada General Bălan 42, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:01:26+00:00,PEIN,120L,"Strada Lungă 33, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:01:55+00:00,FOAUWV,240L,"Strada General Bălan 51, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:01:59+00:00,IANB,120L,"Strada General Bălan 51, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:02:32+00:00,6RCW,120L,"Strada General Bălan 40, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:02:35+00:00,OJJ3,120L,"Strada General Bălan 47, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:02:46+00:00,PI7FPO,120L,"Strada General Bălan 47, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:04:26+00:00,MB3T,120L,"Strada Lungă 25, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:04:35+00:00,DAES,120L,"Strada General Bălan 37, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:05:01+00:00,QKYD,120L,"Strada General Bălan 35, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:05:03+00:00,6732,120L,"Strada General Bălan 34, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:05:50+00:00,OCG2,120L,"Strada General Bălan 33, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:06:55+00:00,BGGG,120L,"Strada General Bălan 28, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:07:22+00:00,63TS,120L,"Strada General Bălan 28, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:07:27+00:00,5R2U,120L,"Strada General Bălan 27, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:07:54+00:00,B2RM,120L,"Strada General Bălan 23, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:08:07+00:00,UFIX,120L,"Strada General Bălan 24, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:08:11+00:00,YWXV37,120L,"Strada General Bălan 21, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:08:30+00:00,LKP3XO,120L,"Strada General Bălan 22, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:08:32+00:00,QZMA,120L,"Strada General Bălan 19, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:09:07+00:00,NNJ2KY,120L,"Strada General Bălan 18, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:09:41+00:00,6BQJ,120L,"Strada General Bălan 14, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:09:43+00:00,JA5YGO,120L,"Strada General Bălan 11, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:10:23+00:00,EXNZ,120L,"Strada General Bălan 12, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:11:23+00:00,OO4C,120L,"Strada General Bălan 10, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:11:56+00:00,HW34,120L,"Strada General Bălan 5, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:50:30+00:00,TDAR,120L,"Strada Honterus 2, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:50:35+00:00,BDI4,120L,"Strada Înfrățirii 17, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:51:23+00:00,Z3HP,120L,"Strada Honterus 7, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:51:27+00:00,KY4M,120L,"Strada Honterus 6, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:52:04+00:00,WAFM,120L,"Strada Honterus 12, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:52:23+00:00,H7AM,120L,"Strada Honterus 13, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:52:42+00:00,ZBXZFK,120L,"Strada Honterus 26, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:54:01+00:00,U4YY,120L,"Strada Honterus 38, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:54:40+00:00,6QMX,120L,"Strada Honterus 33, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:54:53+00:00,VJBQ,120L,"Strada Honterus 35, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:56:30+00:00,MFIU,120L,"Strada Democrației 42, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:56:46+00:00,BNZ7,120L,"Strada Democrației 39, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:58:27+00:00,6I6E,120L,"Strada Democrației 33, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:58:42+00:00,2KZ2,120L,"Strada Democrației 32, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:58:47+00:00,WIBG,120L,"Strada Democrației 29, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 10:59:38+00:00,XSKK,120L,"Strada Democrației 28, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:00:07+00:00,4DOY,120L,"Strada Democrației 24, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:00:45+00:00,F3EENW,120L,"Strada Democrației 22, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:00:47+00:00,6RFTUR,120L,"Strada Democrației 19, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:01:24+00:00,EJ6F,120L,"Strada Democrației 20, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:01:28+00:00,DOLS,120L,"Strada Democrației 17, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:02:33+00:00,ENGP,120L,"Strada Democrației 11, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:03:01+00:00,YDGZ,120L,"Strada Democrației 14, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:03:59+00:00,5BEQ,120L,"Strada Democrației 12, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:05:50+00:00,NCTD,120L,"Strada Viorelelor 6, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:07:51+00:00,YIHVO4,120L,"Strada Viorelelor 5, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:08:18+00:00,VZ4J,120L,"Strada Viorelelor 14, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:08:58+00:00,2BSY,120L,"Strada Viorelelor 20, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:09:21+00:00,WCGB,120L,"Strada Viorelelor 13, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:10:18+00:00,ZYCY,120L,"Strada Viorelelor 23, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:10:33+00:00,CSJJ,120L,"Strada Viorelelor 21, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:11:31+00:00,ZU3B,120L,"Strada Viorelelor 25, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:12:13+00:00,OCKI,120L,"Strada Simion Bărnuțiu 41, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:12:57+00:00,2BCN5D,120L,"Strada Simion Bărnuțiu 38, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:13:25+00:00,PJW7,120L,"Strada Simion Bărnuțiu 33, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:13:28+00:00,J2FI,120L,"Strada Simion Bărnuțiu 31, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:13:53+00:00,6GHW,120L,"Strada Simion Bărnuțiu 32, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:14:13+00:00,KFY4DZ,120L,"Strada Viorelelor 26, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:14:15+00:00,LCPJ6E,120L,"Strada Simion Bărnuțiu 30, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:14:39+00:00,GJZX,120L,"Strada Simion Bărnuțiu 28, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:15:06+00:00,LZCS,120L,"Strada Simion Bărnuțiu 25, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:15:50+00:00,JPRILB,120L,"Strada Simion Bărnuțiu 23, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:16:42+00:00,N4WDNF,120L,"Strada Simion Bărnuțiu 16, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:17:04+00:00,Z7IT,120L,"Strada Simion Bărnuțiu 14, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:18:19+00:00,QFFS,120L,"Strada Simion Bărnuțiu 2, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:18:47+00:00,FECC,120L,"Strada Simion Bărnuțiu 1, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:19:16+00:00,F3G5,120L,"Strada Simion Bărnuțiu 2 A, Sibiu, Romania",1
+SB-25-SOM,2024-10-15 11:19:56+00:00,K6LO3M,240L,"Simion Bărnuțiu 1 A, Sibiu, Romania",1
+SB-30-SOM,2024-10-15 04:11:03+00:00,FJIP,120L,"Strada Ștefan cel Mare 31 B, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:12:08+00:00,755E,120L,"Strada Ștefan cel Mare 35, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:14:15+00:00,3FHA,120L,"Strasa Fratii Grahi 6, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:14:19+00:00,YCYR,120L,"Strada Ștefan cel Mare 41, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:15:28+00:00,SVPU,120L,"Strada Ștefan cel Mare 20, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:17:19+00:00,FHT5,120L,"Strada Ștefan cel Mare 43, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:17:25+00:00,NT3JGZ,240L,"Strada Ștefan cel Mare 28, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:18:25+00:00,V6CE,120L,"Strada Ștefan cel Mare 45, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:19:17+00:00,GG4D,120L,"Strada Ștefan cel Mare 38, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:19:53+00:00,FKVO,120L,"Strada Ștefan cel Mare 45 B, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:21:21+00:00,FI2S,120L,"Strada Ștefan cel Mare 48, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:32:45+00:00,3QIZ,120L,"Strada Ștefan cel Mare 56, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:33:43+00:00,C5IKLT,120L,"Strada Ștefan cel Mare 60, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:34:34+00:00,YWVT,120L,"Strada Victor Hugo 5, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:35:35+00:00,FDHV,240L,"Strada Victor Hugo 9, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:40:28+00:00,SFGE,120L,"Strada Ștefan cel Mare 74, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:41:17+00:00,KPX2,120L,"Strada Ștefan cel Mare 80, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:41:24+00:00,73OH,120L,"Strada Ștefan cel Mare 82, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:42:16+00:00,PFO5,120L,"Strada Ștefan cel Mare 86, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:45:32+00:00,NLVP,120L,"Strada Ștefan cel Mare 112, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:45:35+00:00,6GCFNF,120L,"Strada Ștefan cel Mare 112, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:46:57+00:00,SREA,120L,"Strada Ștefan cel Mare 120, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:55:25+00:00,FFEGF2,120L,"Strada Triajului 16, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 04:57:55+00:00,GA42ZD,240L,"Strada Ștefan cel Mare 193, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:05:05+00:00,CD52,120L,"Strada Ștefan cel Mare secprol, Nr. (), Nedefinită, Sibiu, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:05:46+00:00,CCR5,120L,"Strada Ștefan cel Mare secprol, Nr. (), Nedefinită, Sibiu, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:07:16+00:00,QFJ3V5,120L,"Strada Ștefan cel Mare 191, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:08:11+00:00,JHNZBA,120L,"Strada Ludos 5, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:11:15+00:00,VNTZOL,1.100L,"Strada Ștefan cel Mare 152, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:18:28+00:00,VJAJJ3,1.100L,"Strada Ștefan cel Mare 150, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:20:44+00:00,BLANMG,120L,"Strada Ștefan cel Mare 193, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:22:22+00:00,GPB5EF,240L,"Strada Ștefan cel Mare 193, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:25:44+00:00,GEUSVG,120L,"Strada Rampa Ștefan cel Mare 152, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:30:29+00:00,JQ7I,120L,"Strada Ștefan cel Mare 199, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:31:22+00:00,AETM2M,120L,"Strada Ștefan cel Mare 152, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:33:09+00:00,TKPOGB,120L,"Strada Ștefan cel Mare 152, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:45:59+00:00,X5LVA3,120L,"Strada Ștefan cel Mare 169, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 05:54:11+00:00,KZ5MXH,120L,"Strada Ștefan cel Mare 193B, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 06:32:13+00:00,BUF4AK,120L,"Strada Ștefan cel Mare 152, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 06:33:23+00:00,GWASFK,120L,"Strada Ștefan cel Mare 152-154, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 06:36:05+00:00,VMOKD2,1.100L,"Strada Ștefan cel Mare 152, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 06:39:11+00:00,AKGA,120L,"Strada Caprelor 2, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 06:41:34+00:00,EA3A,120L,"Strada Ștefan cel Mare 147, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 06:50:39+00:00,ZBQW67,120L,"Strada Ștefan cel Mare 147, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 06:54:16+00:00,XKR4,120L,"Strada Ștefan cel Mare 137 B, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 06:56:06+00:00,IIJR,120L,"Strada Ștefan cel Mare 137 B, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:06:51+00:00,TSFP,120L,"Strada Ștefan cel Mare 127, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:07:01+00:00,TXASO3,120L,"Strada Ștefan cel Mare 125, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:08:36+00:00,X2NJ,120L,"Strada Ștefan cel Mare 128, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:08:53+00:00,YHSC,120L,"Strada Ștefan cel Mare 135, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:09:12+00:00,F7J4,120L,"Strada Ștefan cel Mare 126 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:10:45+00:00,LD6EBW,120L,"Strada Pacii 2, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:10:47+00:00,FU5H,120L,"Strada Pacii 4, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:11:20+00:00,GODE,120L,"Strada Pacii 4, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:12:03+00:00,F64N,120L,"Strada Ștefan cel Mare 137, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:13:20+00:00,RRX4RQ,120L,"Strada Rampa Ștefan cel Mare 1, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:13:54+00:00,54YS,120L,"Strada Ștefan cel Mare 1, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:14:32+00:00,227VKI,120L,"Strada Rampa Ștefan cel Mare 5, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:15:08+00:00,F376,120L,"Strada Rampa Ștefan cel Mare 8, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:15:24+00:00,3X5QFQ,120L,"Strada Rampa Ștefan cel Mare 8, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:15:26+00:00,3SWQ2K,120L,"Strada Semaforului 2, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:16:32+00:00,EXYR,120L,"Strada Rampa Ștefan cel Mare 10, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:18:26+00:00,JGB3U2,1.100L,"Strada Rampa Ștefan cel Mare FN, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:23:42+00:00,ECGQHK,240L,"Strada Ștefan cel Mare 74, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:32:42+00:00,57CM,120L,"Strada Ștefan cel Mare 119 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:33:42+00:00,DKB6,120L,"Strada Ștefan cel Mare 111, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:35:05+00:00,GQCD,120L,"Strada Ștefan cel Mare 99, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:35:06+00:00,BWSI,120L,"Strada Ștefan cel Mare 99, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:35:51+00:00,IEIH,120L,"Strada Ștefan cel Mare 93, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:38:22+00:00,VHIH,120L,"Strada Ștefan cel Mare 77, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:38:57+00:00,EMLY,120L,"Strada Ștefan cel Mare 75, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:39:01+00:00,EP3I,120L,"Strada Ștefan cel Mare 75 B, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:39:49+00:00,CODXPK,120L,"Strada Ștefan cel Mare 73, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:41:45+00:00,AUAARV,240L,"Strada Ștefan cel Mare 57 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:41:46+00:00,5NWM,120L,"Strada Ștefan cel Mare 59, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:42:24+00:00,H43MHV,120L,"Strada Ștefan cel Mare 55, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:44:30+00:00,62BG,120L,"Strada Balea 37, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:44:52+00:00,7PMF,120L,"Strada Diaconul Coresi 2, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:45:21+00:00,4PS6,120L,"Strada Diaconul Coresi 2 C, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:45:28+00:00,K6XJ,120L,"Strada Diaconul Coresi 3, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:45:56+00:00,N2M7,120L,"Strada Diaconul Coresi 4, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:46:33+00:00,EFTB,120L,"Strada Axente Sever 37, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:50:38+00:00,CF3L,120L,"Strada Balea 35, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:51:02+00:00,QJNV,120L,"Strada Balea 33, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:52:39+00:00,5XXV2R,120L,"Strada Balea 25, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:54:05+00:00,UQOC,120L,"Strada Balea 19, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:56:40+00:00,XI3J,120L,"Strada Balea 11, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:57:21+00:00,BPKS,120L,"Strada Balea 7, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:58:02+00:00,ZJBL,120L,"Strada Balea 7, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 07:58:37+00:00,PZWGRR,120L,"Strada Balea 3, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:02:40+00:00,BVG5KV,1.100L,"Strada Bâlea 8, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:04:28+00:00,EEB7,120L,"Strada Balea 12, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:05:36+00:00,5KKL,120L,"Strada Spartacus 13, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:06:04+00:00,AQRN,120L,"Strada Spartacus 13 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:06:43+00:00,6NINN2,120L,"Strada Spartacus 15, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:09:43+00:00,4GKMDN,120L,"Strada Balea 2, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:10:28+00:00,GKP3,120L,"Strada Constantin Noica 2, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:10:30+00:00,QGSO,120L,"Strada Constantin Noica 2, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:11:08+00:00,UTY5,120L,"Strada Constantin Noica 3, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:12:24+00:00,4IPOVU,120L,"Strada Constantin Noica 8, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:13:01+00:00,VVM3,120L,"Strada Constantin Noica 10, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:14:05+00:00,JLEN,120L,"Strada Constantin Noica 11, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:15:15+00:00,DX5X,120L,"Strada Vartopu 6, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:15:25+00:00,DXZE,120L,"Strada Vartopu 1, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:16:24+00:00,PHLC,120L,"Strada Constantin Noica 12, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:18:22+00:00,QMRW,240L,"Strada Constantin Noica 20 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:19:17+00:00,FU57,120L,"Strada Constantin Noica 23, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:19:33+00:00,7VIZ,120L,"Strada Constantin Noica 18, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:19:58+00:00,D7IW,120L,"Strada Constantin Noica 16, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:20:02+00:00,HV4N,120L,"Strada Constantin Noica 16, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:21:39+00:00,EELK,240L,"Strada Constantin Noica 20, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:22:17+00:00,X6RI,240L,"Strada Constantin Noica 20, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:23:15+00:00,VQ2Y,240L,"Strada Constantin Noica 20, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:23:44+00:00,Q3R2,120L,"Strada Constantin Noica 25, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:23:49+00:00,GLL3,120L,"Strada Constantin Noica 25, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:25:06+00:00,DQ7X,120L,"Strada Constantin Noica 22 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:25:27+00:00,KZ5DQA,120L,"Strada Constantin Noica 25 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:25:30+00:00,E5JX,120L,"Strada Constantin Noica 29, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:26:35+00:00,FZFR2E,120L,"Strada Constantin Noica 26, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:27:27+00:00,DFFQ,120L,"Strada Constantin Noica 33 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:27:53+00:00,XSDX,120L,"Strada Constantin Noica 33, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:28:03+00:00,DDMJ,120L,"Strada Constantin Noica 33 C, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:29:51+00:00,KOT4,120L,"Strada Constantin Noica 33 C, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:29:54+00:00,MG73,120L,"Strada Constantin Noica 37, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:30:25+00:00,GCGR,120L,"Strada Constantin Noica 39, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:31:14+00:00,D4FX,120L,"Strada Constantin Noica 43, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:31:46+00:00,V7GD,120L,"Strada Constantin Noica 36, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:32:22+00:00,LTYP,120L,"Strada Constantin Noica 43 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:32:24+00:00,EJU3,120L,"Strada Constantin Noica 45, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:33:09+00:00,VT3W,120L,"Strada Constantin Noica 47, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:33:24+00:00,T7XK,120L,"Strada Constantin Noica 42, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:34:12+00:00,NAV7,120L,"Strada Constantin Noica 44 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:34:14+00:00,LSZK,120L,"Strada Constantin Noica 44, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:34:37+00:00,ZCAOHD,120L,"Strada Revoluției 1, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:35:54+00:00,3ROR,120L,"Strada Constantin Noica 53, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:36:36+00:00,GGJR,120L,"Strada Constantin Noica 48, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:37:24+00:00,DHVY,120L,"Strada Berăriei 13, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:38:16+00:00,Z3Q6ZS,120L,"Strada Dobrun 10, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:38:47+00:00,L7HU,120L,"Strada Revoluției 5, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:39:50+00:00,I5QG,120L,"Strada Dobrun 8 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:40:22+00:00,FUQBCW,120L,"Strada Dobrun 4, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:41:01+00:00,D3OBAA,240L,"Strada Constantin Noica 60, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:43:54+00:00,GPBCWR,120L,"Strada Piața Unirii 4, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:44:04+00:00,3V624D,120L,"Strada Piața Unirii 4, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:52:10+00:00,UYY7,120L,"Strada Constantin Noica 54, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:52:15+00:00,XSW3,120L,"Strada Constantin Noica 54, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:52:27+00:00,KPWA,120L,"Strada Constantin Noica 54, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:52:32+00:00,FA6J,120L,"Strada Constantin Noica 54, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:53:13+00:00,GLGN,120L,"Strada Constantin Noica 48, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:54:40+00:00,QQAP,120L,"Strada Ștefan cel Mare 3, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:54:47+00:00,G7FJ,120L,"Strada Ștefan cel Mare 3 B, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:55:31+00:00,N67S,120L,"Strada Ștefan cel Mare 7, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:55:32+00:00,G5QV,120L,"Strada Ștefan cel Mare 7 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:55:49+00:00,G3LE,120L,"Strada Ștefan cel Mare 7 C, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:55:54+00:00,G2YI,120L,"Strada Ștefan cel Mare 7 D, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:56:09+00:00,G2MC,120L,"Strada Ștefan cel Mare 7 E, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:56:51+00:00,6W7P,120L,"Strada Ștefan cel Mare 11, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:57:30+00:00,FYQD,120L,"Strada Ștefan cel Mare 13 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:57:32+00:00,5X5M,120L,"Strada Ștefan cel Mare 15, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:57:46+00:00,65WS,120L,"Strada Ștefan cel Mare 15, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:58:17+00:00,5ZYU,120L,"Strada Ștefan cel Mare 15, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:58:30+00:00,FXZW,120L,"Strada Ștefan cel Mare 17 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:58:58+00:00,FWEG,120L,"Strada Ștefan cel Mare 17 C, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 08:58:59+00:00,FYNH,120L,"Strada Ștefan cel Mare 17 B, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 09:00:23+00:00,CCPU,120L,"Strada Ștefan cel Mare 21, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 09:00:52+00:00,FRNB,120L,"Strada Ștefan cel Mare 25 B, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 09:00:56+00:00,FT7Y,120L,"Strada Ștefan cel Mare 25 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 09:01:31+00:00,AW4G,120L,"Strada Ștefan cel Mare 23, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 09:01:34+00:00,NZQI,120L,"Strada Ștefan cel Mare 25, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 09:02:31+00:00,CKFH5G,120L,"Strada Ștefan cel Mare 25, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 09:02:33+00:00,TEIH26,120L,"Strada Ștefan cel Mare 25, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 09:03:00+00:00,FPAB,120L,"Strada Ștefan cel Mare 27 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 09:03:29+00:00,AFPX,120L,"Strada Ștefan cel Mare 4, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 09:03:31+00:00,FOII,120L,"Strada Ștefan cel Mare 4 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 09:59:19+00:00,35GWZ3,120L,"Strada Ștefan cel Mare FN, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 10:02:35+00:00,3JPC,120L,"Strada Ștefan cel Mare 166, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 10:02:38+00:00,JMFE,120L,"Strada Ștefan cel Mare 166, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 10:03:13+00:00,INLF2G,240L,"Strada Ștefan cel Mare 166, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 10:04:04+00:00,H2TG,120L,"Strada Ștefan cel Mare 166, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 10:04:31+00:00,6ZAW,120L,"Strada Ștefan cel Mare 166, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 10:15:02+00:00,4QKUNQ,240L,"Strada Ștefan cel Mare 197, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 10:18:18+00:00,EKDT,120L,"Strada Ștefan cel Mare FARA NR, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 10:27:13+00:00,IAUD,120L,"Strada Ștefan cel Mare 197 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 10:43:55+00:00,R4WTEU,120L,"Strada Ștefan cel Mare 152, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 10:54:12+00:00,NMLTD3,120L,"Strada Ștefan cel Mare 30, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:03:54+00:00,G5FQOZ,120L,"Strada Ștefan cel Mare 154, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:07:51+00:00,5WP3P7,120L,"Strada Ștefan cel Mare 154, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:09:33+00:00,TSPC,120L,"Strada Ștefan cel Mare 154, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:14:18+00:00,7KPVEF,1.100L,"Strada Ștefan cel Mare 156 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:15:30+00:00,2XBH6X,1.100L,"Strada Ștefan cel Mare 156 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:16:21+00:00,KAN4FM,1.100L,"Strada Ștefan cel Mare 156 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:17:48+00:00,SUQIZF,1.100L,"Strada Ștefan cel Mare 156 A, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:35:09+00:00,OTBUCR,1.100L,"Strada Ștefan cel Mare 156, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:35:44+00:00,J5ZR2S,1.100L,"Strada Ștefan cel Mare 156, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:36:48+00:00,E7LF5S,1.100L,"Strada Ștefan cel Mare 156, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:47:44+00:00,HZIOKD,120L,"Strada Semaforului BL 15, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:49:55+00:00,R2STNH,120L,"Strada Oncesti 10, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:50:44+00:00,ZOTG,120L,"Strada Oncesti 5, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:51:05+00:00,6OLS,120L,"Strada Oncesti 3, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:51:47+00:00,RYBY,120L,"Strada Oncesti 1, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:53:24+00:00,QUMGAG,1.100L,"Strada Semaforului 2, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:54:54+00:00,LGKG,120L,"Strada Semaforului 4, Sibiu, Romania",2
+SB-30-SOM,2024-10-15 11:57:30+00:00,PINFYG,120L,"Strada Semaforului 7, Sibiu, Romania",2
+SB-45-SOM,2024-10-15 03:24:16+00:00,OWQY,120L,"Strada Avram Iancu 12 A, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:25:27+00:00,OYQE,120L,"Strada Avram Iancu 13 A, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:25:30+00:00,OYZ4,120L,"Strada Avram Iancu 13 A, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:25:35+00:00,6B5I,120L,"Strada Avram Iancu 13, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:26:26+00:00,Y6KM,120L,"Strada Avram Iancu 10, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:27:24+00:00,PAED,120L,"Strada Avram Iancu 9 B, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:27:27+00:00,PAFF,120L,"Strada Avram Iancu 9 A, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:27:53+00:00,PABD,120L,"Strada Avram Iancu 9 C, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:27:56+00:00,6VNM,120L,"Strada Avram Iancu 9, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:28:44+00:00,73FS,120L,"Strada Avram Iancu 7, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:28:57+00:00,FQWK,120L,"Strada Avram Iancu 8, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:29:02+00:00,PBTE,120L,"Strada Avram Iancu 8, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:29:42+00:00,DNFC,120L,"Strada Avram Iancu 5, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:29:54+00:00,632O,120L,"Strada Avram Iancu 5, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:29:58+00:00,6EFC,120L,"Strada Avram Iancu 6, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:31:07+00:00,O7HX,120L,"Piața Mare (), Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:31:11+00:00,GFIUQ4,120L,"Strada Avram Iancu 1, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:33:37+00:00,GSIDPB,240L,"Piața Mare 16, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:34:28+00:00,EF55AH,1.100L,"Piața Mare 16, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:35:34+00:00,F4OF6F,240L,"Piața Mare 14, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:35:37+00:00,FHKIOX,240L,"Piața Mare 14, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:38:12+00:00,ALEZ,240L,"Strada G-ral Gheorghe Magheru 1, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:38:42+00:00,OREE,120L,"Strada G-ral Gheorghe Magheru 4, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:39:16+00:00,CKBYOO,120L,"Strada G-ral Gheorghe Magheru 2, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:39:19+00:00,W4NG,120L,"Piața Mare 10, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:40:31+00:00,R7EWOS,240L,"Piata mare 10, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:41:39+00:00,GWMTJB,240L,"piața mare 11, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:42:31+00:00,JEZC,120L,"Piața Mare 9 C, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:47:40+00:00,UUJUCY,1.100L,"Strada Arhivelor 1, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:48:20+00:00,YHGA,1.100L,"Strada Arhivelor 1, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:51:11+00:00,D4XT,240L,"Strada Nicolae Bălcescu 1, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:51:17+00:00,2GHMIL,240L,"Strada Nicolae Bălcescu 1, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:53:08+00:00,XMDUYK,120L,"Strada Nicolae Bălcescu 1, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:53:11+00:00,CPLKJX,120L,"Strada Nicolae Bălcescu 3, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:54:07+00:00,Z65N,120L,"Strada Nicolae Bălcescu 5, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:54:58+00:00,4UFQ,120L,"Strada Nicolae Bălcescu 7, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 03:55:43+00:00,J7WC7W,240L,"Strada Nicolae Bălcescu 9, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:01:18+00:00,AFXGZC,1.100L,"Strada Nicolae Bălcescu 6, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:03:15+00:00,5YJ5US,120L,"Strada Alexandru Papiu Ilarian 2, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:03:17+00:00,7Z5OJV,120L,"Strada Alexandru Papiu Ilarian 2, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:03:49+00:00,3BSO,120L,"Strada Nicolae Bălcescu 15, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:05:43+00:00,JOYK,240L,"Strada Nicolae Bălcescu 14, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:05:48+00:00,SRWL,120L,"Strada Nicolae Bălcescu 14, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:06:35+00:00,GP43,240L,"Strada Nicolae Bălcescu 17, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:08:22+00:00,Q7BX,120L,"Strada Nicolae Bălcescu 20, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:08:26+00:00,LLYONC,240L,"Strada Nicolae Bălcescu 20, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:12:51+00:00,4JT6V5,240L,"Strada Nicolae Bălcescu 33, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:13:18+00:00,ICJFIE,240L,"Strada Nicolae Bălcescu 28, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:15:36+00:00,AE5BTG,240L,"Strada Nicolae Bălcescu 39, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:17:49+00:00,HZCYJJ,240L,"Strada Nicolae Bălcescu 51, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:19:25+00:00,M2F7,120L,"Strada Nicolae Bălcescu 47 C, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:23:44+00:00,M3VLEF,240L,"Piața Unirii 10, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:23:47+00:00,ZQZCLD,240L,"Piața Unirii 10, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:24:11+00:00,EWSTO2,240L,"Strada Andrei Șaguna 4, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:24:26+00:00,STNZIZ,240L,"Strada Andrei Șaguna 4, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:25:50+00:00,ZW62PU,240L,"Strada Andrei Șaguna 4, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:28:38+00:00,V4LT5O,120L,"Strada Andrei Șaguna 5, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:28:41+00:00,TUOP4X,120L,"Strada Andrei Șaguna 5, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:29:45+00:00,X2LIGZ,240L,"Strada Andrei Șaguna 7, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:29:47+00:00,MQP7,120L,"Strada Andrei Șaguna 7, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:30:43+00:00,OLSL,120L,"Strada Andrei Șaguna 9 A, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:30:47+00:00,TNGM,120L,"Strada Andrei Șaguna 9, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:31:05+00:00,XG6O,120L,"Strada Andrei Șaguna 8, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:32:20+00:00,ZKJCGY,120L,"Strada Andrei Șaguna 17, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:33:27+00:00,ZC27JX,240L,"Strada Andrei Șaguna 21, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:34:59+00:00,U656,120L,"Strada Andrei Șaguna 23, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:49:26+00:00,E65XU2,240L,"Strada Pacii 12, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:51:23+00:00,MCUN5O,120L,"Strada Vasile Aaron 33, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:52:12+00:00,NKXK3O,1.100L,"Strada Iezer 14, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:52:32+00:00,DSGBQY,120L,"Strada Vasile Aaron 29, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:54:54+00:00,LOCZQ2,240L,"Strada Vasile Aaron 18, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:55:34+00:00,LOCZQ2,240L,"Strada Vasile Aaron 18, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:55:42+00:00,3WEG,120L,"Strada Vasile Aaron 27, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:56:24+00:00,CZBI,120L,"Strada Giuseppe Garibaldi 16, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:57:13+00:00,2JRZ,120L,"Strada Vasile Aaron 26, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 04:59:34+00:00,CEAV,120L,"Strada Șoimului 3, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:03:59+00:00,R3HR,120L,"Strada Vasile Aaron 13 A, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:04:27+00:00,EC56ZN,120L,"Strada Vasile Aaron 11, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:05:04+00:00,5GTH,120L,"Strada Vasile Aaron 9, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:05:06+00:00,XQZ5,120L,"Strada Vasile Aaron 9, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:05:47+00:00,YL4U,120L,"Strada Vasile Aaron 7, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:06:07+00:00,QRBP,120L,"Strada Vasile Aaron 6, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:06:43+00:00,SQT33G,120L,"Strada Vasile Aaron 5, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:06:46+00:00,RPN47O,240L,"Strada Vasile Aaron 5, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:07:33+00:00,ZKSMUP,120L,"Strada Vasile Aaron 2, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:07:36+00:00,P7IQ,120L,"Strada Vasile Aaron 4, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:08:16+00:00,XDM2,120L,"Strada Ștefan cel Mare 192, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:08:26+00:00,TPCE6T,120L,"Strada Vasile Aaron 1, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:08:29+00:00,Q7U2GS,120L,"Bulevardul G-ral Vasile Milea 35, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:18:42+00:00,XYLCCQ,1.100L,"Strada Fabricii 8, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:19:24+00:00,RVTUKK,1.100L,"Strada Fabricii 8, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:19:54+00:00,C6ZHR2,1.100L,"Strada Fabricii 8, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:22:43+00:00,NCOS,1.100L,"Strada Serbota 23, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:27:47+00:00,E6PUYX,1.100L,"Piața 1 Decembrie 1918 1, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:30:31+00:00,WOQ7CW,1.100L,"Strada Uzinei 3, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:30:34+00:00,WOQ7CW,1.100L,"Strada Uzinei 3, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:32:15+00:00,OVU6LL,1.100L,"Strada Uzinei 9, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:44:35+00:00,KXCA,120L,"Strada G-ral Gheorghe Magheru 55, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:47:55+00:00,NS6CBI,1.100L,"Strada Constituției BLOCURI 9 MAI, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:51:11+00:00,JVLS,1.100L,"Strada Autogarii 5, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:52:52+00:00,5OAGB7,1.100L,"Strada Regele Ferdinand 6, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:53:16+00:00,MKURSO,1.100L,"Strada Regele Ferdinand 6, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:56:19+00:00,XOXCRA,1.100L,"Strada Abatorului 2, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:57:43+00:00,2SSUON,1.100L,"Strada Abatorului 4, Sibiu, Romania",3
+SB-45-SOM,2024-10-15 05:58:02+00:00,WDMXDG,1.100L,"Strada Abatorului 4, Sibiu, Romania",3

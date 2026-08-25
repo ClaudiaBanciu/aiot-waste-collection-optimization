@@ -47,7 +47,6 @@ FINAL_COLUMNS: list[str] = [
     "Id",
     "Capacity",
     "Address",
-    "fill_level",
 ]
 
 # Depot locations added as virtual stops at the start and end of each route
