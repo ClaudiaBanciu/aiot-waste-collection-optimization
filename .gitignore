@@ -7,3 +7,4 @@ __pycache__/
 outputs/exports/
 data/distance_matrices/
 outputs/routes/
+outputs/predicted/

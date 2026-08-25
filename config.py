@@ -53,3 +53,19 @@ FINAL_COLUMNS: list[str] = [
 # Depot locations added as virtual stops at the start and end of each route
 DEPOT_START: str = "Strada Șelimbărului 90, Cisnădie, Romania"
 DEPOT_END: str = "DN1 FN, Cristian 557085"
+
+# ---------------------------------------------------------------------------
+# Predicted bins (app/components/predicted_bins.py)
+# ---------------------------------------------------------------------------
+
+# CSV listing every container predicted to reach THRESHOLD tomorrow, with
+# coordinates. Regenerated each time the app runs.
+PREDICTED_BINS_FILE: str = "outputs/predicted/predicted_bins.csv"
+
+# One row per vehicle: how many bins its next round collects and how long the
+# nearest-neighbour round is.
+PREDICTED_ROUNDS_FILE: str = "outputs/predicted/collection_rounds.csv"
+
+# Distance matrices sliced out of the Google Maps matrices, restricted to the
+# predicted bins of each vehicle: {car}_distance_matrix.csv per car.
+PREDICTED_MATRIX_DIR: str = "data/distance_matrices/predicted"
