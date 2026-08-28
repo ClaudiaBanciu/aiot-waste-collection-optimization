@@ -144,36 +144,63 @@ def _road_geometry_cached(points_tuple: tuple) -> list[tuple] | None:
 
 
 @st.cache_resource(show_spinner=False)
-def _train_predictor_cached(
+def _train_predictors_cached(
     _df: pd.DataFrame,
-) -> tuple[float, pd.DataFrame, pd.DataFrame]:
-    """Train the Random Forest once on all containers and save the history CSV.
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Train one Random Forest per route and save the combined history CSV.
+
+    Each route is its own dataset: the same algorithm, the same hyper-parameters
+    and the same chronological split, run once per route. Route identity is
+    therefore never a feature — it decides which model a container belongs to
+    instead.
 
     Leading underscore tells Streamlit not to hash the DataFrame.
 
     Returns
     -------
-    (mae, predictions, history)
-      mae         — float, test-set Mean Absolute Error
-      predictions — DataFrame with fill_current / fill_predicted per container
-      history     — DataFrame with 30-day simulated sawtooth history per container
+    (predictions, history)
+      predictions — fill_current / fill_predicted per container, every route
+      history     — simulated sawtooth history per container, every route
     """
     containers = _df[
         _df["Id"].notna() & _df["Capacity"].notna()
     ][["Id", "Capacity", "route_id"]].copy()
 
-    predictor = FillLevelPredictor(n_days=N_DAYS)
-    predictor.train(containers)
-    predictor.save_history(SIMULATED_HISTORY_FILE)
+    prediction_frames: list[pd.DataFrame] = []
+    history_frames: list[pd.DataFrame] = []
+    key_offset = 0
 
-    predictions = predictor.predict_next_day()
-    # predict_next_day() keys rows by their position in `containers`; map that
-    # back to the row of _df each prediction came from, so the predicted bins
-    # can be joined to their address, coordinates, and distance-matrix row.
-    predictions["source_index"] = containers.index.to_numpy()[
-        predictions["key"].to_numpy()
-    ]
-    return predictor.mae_, predictions, predictor.history_
+    for route_id, route_containers in containers.groupby("route_id"):
+        predictor = FillLevelPredictor(n_days=N_DAYS)
+        predictor.train(route_containers)
+
+        route_predictions = predictor.predict_next_day()
+        # predict_next_day() keys rows by their position within this route's
+        # containers; map that back to the row of _df each prediction came from,
+        # so the predicted bins can be joined to their address, coordinates,
+        # and distance-matrix row.
+        route_predictions["source_index"] = route_containers.index.to_numpy()[
+            route_predictions["key"].to_numpy()
+        ]
+
+        # Each model numbers its own containers from zero, so shift every
+        # route's keys past the previous ones to keep them unique once combined.
+        route_history = predictor.history_.copy()
+        route_predictions["key"] += key_offset
+        route_history["key"] += key_offset
+        key_offset += len(route_containers)
+
+        prediction_frames.append(route_predictions)
+        history_frames.append(route_history)
+
+    predictions = pd.concat(prediction_frames, ignore_index=True)
+    history = pd.concat(history_frames, ignore_index=True)
+
+    # One file for all three models, the same path a single model wrote before.
+    os.makedirs(os.path.dirname(SIMULATED_HISTORY_FILE), exist_ok=True)
+    history.to_csv(SIMULATED_HISTORY_FILE, index=False)
+
+    return predictions, history
 
 
 @st.cache_resource(show_spinner="Collecting predicted bins and slicing their distance matrix...")
@@ -573,9 +600,9 @@ def run(df: pd.DataFrame) -> None:
     # -----------------------------------------------------------------
     # FILL LEVEL PREDICTION with Random Forest
     # -----------------------------------------------------------------
-    st.subheader("Fill level prediction — Random Forest (decision trees)")
+    st.subheader("Fill level prediction — Random Forest")
 
-    mae, predictions, history = _train_predictor_cached(df)
+    predictions, history = _train_predictors_cached(df)
 
     pred_route = predictions[predictions["route_id"] == selected_route].copy()
     route_container_ids = pred_route["Id"].dropna().unique().tolist()
@@ -611,7 +638,7 @@ def run(df: pd.DataFrame) -> None:
 
     st.write(
         f"Threshold: **{THRESHOLD}%** · {N_DAYS}-day sawtooth history · "
-        f"Model: **RandomForestRegressor** · MAE: **{mae:.2f}** pp"
+        f"**RandomForestRegressor**, one model trained per route"
     )
 
     st.write(

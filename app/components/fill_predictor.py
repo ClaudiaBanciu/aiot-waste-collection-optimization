@@ -4,11 +4,10 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
-from sklearn.model_selection import train_test_split
 
 
 class FillLevelPredictor:
-    """Fill-level prediction based on Random Forest (decision trees).
+    """Fill-level prediction based on Random Forest.
 
     We simulate a 30-day *sawtooth* history for each container:
       - Each container fills at a fixed daily rate (chosen once per container,
@@ -21,7 +20,8 @@ class FillLevelPredictor:
 
     A RandomForestRegressor is then trained to predict TOMORROW's fill level
     from three features: current level, previous day's level, and the
-    day-over-day growth rate.
+    day-over-day growth rate. Training and scoring are split *chronologically* —
+    the oldest days train the model, the most recent ones score it.
 
     Usage
     -----
@@ -47,6 +47,11 @@ class FillLevelPredictor:
         "240L":   80,
         "1.100L": 70,
     }
+
+    # Share of the most recent days held out for testing. The split is
+    # chronological, not random: the task is to forecast tomorrow, so the model
+    # must be scored on days that come *after* everything it trained on.
+    TEST_FRACTION: float = 0.2
 
     def __init__(self, n_days: int = 30, seed: int = 42, n_estimators: int = 200):
         self.n_days = n_days
@@ -148,35 +153,62 @@ class FillLevelPredictor:
     def train(self, containers: pd.DataFrame) -> float:
         """Simulate sawtooth history, train the Random Forest, return test MAE.
 
+        The last ``TEST_FRACTION`` of the simulated days is held out; the model
+        never sees them while fitting, so the score reflects forecasting a day
+        that comes after all its training data — the way predict_next_day()
+        actually runs.
+
         Parameters
         ----------
         containers : DataFrame with Id, Capacity (+ route_id).
 
         Returns
         -------
-        float — Mean Absolute Error on the 20 % hold-out test set.
+        float — Mean Absolute Error (percentage points) on the held-out days.
+
+        Raises
+        ------
+        ValueError — if the split leaves either side empty.
         """
-        history    = self.simulate_history(containers)
-        h          = self._features(history)
-        train_data = h.dropna(subset=["prev_level", "rate", "target"])
+        history = self.simulate_history(containers)
+        h       = self._features(history)
+        usable  = h.dropna(subset=["prev_level", "rate", "target"])
 
         # Keep only the ascending phase (exclude post-emptying resets).
         # This way the model learns "how fast does a container fill?"
         # rather than "containers get emptied after they're full."
         # Result: predict fill level tomorrow *assuming no collection today*.
-        train_data = train_data[train_data["target"] >= train_data["fill_level"]]
+        usable = usable[usable["target"] >= usable["fill_level"]]
 
-        X = train_data[["fill_level", "prev_level", "rate"]]
-        y = train_data["target"]
-        X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=0.2, random_state=self.seed
-        )
+        # Chronological split: train on the older days, test on the most recent
+        # ones. A random split would let the model train on day -13 and be
+        # scored on day -14 — fitting the future to predict the past, which is
+        # never how predict_next_day() is used. Because every day is cut at the
+        # same point, the test share is only approximately TEST_FRACTION: the
+        # ascending-phase filter above removes a different number of rows from
+        # each day.
+        cutoff     = -max(1, round(self.n_days * self.TEST_FRACTION))
+        train_data = usable[usable["day"] <  cutoff]
+        test_data  = usable[usable["day"] >= cutoff]
+
+        if train_data.empty or test_data.empty:
+            raise ValueError(
+                f"Chronological split at day {cutoff} leaves "
+                f"{len(train_data)} training and {len(test_data)} test rows. "
+                f"Increase n_days (currently {self.n_days})."
+            )
+
+        features = ["fill_level", "prev_level", "rate"]
 
         self.model = RandomForestRegressor(
             n_estimators=self.n_estimators, random_state=self.seed
         )
-        self.model.fit(X_train, y_train)
-        self.mae_ = float(mean_absolute_error(y_test, self.model.predict(X_test)))
+        self.model.fit(train_data[features], train_data["target"])
+        self.mae_ = float(
+            mean_absolute_error(
+                test_data["target"], self.model.predict(test_data[features])
+            )
+        )
         return self.mae_
 
     # ------------------------------------------------------------------
